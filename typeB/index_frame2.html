@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="Author" content="FUZ UI.DEV." />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>한국투자저축은행</title>
+<link type="text/css" rel="stylesheet" href="css/mobile.css" />
+<link type="text/css" rel="stylesheet" href="css/jquery-ui.css" />
+<link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
+<style>
+	html , body {overflow:auto; width:375px !important; height:812px !important;}
+::-webkit-scrollbar{display:none;}
+	#wrap{width:375px;height:812px;margin:0;padding:0;}
+	#container{width:375px;}
+	#contents{overflow-x:hidden;position:relative;width:375px;height:812px;}
+	
+	.pos {position:relative;}
+
+	.swiper-container.type1 {position:absolute;left:0;top:160px;width:100%;}
+	.swiper-container.type2 {position:absolute;left:0;top:484px;width:100%;padding-left:10px;}
+	.swiper-container.type2 .swiper-slide {position:relative;width:225px;text-align: center;}
+
+	.counter {position:absolute;left:25px;top:177px;display:inline-block;width:58px;height:30px;background-color:#ffcc00;border-radius:3px;color:#fff;font-size:24px;font-weight:bold;line-height:28px;text-align:center;}
+	.ani {position:absolute;left:50%;top:175px;overflow:hidden;width:calc(100% - 15px);height:100px;transform:translateX(-50%);}
+	.ani img {position:absolute;left:50%;top:0;width:317px;margin-left:-157px;transition:all .5s ease-out;transform-origin:center;}
+	.ani.on img {transform:rotate(45deg);}
+
+	.progress_bar {overflow:hidden;position:absolute; left:10px; top:193px; width:90%; height:16px; padding:0 13px; box-sizing:border-box;}
+	.progress_bar .bar {position:relative; width:100%; height:16px; background:rgba(255,255,255,.2);}
+	.progress_bar .bar .gauge {position:absolute; left:0; top:0; width:0; height:16px; background:#ffcc00; border-radius:0 8px 8px 0; transition:all .8s ease-out;}
+	.progress_bar.on .bar .gauge {width:65%;}
+	
+	.numeric {position:absolute;left:30px;top:135px;width:calc(100% - 50px);}
+	.numeric:after {content:'';display:block;clear:both;}
+	.numeric button {float:left;width:32px;height:32px;margin:8px 0 0 8px;background:rgba(255,255,255,.2);border:0;border-radius:6px;color:#fff;font-size:14px;font-weight:bold;line-height:30px;text-align:center;outline:0;}
+	.numeric button.on {background:#ffcc00;}
+
+	.swiper-container.type1 .swiper-wrapper { width: 365px; height: 200px; text-align: center; }
+	video { border-radius: 20px; position: relative; z-index: 99; box-shadow:7px 4px 6px rgb(33 33 33 / 6%) }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="container">
+		<div id="contents">
+			<div class="pos">
+				<div class="img"><img src="img/img_02_08.png" alt=""></div>
+				<div class="swiper-container type1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<!-- <img src="img/img_02_01.png" alt=""> -->
+							<video src="img/graph_1.mp4" autoplay loop width="335px" height="170px"></video>
+						</div>
+						<div class="swiper-slide">
+							<!-- <img src="img/img_02_02.png" alt=""> -->
+							<video src="img/graph_2.mp4" autoplay loop width="335px" height="170px"></video>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-container type2">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="img/img_02_03.png" alt="">
+							<span class="counter">585</span>
+							<a href="index_frame3.html" style="position:absolute;left:10px;bottom:12px;width:90%;height:40px;"></a>
+						</div>
+						<div class="swiper-slide anima">
+							<img src="img/img_02_04.png" alt="">
+							<div class="ani">
+								<img src="img/img_02_09.png" alt="">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<img src="img/img_02_05.png" alt="">
+							<div class="numeric">
+								<button type="button" class="on">1</button>
+								<button type="button" class="on">2</button>
+								<button type="button" class="on">3</button>
+								<button type="button" class="on">4</button>
+								<button type="button" class="on">5</button>
+								<button type="button" class="on">6</button>
+								<button type="button">7</button>
+								<button type="button">8</button>
+								<button type="button">9</button>
+								<button type="button">10</button>
+								<button type="button">11</button>
+								<button type="button">12</button>
+							</div>
+						</div>
+						<div class="swiper-slide anima">
+							<img src="img/img_02_06.png" alt="">
+							<div class="progress_bar">
+								<div class="bar"><span class="gauge"></span></div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<img src="img/img_02_07.png" alt="">
+							<a href="index_frame4.html" style="position:absolute;left:10px;bottom:12px;width:90%;height:40px;"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var swiper = new Swiper('.swiper-container.type1');
+	var swiper2 = new Swiper('.swiper-container.type2', {
+		slidesPerView: 'auto',
+		spaceBetween: 2,
+	});
+	swiper2.on('slideChange', function(){
+		if(swiper2.realIndex == 1) {
+			$('.swiper-slide').find('.ani').addClass('on');
+		} else if (swiper2.realIndex == 3) {
+			$('.swiper-slide').find('.progress_bar').addClass('on');
+		}
+	})
+
+	$({ Counter: 0 }).animate(
+		{
+			Counter: $('.counter').text()
+		}, {
+			duration: 1000,
+			easing: 'swing',
+			step: function() {
+			$('.counter').text(Math.ceil(this.Counter));
+		}
+	});
+
+//	$('.numeric button').each(function(){
+//		$(this).on('click', function(){
+//			$(this).toggleClass('on');
+//		})
+//	});
+</script>
+</body>
+</html>
