@@ -64,3 +64,4 @@ button { border:0; font-size:0; cursor: pointer; }
 #headerWrap	.search-wrap.on .search-area { display:block; position: absolute; left:0; top: 100px; width:100%; height:auto; background: #F3F6FB; }
 #headerWrap	.search-wrap.on .search-area::before {  content: ""; z-index: -1; position: fixed; top:100px; left:0; bottom:0; width:100%; height:100%; background: #000000; opacity: 0.6; }
 #headerWrap	.search-wrap .search-area { display:none; transition: 0.1s linear;}
+#headerWrap	.search-wrap .search-area .search-inner { width:900px; margin:0 auto; padding:60px 0;}

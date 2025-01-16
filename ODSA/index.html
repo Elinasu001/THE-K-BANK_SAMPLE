@@ -9,6 +9,9 @@
 <link type="text/css" rel="stylesheet" href="css/tablet.css"/>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="./js/swiper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 <style type="text/css">
 
 	/* Header */
@@ -18,28 +21,83 @@
 	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
 
 	/* common */
-	.mainInner { min-width:1440px; }
-
-	/* main section01 */
-	.mainSec.section01 { width:100%; height:873px; background: url(./img/main_banner.png)no-repeat; }
+	.mainSec { display: flex; justify-content: center; margin:0 auto; }
+	.mainInner { width:1270px; }
 
 	/* button */
 	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
 	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
 	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
-
+	
 	/* mainSec section01 */
-	.mainSec.section01 { position: relative; }
+	.mainSec.section01 { position: relative; width:100%; height:873px; background: url(./img/main_banner_bg.png)no-repeat; }
+	.mainSec.section01 .mainInner { display:flex; align-items: center; }
 	.shortcut-area { position:absolute; left:-36px; bottom:80px; width:1060px; transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out; }
 	.shortcut-area > img {  object-fit: contain; object-position: center;  }
 	.shortcut-area > .btn-arrow {position: absolute; transform: translateY(-50%); top:50%; right:13px; width:94px; height:94px; object-fit: contain; object-position: center; border-radius: 50%; background: transparent; }
-
 	.shortcut-area.shortCutWrap.on { left:-900px; }
 
 	/* mainSec section02 */
-	.mainSec.section02  { margin-top:133px; }
+	.mainSec.section02  { padding-top:133px; background: #F8F8F8; }
+	.mainSec.section02 .mainInner { display:flex; align-items: center; }
 	.mainSec.section02 .left { width:644px; height:auto; }
 
+	.swiper.cardSwiper {
+        width: 460px;
+        height: 481px;
+	}
+
+	.swiper.cardSwiper .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #fff;
+	}
+
+	.swiper.cardSwiper .swiper-slide {
+        opacity: 0.4;
+        background-color: #FFFFFF;
+		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.4);
+	}
+
+	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
+		opacity: 1;
+		background-color: #1447a2;
+	}
+
+	/* 이전/다음 버튼 */
+	.swiper.cardSwiper .swiper-button-next,
+	.swiper.cardSwiper .swiper-button-prev {
+		width: 52px;
+		height: 52px;
+		background-size: contain;
+		border-radius: 50%;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	/* 이전 버튼 이미지 */
+	.swiper.cardSwiper .swiper-button-prev {
+		left:-20px;
+		background: url("./img/ic_swiper_pre.png") no-repeat #FFFFFF 50%/32px auto;
+	}
+
+	/* 다음 버튼 이미지 */
+	.swiper.cardSwiper .swiper-button-next {
+		right:-20px;
+		background: url("./img/ic_swiper_next.png") no-repeat #FFFFFF 50%/32px auto;
+	}
+
+	/* 버튼의 기본 아이콘 제거 */
+	.swiper.cardSwiper .swiper-button-next:after,
+	.swiper.cardSwiper .swiper-button-prev:after {
+		display: none;
+	}
+
+	/* 스와이퍼 ui 타입 */
+	.swiper.cardSwiper .swiper-wrapper { transform-style: flat !important; gap:60px; }
 
 </style>
 </head>
@@ -64,17 +122,15 @@
 					<div class="menu-util">
 						<ul>
 							<li><a href="#none">인터넷뱅킹</a></li>
-							<li><a href="#none">모바일뱅킹</a></li>
+							<li><a href="#none">원격지원서비스</a></li>
 						</ul>
 						<div class="menu-actions">
 							<div class="search-wrap">
 								<button type="button" class="btn-search">검색창 열기</button>
 								<div class="search-area">
-									<p>
-									가나다가라라라<br/><br/>
-									<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-									가나다라
-									</p>
+									<div class="search-inner">
+										<img src="./img/img_searh-area.png" alt="">
+									</div>
 								</div>
 							</div>
 							<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
@@ -87,6 +143,9 @@
 
 		<div id="contentsWrap">
 			<section class="mainSec section01">
+				<div class="mainInner">
+					<img src="./img/main_banner.png" alt="">
+				</div>
 				<div class="shortcut-area shortCutWrap">
 					<img src="./img/img_shortcut.png" alt="">
 					<button type="button" class="btn-arrow btnPlus"></button>
@@ -97,6 +156,20 @@
 				<div class="mainInner">
 					<div class="left">
 						<img src="./img/mainSec02_left.png" alt="">
+					</div>
+					<div class="right">
+						<div class="swiper cardSwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
+								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
+								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
+								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
+							</div>
+							<!-- 이전/다음 버튼 -->
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+						</div>
+						
 					</div>
 				</div>
 			</section>
@@ -148,11 +221,12 @@
 			**/
 			var seLayout = (function() {
 				var lastY = 0; // 스크롤 위치 저장
+				var isSearchActive = false; // 검색 활성 상태
 
 				return {
-					headerAni : function() {
-						if( $('.header').hasClass('main') ) {
-							if( lastY > 80 ) {
+					headerAni: function() {
+						if ($('.header').hasClass('main') && !isSearchActive) { // 검색 상태가 아닌 경우만 처리
+							if (lastY > 80) {
 								$('.header').addClass('bg-w');
 								$(".white-logo").addClass("dp-none");
 								$(".dark-logo").removeClass("dp-none");
@@ -163,48 +237,80 @@
 							}
 						}
 					},
-					scrolling : function(target){
-						seLayout.headerAni();
+					scrolling: function() {
 						lastY = $(window).scrollTop();
-						
+						seLayout.headerAni();
 					},
-				}
+					setSearchActive: function(active) {
+						isSearchActive = active; // 검색 상태 설정
+					}
+				};
 			})();
 
 			//event
-			$(window).on('scroll',function(){
+			$(window).on('scroll', function() {
 				seLayout.scrolling();
 			});
 
-
 			/**
 			 * 검색 버튼
-			**/
+			 **/
 			var searchBtn = (function() {
 				return {
 					open: function() {
+						seLayout.setSearchActive(true); // 검색 활성 상태로 설정
 						$(".search-wrap").addClass("on");
 						$(".header").addClass("bg-w");
 						$("body").addClass("overflow-hidden");
 					},
 					close: function() {
+						seLayout.setSearchActive(false); // 검색 비활성 상태로 설정
 						$(".search-wrap").removeClass("on");
 						$(".header").removeClass("bg-w");
 						$("body").removeClass("overflow-hidden");
+						seLayout.headerAni(); // 헤더 상태 갱신
 					},
 					toggle: function() {
-						$(".search-wrap").toggleClass("on");
-						$(".header").toggleClass("bg-w");
-						$("body").toggleClass("overflow-hidden");
+						if ($(".search-wrap").hasClass("on")) {
+							searchBtn.close();
+						} else {
+							searchBtn.open();
+						}
 					}
 				};
 			})();
-				
+
 			//event
 			$(document).on("click", ".btn-search", function() {
-				searchBtn.toggle(); // 클래스 토글 방식
+				searchBtn.toggle();
 			});
 
+
+			/**
+			 * card swiper
+			 **/
+			var swiper = new Swiper(".cardSwiper", {
+				effect: "cards",
+				cardsEffect: {
+					slideShadows: true,
+				},
+				// autoplay: {
+				// 	delay: 3500,
+				// 	disableOnInteraction: false,
+				// },
+				loop: true,
+				grabCursor: true,
+				centeredSlides: true,
+				spaceBetween: 40,
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+				
+
+			});
+
+			
 
 		});
     </script>
