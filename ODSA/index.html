@@ -7,24 +7,206 @@
 <meta name="format-detection" content="telephone=no" />
 <title>한국투자저축은행</title>
 <link type="text/css" rel="stylesheet" href="css/tablet.css"/>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/swiper.min.js"></script>
 <style type="text/css">
-	iframe{margin:0;padding:0;border:0;}
-	#container{width:1200px;}
-	#contents{position:relative;width:1200px;height:908px;overflow:hidden;}
+
+	/* Header */
+	#headerWrap  { z-index: 1; }
+	#headerWrap > .header {  transition: 0.1s linear;  }
+	#headerWrap .menu-wrap > ul > li > a,
+	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
+
+	/* common */
+	.mainInner { min-width:1440px; }
+
+	/* main section01 */
+	.mainSec.section01 { width:100%; height:873px; background: url(./img/main_banner.png)no-repeat; }
+
+	/* button */
+	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
+
+	/* mainSec section01 */
+	.mainSec.section01 { position: relative; }
+	.shortcut-area { position:absolute; left:-36px; bottom:80px; width:1060px; transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out; }
+	.shortcut-area > img {  object-fit: contain; object-position: center;  }
+	.shortcut-area > .btn-arrow {position: absolute; transform: translateY(-50%); top:50%; right:13px; width:94px; height:94px; object-fit: contain; object-position: center; border-radius: 50%; background: transparent; }
+
+	.shortcut-area.shortCutWrap.on { left:-900px; }
+
+	/* mainSec section02 */
+	.mainSec.section02  { margin-top:133px; }
+	.mainSec.section02 .left { width:644px; height:auto; }
+
+
 </style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 </head>
 <body>
-<div id="wrap">
-	<div class="inner">
-		<div id="container">
-			<div id="contents">
-				<iframe src="index_frame1.html" width="1200" height="908" id="mFrames"></iframe>
+	<div id="wrap">
+		<header id="headerWrap">
+			<div class="header main">
+				<h1>
+					<a href="#none">
+						<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo dp-none">
+						<img src="./img/img_white_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="white-logo">
+					</a>
+				</h1>
+				<nav class="menu-wrap">
+					<ul>
+						<li><a href="#none">예금상품</a></li>
+						<li><a href="#none">대출상품</a></li>
+						<li><a href="#none">금융정보</a></li>
+						<li><a href="#none">금융소비자보호</a></li>
+						<li><a href="#none">은행소개</a></li>
+					</ul>
+					<div class="menu-util">
+						<ul>
+							<li><a href="#none">인터넷뱅킹</a></li>
+							<li><a href="#none">모바일뱅킹</a></li>
+						</ul>
+						<div class="menu-actions">
+							<div class="search-wrap">
+								<button type="button" class="btn-search">검색창 열기</button>
+								<div class="search-area">
+									<p>
+									가나다가라라라<br/><br/>
+									<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+									가나다라
+									</p>
+								</div>
+							</div>
+							<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
+						</div>
+					</div>
+				</nav>
+				
 			</div>
+		</header>
+
+		<div id="contentsWrap">
+			<section class="mainSec section01">
+				<div class="shortcut-area shortCutWrap">
+					<img src="./img/img_shortcut.png" alt="">
+					<button type="button" class="btn-arrow btnPlus"></button>
+				</div>
+			</section>
+
+			<section class="mainSec section02">
+				<div class="mainInner">
+					<div class="left">
+						<img src="./img/mainSec02_left.png" alt="">
+					</div>
+				</div>
+			</section>
 		</div>
 	</div>
-</div>
-<script>
-</script>
+    <script>
+		$(document).ready(function(){
+
+			/**
+			 * shortcut slide
+			**/
+			var shortCutScroll = (function() {
+				return {
+					open: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						$thisWrap.addClass("on");
+						$thisWrap.find(".btnPlus").text("내용닫기");
+					},
+					close: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						$thisWrap.removeClass("on");
+						$thisWrap.find(".btnPlus").text("내용열기");
+					},
+					toggle: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						if ($thisWrap.hasClass("on")) {
+							shortCutScroll.close(_this);
+						} else {
+							shortCutScroll.open(_this);
+						}
+					}
+				};
+			})();
+
+			//event
+			$(document).on("click", ".btnPlus", function() {
+				shortCutScroll.toggle(this);
+			});
+
+
+			/**
+			 * header white change
+			**/
+			var seLayout = (function() {
+				var lastY = 0; // 스크롤 위치 저장
+
+				return {
+					headerAni : function() {
+						if( $('.header').hasClass('main') ) {
+							if( lastY > 80 ) {
+								$('.header').addClass('bg-w');
+								$(".white-logo").addClass("dp-none");
+								$(".dark-logo").removeClass("dp-none");
+							} else {
+								$('.header').removeClass('bg-w');
+								$(".dark-logo").addClass("dp-none");
+								$(".white-logo").removeClass("dp-none");
+							}
+						}
+					},
+					scrolling : function(target){
+						seLayout.headerAni();
+						lastY = $(window).scrollTop();
+						
+					},
+				}
+			})();
+
+			//event
+			$(window).on('scroll',function(){
+				seLayout.scrolling();
+			});
+
+
+			/**
+			 * 검색 버튼
+			**/
+			var searchBtn = (function() {
+				return {
+					open: function() {
+						$(".search-wrap").addClass("on");
+						$(".header").addClass("bg-w");
+						$("body").addClass("overflow-hidden");
+					},
+					close: function() {
+						$(".search-wrap").removeClass("on");
+						$(".header").removeClass("bg-w");
+						$("body").removeClass("overflow-hidden");
+					},
+					toggle: function() {
+						$(".search-wrap").toggleClass("on");
+						$(".header").toggleClass("bg-w");
+						$("body").toggleClass("overflow-hidden");
+					}
+				};
+			})();
+				
+			//event
+			$(document).on("click", ".btn-search", function() {
+				searchBtn.toggle(); // 클래스 토글 방식
+			});
+
+
+		});
+    </script>
 </body>
 </html>
