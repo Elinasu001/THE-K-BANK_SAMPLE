@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="Author" content="FUZ UI.DEV." />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>한국투자저축은행</title>
+<link type="text/css" rel="stylesheet" href="css/tablet.css" />
+<link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
+<style>
+	html , body {overflow:auto; width:1024px !important; height:768px !important;}
+::-webkit-scrollbar{display:none;}
+	#wrap{width:1024px;height:768px;margin:0;padding:0;}
+	#container{width:1024px;}
+	#contents{overflow-x:hidden;position:relative;width:1024px;height:768px;}
+
+	.img2 {position:absolute;left:11px;top:75px;transition:all .2s ease;}
+	.img2.on {transform:scale(-1,-1)}
+	.transform {position:absolute;left:50%;bottom:0px;width:64px;height:64px;margin-left:-32px;border:0;background:none;cursor:pointer;}
+	.link {position:absolute;left:50%;bottom:0;width:64px;height:64px;margin-left:-112px;}
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="container">
+		<div id="contents">
+			<div class="img"><img src="img/img_02_01.png" alt=""></div>
+			<div class="img2"><img src="img/img_02_02.png" alt=""></div>
+			<button type="button" class="transform"></button>
+			<a href="index_frame3.html" class="link"></a>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$('.transform').on('click', function(){
+		$(this).prev().toggleClass('on');
+	});
+</script>
+</body>
+</html>

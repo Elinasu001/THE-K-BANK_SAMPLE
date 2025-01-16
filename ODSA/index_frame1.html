@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="Author" content="FUZ UI.DEV." />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>한국투자저축은행</title>
+<link type="text/css" rel="stylesheet" href="css/tablet.css" />
+<link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
+<style>
+	html , body {overflow:auto; width:1200px !important; height:908px !important;}
+	::-webkit-scrollbar{display:none;}
+	#wrap { width:1200px;height:900px;margin:0;padding:0; background: none;}
+	#contents{overflow-x:hidden;position:relative;width:1200px;height:908px;}
+	
+	/* Header */
+	#headerWrap  { z-index: 1; }
+	#headerWrap .menu-wrap > ul > li > a,
+	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
+
+	/* common */
+	.mainInner { padding:0 20px; }
+
+
+	/* main section01 */
+	.mainSec.section01 { width:1200px; height:546px;  background: url(./img/main_banner.png)no-repeat; }
+
+	/* button */
+	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
+
+	/* mainSec section01 */
+	.mainSec.section01 { position: relative; }
+	.shortcut-area { position:absolute; left:-30px; bottom:10px; width:911px; transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out; }
+	.shortcut-area > img { object-fit: contain; object-position: center; }
+	.shortcut-area > .btn-arrow {position: absolute; top:33px; right:35px; width:80px; height:80px; object-fit: contain; object-position: center; border-radius: 50%; background: transparent; }
+
+	.shortcut-area.shortCutWrap.on { left:-730px; }
+
+	/* mainSec section02 */
+	.mainSec.section02  { margin-top:133px; }
+	.mainSec.section02 .left { width:644px; height:auto; }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+</head>
+<body>
+
+	<div id="wrap">
+		<div class="inner">
+			<div id="container">
+				<div id="contents">
+
+					<header id="headerWrap">
+						<div class="header">
+							<h1><a href="#"><img src="./img/img_main_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고"></a></h1>
+							<nav class="menu-wrap">
+								<ul>
+									<li><a href="#none">예금상품</a></li>
+									<li><a href="#none">대출상품</a></li>
+									<li><a href="#none">금융정보</a></li>
+									<li><a href="#none">금융소비자보호</a></li>
+									<li><a href="#none">은행소개</a></li>
+								</ul>
+								<div class="menu-util">
+									<ul>
+										<li><a href="#none">인터넷뱅킹</a></li>
+										<li><a href="#none">모바일뱅킹</a></li>
+									</ul>
+									<div class="menu-actions">
+										<button type="button" class="btn-search">검색창 열기</button>
+										<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
+									</div>
+								</div>
+							</nav>
+						</div>
+					</header>
+
+					<section class="mainSec section01">
+						<div class="shortcut-area shortCutWrap">
+							<img src="./img/img_shortcut.png" alt="">
+							<button type="button" class="btn-arrow btnPlus"></button>
+						</div>
+					</section>
+
+					<section class="mainSec section02">
+						<div class="mainInner">
+							<div class="left">
+								<img src="./img/mainSec02_left.png" alt="">
+							</div>
+						</div>
+					</section>
+
+					
+				</div>
+			</div>
+		</div>
+	</div>
+    <script>
+		$(document).ready(function(){
+
+			var shortCutScroll = (function() {
+				return {
+					open: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						$thisWrap.addClass("on");
+						$thisWrap.find(".btnPlus").text("내용닫기");
+					},
+					close: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						$thisWrap.removeClass("on");
+						$thisWrap.find(".btnPlus").text("내용열기");
+					},
+					toggle: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						if ($thisWrap.hasClass("on")) {
+							shortCutScroll.close(_this);
+						} else {
+							shortCutScroll.open(_this);
+						}
+					}
+				};
+			})();
+
+			$(document).on("click", ".btnPlus", function() {
+				shortCutScroll.toggle(this);
+			});
+
+		});
+    </script>
+</body>
+</html>
