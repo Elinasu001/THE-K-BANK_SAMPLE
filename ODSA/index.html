@@ -41,10 +41,9 @@
 	.mainSec.section02  { padding-top:133px; background: #F8F8F8; }
 	.mainSec.section02 .mainInner { display:flex; align-items: center; }
 	.mainSec.section02 .left { width:644px; height:auto; }
-
+	/* .mainSec.section02 .right { width:600px; } */
 	.swiper.cardSwiper {
-        width: 460px;
-        height: 481px;
+        width: 100%;
 	}
 
 	.swiper.cardSwiper .swiper-slide {
@@ -55,6 +54,8 @@
         font-size: 22px;
         font-weight: bold;
         color: #fff;
+		width:460px;
+		height:481px;
 	}
 
 	.swiper.cardSwiper .swiper-slide {
@@ -97,7 +98,10 @@
 	}
 
 	/* 스와이퍼 ui 타입 */
-	.swiper.cardSwiper .swiper-wrapper { transform-style: flat !important; gap:60px; }
+	/* .swiper.cardSwiper .swiper-wrapper { transform-style: flat !important;} */
+
+
+	.swiper-slide.swiper-slide-prev { margin-right:0 !important; }
 
 </style>
 </head>
@@ -290,25 +294,31 @@
 			 * card swiper
 			 **/
 			var swiper = new Swiper(".cardSwiper", {
-				effect: "cards",
-				cardsEffect: {
-					slideShadows: true,
-				},
-				// autoplay: {
-				// 	delay: 3500,
-				// 	disableOnInteraction: false,
-				// },
-				loop: true,
+				slidesPerView: 1,
+				centeredSlides: false,
+				slidesPerGroupSkip: 1,
 				grabCursor: true,
-				centeredSlides: true,
-				spaceBetween: 40,
+				keyboard: {
+					enabled: true,
+				},
+				breakpoints: {
+					769: {
+					slidesPerView: 2,
+					slidesPerGroup: 2,
+					},
+				},
+				scrollbar: {
+					el: ".swiper-scrollbar",
+				},
 				navigation: {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
 				},
-				
-
-			});
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+				});
 
 			
 
