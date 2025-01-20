@@ -15,7 +15,6 @@
 <style type="text/css">
 
 	/* Header */
-	#headerWrap  { z-index: 1; }
 	#headerWrap > .header {  transition: 0.1s linear;  }
 	#headerWrap .menu-wrap > ul > li > a,
 	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
@@ -142,11 +141,23 @@
 	}
 
 	/* mainSec section03 */
-	.mainSec.section03  { display:flex; margin:117px 0 152px 0; }
-	.mainSec.section03 h3 { width:760px; height:auto; }
+	.mainSec.section03  { display:flex; margin-top:117px; flex-direction:column; align-items: center; }
+	.mainSec.section03 h3 { width:760px; height:auto;  text-align: center;}
 
-	.section2 .conwrap .partner_slide_wrap > div ul { animation: partnerSlide 24s infinite linear; }
-	.section2 .conwrap .partner_slide_wrap > div ul { display:flex; position: absolute; }
+	.mainSec.section03 .partner-slide-wrap { transform: translate(0px, 0px); opacity: 1; }
+	.mainSec.section03 .partner-slide-wrap > div { margin-top:60px; }
+	.mainSec.section03 .partner-slide-wrap > div + div { margin-top:170px;}
+	.mainSec.section03 .partner-slide-wrap > div { display:flex; justify-content: flex-start; white-space: nowrap; }
+
+	.mainSec.section03 .partner-slide-wrap > div ul { animation: partnerSlide 20s infinite linear; }
+	.mainSec.section03 .partner-slide-wrap > div ul { display:flex; position: absolute; }
+
+	.mainSec.section03 .partner-slide-wrap > div ul { animation: partnerSlide 24s infinite linear; }
+	.mainSec.section03 .partner-slide-wrap > div ul + ul { animation: partnerSlide2 24s infinite linear; }
+
+	.mainSec.section03 .partner-slide-wrap > div.partner-slide2 ul  { animation-direction:reverse; }
+	.mainSec.section03 .partner-slide-wrap > div ul + ul { animation: partnerSlide2 24s infinite linear; }
+
 	@keyframes partnerSlide {
 		from   { transform: translateX(0%); }
 		to { transform: translateX(-100%); }
@@ -156,7 +167,7 @@
 		to { transform: translateX(0%); }
 	}
 
-	.section2 .conwrap .partner_slide_wrap ul li { width:337px; height:135px; background:#f7f7f7; text-align: center; margin:0 17px; }
+	.mainSec.section03 .partner-slide-wrap ul li { width:333px; height:134px; background:#f7f7f7; text-align: center; margin:0 17px; }
 
 </style>
 </head>
@@ -242,51 +253,60 @@
 				<h3>
 					<img src="./img/section03_tit.png" alt="">
 				</h3>
-				<div class="partner_slide_wrap ani_y">
-					<div class="partner_slide1">
+				<div class="partner-slide-wrap ani-y">
+					<div class="partner-slide1">
 						<ul>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="/images/main/sec2_logo3.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo4.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo5.jpg" alt=""></li>
-						</ul>
-					</div>
-					<div class="partner_slide2">
-						<ul>
-							<li><img src="/images/main/sec2_logo17.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo18.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo19.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo20.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo21.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo22.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo23.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo24.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo25.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo26.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo27.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo28.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo29.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo30.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo31.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo32.jpg" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
 						</ul>
 						<ul class="list2">
-							<li><img src="/images/main/sec2_logo17.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo18.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo19.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo20.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo21.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo22.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo23.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo24.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo25.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo26.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo27.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo28.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo29.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo30.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo31.jpg" alt=""></li>
-							<li><img src="/images/main/sec2_logo32.jpg" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+						</ul>
+					</div>
+					<div class="partner-slide2">
+						<ul>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
 						</ul>
 					</div>
 				</div>

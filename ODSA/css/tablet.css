@@ -25,12 +25,13 @@ a { color:#626c74; text-decoration:none;}
 .dp-none { display:none; }
 .overflow-hidden { overflow: hidden; }
 /* wrap */
-#wrap { position:relative; display:inline-block; width:100%; min-width:1200px; word-break:keep-all; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word; }
+#wrap { position:relative; overflow-x: hidden; display:inline-block; width:100%; min-width:1200px; word-break:keep-all; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word; }
 
 /* header */
+#headerWrap { z-index:1000; }
 #headerWrap h1 a { display:block; width:179px; height:53px; }
 #headerWrap { position:fixed; top:0; right:0; left:0; width:100%; background:transparent;}
-#headerWrap > .header { position: relative; display:flex; align-items: center; justify-content:space-between; padding:0 20px; height:100px; background:transparent; z-index: 1;}
+#headerWrap > .header { position: relative; display:flex; align-items: center; justify-content:space-between; padding:0 20px; height:100px; background:transparent; z-index: 100;}
 
 #headerWrap .menu-wrap,
 #headerWrap .menu-wrap > ul,
