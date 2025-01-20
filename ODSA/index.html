@@ -41,10 +41,10 @@
 	.mainSec.section02  { padding:133px 0; background: #F8F8F8; }
 	.mainSec.section02 .inner { display:flex; align-items: center; min-width:1557px; gap:100px; }
 	.mainSec.section02 .left { flex:0 0 508px; height:auto; }
-	.mainSec.section02 .right { position: relative;  height: auto; width:calc(100% - 656px); }
+	.mainSec.section02 .right { position: relative;  height: auto; width:calc(100% - 508px); }
 	
 	/* section02 swiper */
-	.swiper.cardSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:40px; height:100%; background: #F8F8F8; z-index: 1; background: linear-gradient(to left, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0)); }
+	.swiper.cardSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:500px; height:100%; background: #F8F8F8; z-index: 1; background: linear-gradient(to left, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0)); }
 	
 	.swiper.cardSwiper .swiper-slide {
         display: flex;
@@ -72,7 +72,7 @@
 	}
 
 	.swiper.cardSwiper .swiper-slide:not(.swiper-slide.swiper-slide-active)::before {
-		content: ""; position: absolute; width:100%; height:100%; background: #FFFFFF; opacity: 0.4; border-radius: 18px;
+		content: ""; position: absolute; width:100%; height:100%; background: #FFFFFF; opacity: 0.3; border-radius: 18px;
 	}
 	
 	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
@@ -88,7 +88,7 @@
 	.swiper.cardSwiper .swiper-slide-prev,
 	.swiper.cardSwiper .swiper-slide-next {
 		transform: scale(0.9); /* 살짝 확대 */
-		/* opacity: 0.8; */
+		/* opacity: 0.9; */
 		z-index: 5; /* 활성화된 슬라이드 바로 뒤 */
 		/* visibility: visible; */
 	}
@@ -99,7 +99,7 @@
 		transform: scale(0.8);
 		/* opacity: 0.8; */
 		align-items: center;
-		z-index: 1; /* 가장 뒤로 */
+		z-index: 4; /* 가장 뒤로 */
 
 	}
 	.swiper.cardSwiper .swiper-slide:last-child{
@@ -185,7 +185,7 @@
 	/* mainSec section05 */
 	.mainSec.section05 { margin:96px 0 60px 0; height:372px; background: url(./img/section05.png) no-repeat 50%;}
 
-	footer { display: flex; align-items: center; justify-content: center; margin-top: 100px; height: 350px; background: #000000; }
+	footer { display: flex; align-items: center; justify-content: center; margin-top: 107px; height: 350px; background: #000000; }
 
 	/* link */
 	.search-inner { position: relative; }
@@ -257,7 +257,6 @@
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide3.png" alt=""></a></div>
-								<div class="swiper-slide"><a href="#none"><img src="./img/slide4.png" alt=""></a></div>
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide4.png" alt=""></a></div>
 							</div>
 							<!-- 이전/다음 버튼 -->
@@ -487,12 +486,12 @@
 			 * card swiper
 			 **/
 			var cardSwiper = new Swiper(".cardSwiper", {
-				slidesPerView: '2.5',
+				slidesPerView: '3',
 				// loopedSlides: 3,
-				centeredSlides: false,
+				// centeredSlides: false,
 				// initialSlide: 0,
 				// watchOverflow: true,
-				allowTouchMove: false,
+				// allowTouchMove: true,
 				spaceBetween: -167,
 				loop: true,
 				navigation: {
@@ -500,6 +499,9 @@
 					prevEl: '.swiper-button-prev.cardSwiper',
 				},
 			});
+
+			cardSwiper.slideToLoop(0, 0);
+
 			
 		});
     </script>
