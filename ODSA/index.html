@@ -41,10 +41,10 @@
 	.mainSec.section02  { padding:133px 0; background: #F8F8F8; }
 	.mainSec.section02 .inner { display:flex; align-items: center; min-width:1557px; gap:100px; }
 	.mainSec.section02 .left { flex:0 0 508px; height:auto; }
-	.mainSec.section02 .right { position: relative;  height: auto; width:calc(100% - 508px); }
+	.mainSec.section02 .right { position: relative;  height: auto; width:calc(100% - 656px); }
 	
 	/* section02 swiper */
-	/* .swiper.cardSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:40px; height:100%; background: #F8F8F8; z-index: 1;} */
+	.swiper.cardSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:40px; height:100%; background: #F8F8F8; z-index: 1; background: linear-gradient(to left, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0)); }
 	
 	.swiper.cardSwiper .swiper-slide {
         display: flex;
@@ -76,7 +76,7 @@
 	}
 	
 	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
-		opacity: 1;
+		opacity: 1 !important;
 		transform: scale(1);
 		box-shadow: none;
 		background-color: #1447a2;
@@ -104,14 +104,15 @@
 	}
 	.swiper.cardSwiper .swiper-slide:last-child{
 		z-index:0 !important;
-		opacity: 0;
+		/* opacity: 0; */
 	}
 	
 	/* 왼쪽에서 오른쪽으로 정렬 */
 	.swiper.cardSwiper .swiper-wrapper {
 		display:flex;
 		transform-origin: left center;
-		justify-content: flex-start; /* 왼쪽 정렬 */
+		/* justify-content: flex-start; */
+		-webkit-transform-origin-x:left;
 		align-items: center;
 		overflow: visible;
 		transition: transform 0.3s ease; /* 애니메이션 효과 */
@@ -256,6 +257,7 @@
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide3.png" alt=""></a></div>
+								<div class="swiper-slide"><a href="#none"><img src="./img/slide4.png" alt=""></a></div>
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide4.png" alt=""></a></div>
 							</div>
 							<!-- 이전/다음 버튼 -->
@@ -485,21 +487,20 @@
 			 * card swiper
 			 **/
 			var cardSwiper = new Swiper(".cardSwiper", {
-				direction: 'horizontal',
-				slidesPerView: '3',
-				loopedSlides: 3,
+				slidesPerView: '2.5',
+				// loopedSlides: 3,
 				centeredSlides: false,
-				initialSlide: 0,
-				watchOverflow: true,
-				allowTouchMove: true,
+				// initialSlide: 0,
+				// watchOverflow: true,
+				// allowTouchMove: true,
 				spaceBetween: -167,
 				loop: true,
 				navigation: {
 					nextEl: '.swiper-button-next.cardSwiper',
 					prevEl: '.swiper-button-prev.cardSwiper',
 				},
-				
 			});
+			
 		});
     </script>
 </body>
