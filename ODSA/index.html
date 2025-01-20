@@ -22,7 +22,7 @@
 
 	/* common */
 	.mainSec { display: flex; justify-content: center; margin:0 auto; }
-	.mainInner { width:1270px; }
+	.inner { width:1270px; }
 
 	/* button */
 	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
@@ -31,31 +31,36 @@
 	
 	/* mainSec section01 */
 	.mainSec.section01 { position: relative; width:100%; height:873px; background: url(./img/main_banner_bg.png)no-repeat; }
-	.mainSec.section01 .mainInner { display:flex; align-items: center; }
+	.mainSec.section01 .inner { display:flex; align-items: center; }
 	.shortcut-area { position:absolute; left:-36px; bottom:80px; width:1060px; transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out; }
 	.shortcut-area > img {  object-fit: contain; object-position: center;  }
 	.shortcut-area > .btn-arrow {position: absolute; transform: translateY(-50%); top:50%; right:13px; width:94px; height:94px; object-fit: contain; object-position: center; border-radius: 50%; background: transparent; }
 	.shortcut-area.shortCutWrap.on { left:-900px; }
 
 	/* mainSec section02 */
-	.mainSec.section02  { padding-top:133px; background: #F8F8F8; }
-	.mainSec.section02 .mainInner { display:flex; align-items: center; }
-	.mainSec.section02 .left { width:644px; height:auto; }
-	/* .mainSec.section02 .right { width:600px; } */
-	.swiper.cardSwiper {
-        width: 100%;
-	}
+	.mainSec.section02  { padding:133px 0; background: #F8F8F8; }
+	.mainSec.section02 .inner { display:flex; align-items: center; width:1557px; gap:100px; }
+	.mainSec.section02 .left { flex:0 0 508px; height:auto; }
+	.mainSec.section02 .right { position: relative;  height: auto; width:calc(100% - 508px); }
 
+	/* section02 swiper */
 	.swiper.cardSwiper .swiper-slide {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 18px;
-        font-size: 22px;
-        font-weight: bold;
-        color: #fff;
-		width:460px;
-		height:481px;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		border-radius: 18px;
+		font-size: 22px;
+		font-weight: bold;
+		color: #fff;
+		width: 460px;
+		height: 481px;
+		opacity: 0.6;
+		background-color: #FFFFFF;
+		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.4);
+		transition: transform 0.5s ease, opacity 0.5s ease;
+		transform: scale(0.8);
+		z-index:1;
 	}
 
 	.swiper.cardSwiper .swiper-slide {
@@ -66,12 +71,51 @@
 
 	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
 		opacity: 1;
+		transform: scale(1);
+		box-shadow: none;
 		background-color: #1447a2;
+		visibility: visible;
+		z-index: 10; /* 가장 위로 */
 	}
 
+
+	.swiper.cardSwiper .swiper-slide-prev,
+	.swiper.cardSwiper .swiper-slide-next {
+		transform: scale(0.9); /* 살짝 확대 */
+		opacity: 0.8;
+		z-index: 5; /* 활성화된 슬라이드 바로 뒤 */
+		/* visibility: visible; */
+	}
+
+
+	/* 추가된 크기 변화 없는 슬라이드 */
+	.swiper.cardSwiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
+		transform: scale(0.8);
+		opacity: 0.8;
+		align-items: center;
+		z-index: 1; /* 가장 뒤로 */
+
+	}
+	.swiper.cardSwiper .swiper-slide:last-child {  
+		z-index:0 !important;
+	}
+	
+	/* 왼쪽에서 오른쪽으로 정렬 */
+	.swiper.cardSwiper .swiper-wrapper {
+		display:flex;
+		transform-origin: left center;
+		justify-content: flex-start; /* 왼쪽 정렬 */
+		align-items: center;
+		overflow: visible;
+		transition: transform 0.3s ease; /* 애니메이션 효과 */
+	}
+
+
 	/* 이전/다음 버튼 */
-	.swiper.cardSwiper .swiper-button-next,
-	.swiper.cardSwiper .swiper-button-prev {
+	.swiper-button-wrap { position:absolute; transform: translateY(-50%); top:50%; width:417px; z-index:2; }
+
+	.swiper-button-next.cardSwiper,
+	.swiper-button-prev.cardSwiper {
 		width: 52px;
 		height: 52px;
 		background-size: contain;
@@ -80,28 +124,39 @@
 	}
 
 	/* 이전 버튼 이미지 */
-	.swiper.cardSwiper .swiper-button-prev {
+	.swiper-button-prev.cardSwiper {
 		left:-20px;
 		background: url("./img/ic_swiper_pre.png") no-repeat #FFFFFF 50%/32px auto;
 	}
 
 	/* 다음 버튼 이미지 */
-	.swiper.cardSwiper .swiper-button-next {
-		right:-20px;
+	.swiper-button-next.cardSwiper {
+		right:-60px;
 		background: url("./img/ic_swiper_next.png") no-repeat #FFFFFF 50%/32px auto;
 	}
 
 	/* 버튼의 기본 아이콘 제거 */
-	.swiper.cardSwiper .swiper-button-next:after,
-	.swiper.cardSwiper .swiper-button-prev:after {
+	.swiper-button-next.cardSwiper:after,
+	.swiper-button-prev.cardSwiper:after {
 		display: none;
 	}
 
-	/* 스와이퍼 ui 타입 */
-	/* .swiper.cardSwiper .swiper-wrapper { transform-style: flat !important;} */
+	/* mainSec section03 */
+	.mainSec.section03  { display:flex; margin:117px 0 152px 0; }
+	.mainSec.section03 h3 { width:760px; height:auto; }
 
+	.section2 .conwrap .partner_slide_wrap > div ul { animation: partnerSlide 24s infinite linear; }
+	.section2 .conwrap .partner_slide_wrap > div ul { display:flex; position: absolute; }
+	@keyframes partnerSlide {
+		from   { transform: translateX(0%); }
+		to { transform: translateX(-100%); }
+	}
+	@keyframes partnerSlide2 {
+		from   { transform: translateX(100%); }
+		to { transform: translateX(0%); }
+	}
 
-	.swiper-slide.swiper-slide-prev { margin-right:0 !important; }
+	.section2 .conwrap .partner_slide_wrap ul li { width:337px; height:135px; background:#f7f7f7; text-align: center; margin:0 17px; }
 
 </style>
 </head>
@@ -147,7 +202,7 @@
 
 		<div id="contentsWrap">
 			<section class="mainSec section01">
-				<div class="mainInner">
+				<div class="inner">
 					<img src="./img/main_banner.png" alt="">
 				</div>
 				<div class="shortcut-area shortCutWrap">
@@ -157,23 +212,82 @@
 			</section>
 
 			<section class="mainSec section02">
-				<div class="mainInner">
+				<div class="inner">
 					<div class="left">
-						<img src="./img/mainSec02_left.png" alt="">
+						<h3>
+							<img src="./img/section02_left.png" alt="">
+						</h3>
 					</div>
 					<div class="right">
 						<div class="swiper cardSwiper">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
 								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
-								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
-								<div class="swiper-slide"><a href="#none"><img src="./img/slide1.png" alt=""></a></div>
+								<div class="swiper-slide"><a href="#none"><img src="./img/slide3.png" alt=""></a></div>
+								<div class="swiper-slide"><a href="#none"><img src="./img/slide4.png" alt=""></a></div>
 							</div>
 							<!-- 이전/다음 버튼 -->
-							<div class="swiper-button-next"></div>
-							<div class="swiper-button-prev"></div>
+							
+						</div>
+						<div class="swiper-button-wrap">
+							<div class="swiper-button-prev cardSwiper"></div>
+							<div class="swiper-button-next cardSwiper"></div>
 						</div>
 						
+					</div>
+				</div>
+			</section>
+
+			<section class="mainSec section03">
+				<h3>
+					<img src="./img/section03_tit.png" alt="">
+				</h3>
+				<div class="partner_slide_wrap ani_y">
+					<div class="partner_slide1">
+						<ul>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="/images/main/sec2_logo3.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo4.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo5.jpg" alt=""></li>
+						</ul>
+					</div>
+					<div class="partner_slide2">
+						<ul>
+							<li><img src="/images/main/sec2_logo17.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo18.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo19.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo20.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo21.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo22.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo23.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo24.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo25.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo26.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo27.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo28.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo29.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo30.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo31.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo32.jpg" alt=""></li>
+						</ul>
+						<ul class="list2">
+							<li><img src="/images/main/sec2_logo17.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo18.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo19.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo20.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo21.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo22.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo23.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo24.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo25.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo26.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo27.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo28.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo29.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo30.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo31.jpg" alt=""></li>
+							<li><img src="/images/main/sec2_logo32.jpg" alt=""></li>
+						</ul>
 					</div>
 				</div>
 			</section>
@@ -293,35 +407,21 @@
 			/**
 			 * card swiper
 			 **/
-			var swiper = new Swiper(".cardSwiper", {
-				slidesPerView: 1,
+			var cardSwiper = new Swiper(".cardSwiper", {
+				direction: 'horizontal',
+				slidesPerView: '3',
+				loopedSlides: 3,
 				centeredSlides: false,
-				slidesPerGroupSkip: 1,
-				grabCursor: true,
-				keyboard: {
-					enabled: true,
-				},
-				breakpoints: {
-					769: {
-					slidesPerView: 2,
-					slidesPerGroup: 2,
-					},
-				},
-				scrollbar: {
-					el: ".swiper-scrollbar",
-				},
+				initialSlide: 0,
+				watchOverflow: true,
+				allowTouchMove: true,
+				spaceBetween: -150,
+				loop: true,
 				navigation: {
-					nextEl: ".swiper-button-next",
-					prevEl: ".swiper-button-prev",
+					nextEl: '.swiper-button-next.cardSwiper',
+					prevEl: '.swiper-button-prev.cardSwiper',
 				},
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-				});
-
-			
-
+			});
 		});
     </script>
 </body>
