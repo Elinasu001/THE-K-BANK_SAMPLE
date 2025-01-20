@@ -95,7 +95,7 @@
 		z-index: 1; /* 가장 뒤로 */
 
 	}
-	.swiper.cardSwiper .swiper-slide:last-child {  
+	.swiper.cardSwiper .swiper-slide:last-child {
 		z-index:0 !important;
 	}
 	
@@ -145,18 +145,18 @@
 	.mainSec.section03 h3 { width:760px; height:auto;  text-align: center;}
 
 	.mainSec.section03 .partner-slide-wrap { transform: translate(0px, 0px); opacity: 1; }
-	.mainSec.section03 .partner-slide-wrap > div { margin-top:60px; }
-	.mainSec.section03 .partner-slide-wrap > div + div { margin-top:170px;}
+	.mainSec.section03 .partner-slide-wrap > div { margin-top:100px; }
+	.mainSec.section03 .partner-slide-wrap > div + div { margin-top:200px;}
 	.mainSec.section03 .partner-slide-wrap > div { display:flex; justify-content: flex-start; white-space: nowrap; }
 
-	.mainSec.section03 .partner-slide-wrap > div ul { animation: partnerSlide 20s infinite linear; }
 	.mainSec.section03 .partner-slide-wrap > div ul { display:flex; position: absolute; }
+	.mainSec.section03 .partner-slide-wrap ul li { width:333px; height:134px; background:#f7f7f7; text-align: center; margin:0 17px; }
+	
+	.mainSec.section03 .partner-slide-wrap.ani-y > div ul { animation: partnerSlide 24s infinite linear; }
+	.mainSec.section03 .partner-slide-wrap.ani-y > div ul + ul { animation: partnerSlide2 24s infinite linear; }
 
-	.mainSec.section03 .partner-slide-wrap > div ul { animation: partnerSlide 24s infinite linear; }
-	.mainSec.section03 .partner-slide-wrap > div ul + ul { animation: partnerSlide2 24s infinite linear; }
-
-	.mainSec.section03 .partner-slide-wrap > div.partner-slide2 ul  { animation-direction:reverse; }
-	.mainSec.section03 .partner-slide-wrap > div ul + ul { animation: partnerSlide2 24s infinite linear; }
+	.mainSec.section03 .partner-slide-wrap.ani-y > div.partner-slide2 ul  { animation-direction:reverse; }
+	.mainSec.section03 .partner-slide-wrap.ani-y > div ul + ul { animation: partnerSlide2 24s infinite linear; }
 
 	@keyframes partnerSlide {
 		from   { transform: translateX(0%); }
@@ -167,8 +167,19 @@
 		to { transform: translateX(0%); }
 	}
 
-	.mainSec.section03 .partner-slide-wrap ul li { width:333px; height:134px; background:#f7f7f7; text-align: center; margin:0 17px; }
+	/* mainSec section04 */
+	.mainSec.section04  { margin-top:286px; height:550px; background: url(./img/section04.png) no-repeat 50%; }
+	.mainSec.section04 .inner { display:flex; align-items: center;}
+	.mainSec.section04 h3 { width:468px; height:286px; }
 
+	/* mainSec section05 */
+	.mainSec.section05 { margin:96px 0 60px 0; height:372px; background: url(./img/section05.png) no-repeat 50%;}
+
+	footer { display: flex; align-items: center; justify-content: center; margin-top: 100px; height: 350px; background: #000000; }
+
+	/* link */
+	.search-inner { position: relative; }
+	.link { content: ''; position: absolute; left:0; bottom:60px; width:900px; height:162px; }
 </style>
 </head>
 <body>
@@ -200,6 +211,7 @@
 								<div class="search-area">
 									<div class="search-inner">
 										<img src="./img/img_searh-area.png" alt="">
+										<a href="./index_sub.html" class="link"></a>
 									</div>
 								</div>
 							</div>
@@ -266,18 +278,8 @@
 							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
 						</ul>
 						<ul class="list2">
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
@@ -292,26 +294,51 @@
 					</div>
 					<div class="partner-slide2">
 						<ul>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
-							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/slide02_1.png" alt=""></li>
+							<li><img src="./img/slide02_2.png" alt=""></li>
+							<li><img src="./img/slide02_3.png" alt=""></li>
+							<li><img src="./img/slide02_4.png" alt=""></li>
+							<li><img src="./img/slide02_5.png" alt=""></li>
+							<li><img src="./img/slide02_1.png" alt=""></li>
+							<li><img src="./img/slide02_2.png" alt=""></li>
+							<li><img src="./img/slide02_3.png" alt=""></li>
+							<li><img src="./img/slide02_4.png" alt=""></li>
+							<li><img src="./img/slide02_5.png" alt=""></li>
+						</ul>
+						<ul class="list2">
+							<li><img src="./img/slide02_1.png" alt=""></li>
+							<li><img src="./img/slide02_2.png" alt=""></li>
+							<li><img src="./img/slide02_3.png" alt=""></li>
+							<li><img src="./img/slide02_4.png" alt=""></li>
+							<li><img src="./img/slide02_5.png" alt=""></li>
+							<li><img src="./img/slide02_1.png" alt=""></li>
+							<li><img src="./img/slide02_2.png" alt=""></li>
+							<li><img src="./img/slide02_3.png" alt=""></li>
+							<li><img src="./img/slide02_4.png" alt=""></li>
+							<li><img src="./img/slide02_5.png" alt=""></li>
 						</ul>
 					</div>
 				</div>
 			</section>
+
+			<section class="mainSec section04">
+				<div class="inner">	
+					<h3>
+						<img src="./img/section04_tit.png" alt="">
+					</h3>
+				</div>
+			</section>
+
+			<section class="mainSec section05">
+
+			</section>
 		</div>
+
+		<footer>
+			<div class="inner">
+				<img src="./img/footer.png" alt="">
+			</div>
+		</footer>
 	</div>
     <script>
 		$(document).ready(function(){
@@ -391,7 +418,7 @@
 			});
 
 			/**
-			 * 검색 버튼
+			 * header white button
 			 **/
 			var searchBtn = (function() {
 				return {

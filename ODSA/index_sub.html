@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="Author" content="FUZ UI.DEV." />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<title>한국투자저축은행</title>
+<link type="text/css" rel="stylesheet" href="css/tablet.css"/>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/swiper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style type="text/css">
+
+	/* Header */
+	#headerWrap > .header {  transition: 0.1s linear;  }
+	#headerWrap .menu-wrap > ul > li > a,
+	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
+
+	/* common */
+	.mainSec { display: flex; justify-content: center; margin:0 auto; }
+	.inner { width:1270px; }
+
+	/* button */
+	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
+	
+	footer { display: flex; align-items: center; justify-content: center; margin-top: 100px; height: 350px; background: #000000; }
+
+	/* link */
+	.search-inner { position: relative; }
+	.link { content: ''; position: absolute; left:0; bottom:60px; width:900px; height:162px; }
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<header id="headerWrap">
+			<div class="header bg-w">
+				<h1>
+					<a href="#none">
+						<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo">
+					</a>
+				</h1>
+				<nav class="menu-wrap">
+					<ul>
+						<li><a href="#none">예금상품</a></li>
+						<li><a href="#none">대출상품</a></li>
+						<li><a href="#none">금융정보</a></li>
+						<li><a href="#none">금융소비자보호</a></li>
+						<li><a href="#none">은행소개</a></li>
+					</ul>
+					<div class="menu-util">
+						<ul>
+							<li><a href="#none">인터넷뱅킹</a></li>
+							<li><a href="#none">원격지원서비스</a></li>
+						</ul>
+						<div class="menu-actions">
+							<div class="search-wrap">
+								<button type="button" class="btn-search">검색창 열기</button>
+								<div class="search-area">
+									<div class="search-inner">
+										<img src="./img/img_searh-area.png" alt="">
+										<a href="./index_frame1.html" class="link"></a>
+									</div>
+								</div>
+							</div>
+							<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
+						</div>
+					</div>
+				</nav>
+				
+			</div>
+		</header>
+
+		<div id="contentsWrap">
+			
+		</div>
+
+		<footer>
+			<div class="inner">
+				<img src="./img/footer.png" alt="">
+			</div>
+		</footer>
+	</div>
+    <script>
+		$(document).ready(function(){
+
+			/**
+			 * shortcut slide
+			**/
+			var shortCutScroll = (function() {
+				return {
+					open: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						$thisWrap.addClass("on");
+						$thisWrap.find(".btnPlus").text("내용닫기");
+					},
+					close: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						$thisWrap.removeClass("on");
+						$thisWrap.find(".btnPlus").text("내용열기");
+					},
+					toggle: function(_this) {
+						var $this = $(_this),
+							$thisWrap = $this.closest(".shortCutWrap");
+
+						if ($thisWrap.hasClass("on")) {
+							shortCutScroll.close(_this);
+						} else {
+							shortCutScroll.open(_this);
+						}
+					}
+				};
+			})();
+
+			//event
+			$(document).on("click", ".btnPlus", function() {
+				shortCutScroll.toggle(this);
+			});
+
+
+			/**
+			 * header search button
+			 **/
+			var searchBtn = (function() {
+				return {
+					open: function() {
+						$(".search-wrap").addClass("on");
+						$("body").addClass("overflow-hidden");
+					},
+					close: function() {
+						$(".search-wrap").removeClass("on");
+						$("body").removeClass("overflow-hidden");
+					},
+					toggle: function() {
+						if ($(".search-wrap").hasClass("on")) {
+							searchBtn.close();
+						} else {
+							searchBtn.open();
+						}
+					}
+				};
+			})();
+
+			//event
+			$(document).on("click", ".btn-search", function() {
+				searchBtn.toggle();
+			});
+
+
+			
+		});
+    </script>
+</body>
+</html>
