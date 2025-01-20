@@ -16,13 +16,14 @@
 
 	/* Header */
 	#headerWrap > .header {  transition: 0.1s linear;  }
+	#headerWrap > .header.main.bg-w {  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);}
 	#headerWrap .menu-wrap > ul > li > a,
 	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
 
 	/* common */
 	.mainSec { display: flex; justify-content: center; margin:0 auto; }
 	.inner { width:1270px; }
-
+	
 	/* button */
 	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
 	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
@@ -35,14 +36,16 @@
 	.shortcut-area > img {  object-fit: contain; object-position: center;  }
 	.shortcut-area > .btn-arrow {position: absolute; transform: translateY(-50%); top:50%; right:13px; width:94px; height:94px; object-fit: contain; object-position: center; border-radius: 50%; background: transparent; }
 	.shortcut-area.shortCutWrap.on { left:-900px; }
-
+	
 	/* mainSec section02 */
 	.mainSec.section02  { padding:133px 0; background: #F8F8F8; }
-	.mainSec.section02 .inner { display:flex; align-items: center; width:1557px; gap:100px; }
+	.mainSec.section02 .inner { display:flex; align-items: center; min-width:1557px; gap:100px; }
 	.mainSec.section02 .left { flex:0 0 508px; height:auto; }
 	.mainSec.section02 .right { position: relative;  height: auto; width:calc(100% - 508px); }
-
+	
 	/* section02 swiper */
+	/* .swiper.cardSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:40px; height:100%; background: #F8F8F8; z-index: 1;} */
+	
 	.swiper.cardSwiper .swiper-slide {
         display: flex;
 		align-items: center;
@@ -99,8 +102,9 @@
 		z-index: 1; /* 가장 뒤로 */
 
 	}
-	.swiper.cardSwiper .swiper-slide:last-child {
+	.swiper.cardSwiper .swiper-slide:last-child{
 		z-index:0 !important;
+		opacity: 0;
 	}
 	
 	/* 왼쪽에서 오른쪽으로 정렬 */
@@ -113,9 +117,8 @@
 		transition: transform 0.3s ease; /* 애니메이션 효과 */
 	}
 
-	.swiper.cardSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:40px; height:100%; background: #F8F8F8; z-index: 1;}
 
-
+	
 	/* 이전/다음 버튼 */
 	.swiper-button-wrap { position:absolute; transform: translateY(-50%); top:50%; width:417px; z-index:2; }
 
@@ -284,6 +287,11 @@
 							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
 						</ul>
 						<ul class="list2">
 							<li><img src="./img/ani_slide1.png" alt=""></li>
@@ -296,6 +304,12 @@
 							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
 							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							<li><img src="./img/ani_slide1.png" alt=""></li>
+							
 						</ul>
 					</div>
 					<div class="partner-slide2">
@@ -310,8 +324,18 @@
 							<li><img src="./img/slide02_3.png" alt=""></li>
 							<li><img src="./img/slide02_4.png" alt=""></li>
 							<li><img src="./img/slide02_5.png" alt=""></li>
+							<li><img src="./img/slide02_1.png" alt=""></li>
+							<li><img src="./img/slide02_2.png" alt=""></li>
+							<li><img src="./img/slide02_3.png" alt=""></li>
+							<li><img src="./img/slide02_4.png" alt=""></li>
+							<li><img src="./img/slide02_5.png" alt=""></li>
 						</ul>
 						<ul class="list2">
+							<li><img src="./img/slide02_1.png" alt=""></li>
+							<li><img src="./img/slide02_2.png" alt=""></li>
+							<li><img src="./img/slide02_3.png" alt=""></li>
+							<li><img src="./img/slide02_4.png" alt=""></li>
+							<li><img src="./img/slide02_5.png" alt=""></li>
 							<li><img src="./img/slide02_1.png" alt=""></li>
 							<li><img src="./img/slide02_2.png" alt=""></li>
 							<li><img src="./img/slide02_3.png" alt=""></li>
@@ -468,12 +492,13 @@
 				initialSlide: 0,
 				watchOverflow: true,
 				allowTouchMove: true,
-				spaceBetween: -150,
+				spaceBetween: -167,
 				loop: true,
 				navigation: {
 					nextEl: '.swiper-button-next.cardSwiper',
 					prevEl: '.swiper-button-prev.cardSwiper',
 				},
+				
 			});
 		});
     </script>
