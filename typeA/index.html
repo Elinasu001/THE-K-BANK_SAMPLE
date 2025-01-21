@@ -12,22 +12,34 @@
 	
 	#container{width:375px;}
 	#contents{position:relative;width:375px;height:812px;overflow:hidden;}
-
-	
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 </head>
-<body>
+<body style="overflow: hidden;">
 <div id="wrap">
-	<div class="inner">
-		<div id="container">
-			<div id="contents">
-				<iframe src="index_frame1.html" width="375" height="812" id="mFrames"></iframe>
-			</div>
+	<div id="container">
+		<div id="contents">
+			<iframe src="index_frame1.html" width="375" height="812" id="mFrames" style="overflow: auto;"></iframe>
 		</div>
 	</div>
 </div>
-<script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		window.addEventListener('message', function (event) {
+			if (event.data.type === 'iframeScroll') {
+				var scrollY = event.data.scrollY;
+				if (scrollY > 100) {
+					$('.header').addClass('bg-w');
+					$(".white-logo").addClass("dp-none");
+					$(".dark-logo").removeClass("dp-none");
+				} else {
+					$('.header').removeClass('bg-w');
+					$(".dark-logo").addClass("dp-none");
+					$(".white-logo").removeClass("dp-none");
+				}
+			}
+		});
+	});
 </script>
 </body>
 </html>
