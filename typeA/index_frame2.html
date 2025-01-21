@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="Author" content="FUZ UI.DEV." />
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no" />
 <title>한국투자저축은행</title>
 <link type="text/css" rel="stylesheet" href="css/mobile.css" />
@@ -12,11 +12,11 @@
 <script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
 
 <style>
-	html , body { width:375px !important; height:812px !important; overflow-y: auto;}
+	html , body { width:375px !important; height:812px !important; }
 	/* ::-webkit-scrollbar{display:none;} */
-	#wrap{width:375px;height:812px;margin:0;padding:0; background: none;  background-color: #FFFFFF;}
-	#container{width:375px;}
-	#contents{overflow-x:hidden;position:relative;width:375px;height:812px;}
+	#wrap{width:375px; height:812px; background: #FFFFFF;}
+	#container{width:375px; height:812px; }
+	#contents{position:relative;width:375px;height:812px;}
 
 	.inner { padding:0 20px; }
 
@@ -132,48 +132,75 @@
 					</div>
 					<div class="swiper-pagination"></div>
 				</div>
-				
-
 			</section>
 		</div>
 	</div>
+
+	<div id="all-menu-view" class="layerpopup laypop-all on show" tabindex="0" data-focus-prev="btn-menu-close" style="display: block;">
+		<div class="pop-header none-bor">
+			<h2 class="pop-title">전체메뉴</h2>
+			<button type="button" name="button" class="btn-layer-close" onclick="closePopup('all-menu-view')">닫기</button>
+		</div>
+		<div class="pop-con-wrap">
+			<div class="search-wrap">
+				<div class="search-area">
+					
+				</div>
+			</div>
+			
+			<div class="listmenu-box">
+				
+			</div>
+		</div>
+	</div>
+
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
 		/**
 		 * load
 		**/
-		// $(window).on('load', function() {
-		// 	fnPreload();
-		// 	bindIframeScroll();
-		// });
-
-		// /* preload */
-		// function fnPreload() {
-		// 	seLayout.loadInit();
-		// }
-
-		// /* iframe scroll binding */
-		// function bindIframeScroll() {
-		// 	var $iframe = $('#iframeID').contents();
-		// 	$iframe.on('scroll', function () {
-		// 		seLayout.scrolling();
-		// 	});
-		// }
 
 		/**
 		 * header white change
 		**/
-		
+		var seLayout = (function() {
+			var scrollY = 0; // 스크롤 위치 저장
 
-		// //event
-		// $(window).on('scroll', function() {
-		// 	seLayout.scrolling();
-		// });
+			return {
+				headerAni: function() {
+					if ($('.header').hasClass('main')) { // 검색 상태가 아닌 경우만 처리
+						if (scrollY > 0) {
+							$('.header').addClass('bg-w');
+							$(".white-logo").addClass("dp-none");
+							$(".dark-logo").removeClass("dp-none");
+						} else {
+							$('.header').removeClass('bg-w');
+							$(".dark-logo").addClass("dp-none");
+							$(".white-logo").removeClass("dp-none");
+						}
+					}
+				},
+				// 스크롤 처리
+				scrolling: function () {
+					scrollY = $(window).scrollTop();
+					var documentH = $(document).height();
+					var windowH = $(window).height();
 
-		$(window).on('scroll', function () {
-			var scrollY = $(window).scrollTop();
-			parent.postMessage({ type: 'iframeScroll', scrollY: scrollY }, '*');
+					if (documentH > windowH) {
+						this.headerAni();
+					}
+				},
+			};	
+		})();
+
+		//event
+		$(window).on('scroll', function() {
+			seLayout.scrolling();
+		});
+		//resize
+		$(window).on('resize', function () {
+			seLayout.scrolling();
 		});
 
 		/**
@@ -189,6 +216,10 @@
 				clickable: true,
 			},
 		});
+
+		/**
+		 * popup
+		**/
 
 
 	});
