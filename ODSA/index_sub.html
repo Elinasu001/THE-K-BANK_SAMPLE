@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <style type="text/css">
-
 	/* Header */
 	#headerWrap > .header {  transition: 0.1s linear;  }
 	#headerWrap .menu-wrap > ul > li > a,
@@ -33,6 +32,49 @@
 	/* link */
 	.search-inner { position: relative; }
 	.link { content: ''; position: absolute; left:0; bottom:60px; width:900px; height:162px; }
+	
+	/* breadcrumb */
+	.breadcrumb { z-index: 1; content:""; position: absolute; display: flex; align-items: center; gap:40px; font-size:20px; top:142px; right:100px; }
+	.breadcrumb  > a { font-size:14px; color: #FFFFFF;}
+	.breadcrumb > a::after { content: ""; position: absolute; top:50%; transform: translateY(-50%); width:20px; height:20px; padding-left:15px; background: url(./img/ico_breadcrumb.png) no-repeat 50%/20px auto; }
+	.breadcrumb > a:last-child::after { content: none; }
+
+	/* subTitleArea */
+	#contentsWrap,
+	.subTitleArea,
+	.subTitleArea .inner { display:flex; justify-content: center; align-items: center; flex-direction: column;  }
+	#contentsWrap { margin-top:100px; overflow: hidden; }
+	.subTitleArea { width:100%; height:485px; background: #2E5AF4; color:#FFFFFF; }
+	
+	.subTitleArea::before,
+	.subTitleArea::after { content: ""; position: absolute;  width:450px; height:485px; }
+	.subTitleArea::before { left:0; background: url(./img/sub_tit_l.png) no-repeat; }
+	.subTitleArea::after { right:0; background: url(./img/sub_tit_r.png) no-repeat 100%; }
+	.subTitleArea .inner > h2 { font-weight: 600; font-size:52px; }
+	.subTitleArea .inner > .txt { margin-top:20px; font-weight: 300; font-size:20px; }
+	.subTitleArea .inner > ul { display: flex; flex-direction: row; margin-top: 57px; gap:50px;  }
+	.subTitleArea .inner > ul > li { font-weight: 400; font-size:20px;}
+	.subTitleArea .inner > ul > li > b { margin-left:8px; font-weight: 600; font-size:26px;}
+	.subTitleArea .inner > ul > li { position: relative; }
+	.subTitleArea .inner > ul > li::after { content: ""; position:absolute; top:50%; right:-26px; transform: translateY(-50%); width:1px; height:27px; background: #AEAEAE; }
+	.subTitleArea .inner > ul > li:last-child:after { content: none; }
+	.subTitleArea .inner > .btn-wrap  { margin-top:60px; }
+	.subTitleArea .inner > .btn-wrap > .btn-register { height:60px; padding:0 60px; font-size: 24px; font-weight: 400; border-radius: 15px; color:#111111; background: #FFFFFF; }
+
+	.cont01 { margin-top:32px; }
+	.cont02 { margin-top:72px; }
+	.cont03 { margin-top:50px; }
+
+	/* 아코디언 */
+	.accordion-area .accordion-list > .tit { display:flex; align-items: center; justify-content: space-between;  width:100%; height:77px; padding:0 40px; border-radius: 10px; background: #EEF2F9; }
+	.accordion-area .accordion-list > .tit > p { font-size:26px; font-weight: 600; color:#242424; }
+
+	.accordion-area .accordion-list > .tit > .ic-arr { font-size:0; width:48px; height:48px; background-color: #111111; -webkit-mask-image:url(./img/ico_arrow.svg); -webkit-mask-repeat:no-repeat; -webkit-mask-size:auto 48px; -webkit-mask-position:center; }
+	.accordion-area .accordion-list > .cont { margin:50px 20px;  }
+
+	.accordion-area .accordion-list.on > .tit  { background: #1447A2; }
+	.accordion-area .accordion-list.on > .tit > p { font-weight: 400; color:#FFFFFF; }
+	.accordion-area .accordion-list.on > .tit > .ic-arr { transform: rotate(180deg); background-color: #FFFFFF;  }
 </style>
 </head>
 <body>
@@ -63,7 +105,7 @@
 								<div class="search-area">
 									<div class="search-inner">
 										<img src="./img/img_searh-area.png" alt="">
-										<a href="./index_frame1.html" class="link"></a>
+										<a href="./index_sub.html" class="link"></a>
 									</div>
 								</div>
 							</div>
@@ -76,7 +118,42 @@
 		</header>
 
 		<div id="contentsWrap">
-			
+			<section class="subTitleArea">
+				<div class="inner">
+					<div class="breadcrumb">
+						<a href="/home" class="home ir">홈</a>
+						<a href="#none" class="depth1">예금상품</a>
+						<a href="#none" class="depth2">인터넷뱅킹 전용상품</a>
+						<a href="#none" class="depth3">e-보통예금</a>
+					</div>
+					<h2>e-보통예금</h2>
+					<p class="txt">단 하루만 맡겨도 높은 금리를 보장받는 입출금이 자유로운 예금</p>
+					<ul>
+						<li>가입대상 <b>개인인</b></li>
+						<li>이자율 <b>연 0.6% (우대금리 포함)</b></li>
+						<li>계약기간 <b>제한없음</b></li>
+					</ul>
+					<div class="btn-wrap"><button type="button" class="btn-register">대출신청하기</button></div>
+				</div>
+			</section>
+			<section class="contents">
+				<div class="inner">
+					<div class="cont01">
+						<img src="./img/sub_01.png" alt="">
+					</div>
+					<div class="cont02">
+						<div class="accordion-wrap onOff">
+							<ul class="accordion-area">
+								<li class="accordion-list on">
+									<div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
+									<div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="cont3"><img src="./img/sub_03.png" alt=""></div>
+				</div>
+			</section>
 		</div>
 
 		<footer>
@@ -153,6 +230,34 @@
 			$(document).on("click", ".btn-search", function() {
 				searchBtn.toggle();
 			});
+
+			
+			/**
+			 * accortion
+			 **/
+			var allMenu = (function() {
+				return {
+					open : function() {
+						$('.layout-allmenu').addClass('on');
+					},
+					close : function() {
+						$('.layout-allmenu').removeClass('on');
+					}
+				}
+			})();
+				
+
+			/*
+				event
+			*/
+			$(document).on('click', '.btn-menu-open', function() {
+				allMenu.open();
+			});
+
+			$(document).on('click', '.btn-menu.close', function() {
+				allMenu.close();
+			});
+
 
 
 			
