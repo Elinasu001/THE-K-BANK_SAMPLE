@@ -472,12 +472,16 @@
 						$(".search-wrap").addClass("on");
 						$(".header").addClass("bg-w");
 						$("body").addClass("overflow-hidden");
+						$(".white-logo").addClass("dp-none");
+						$(".dark-logo").removeClass("dp-none");
 					},
 					close: function() {
 						seLayout.setSearchActive(false); // 검색 비활성 상태로 설정
 						$(".search-wrap").removeClass("on");
 						$(".header").removeClass("bg-w");
 						$("body").removeClass("overflow-hidden");
+						$(".dark-logo").addClass("dp-none");
+						$(".white-logo").removeClass("dp-none");
 						seLayout.headerAni(); // 헤더 상태 갱신
 					},
 					toggle: function() {
