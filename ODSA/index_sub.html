@@ -66,15 +66,20 @@
 	.cont03 { margin-top:50px; }
 
 	/* 아코디언 */
+	/* .accordion-area .accordion-list { transition: 0.3s linear; } */
+	.accordion-area .accordion-list + li { margin-top:72px; }
 	.accordion-area .accordion-list > .tit { display:flex; align-items: center; justify-content: space-between;  width:100%; height:77px; padding:0 40px; border-radius: 10px; background: #EEF2F9; }
 	.accordion-area .accordion-list > .tit > p { font-size:26px; font-weight: 600; color:#242424; }
 
 	.accordion-area .accordion-list > .tit > .ic-arr { font-size:0; width:48px; height:48px; background-color: #111111; -webkit-mask-image:url(./img/ico_arrow.svg); -webkit-mask-repeat:no-repeat; -webkit-mask-size:auto 48px; -webkit-mask-position:center; }
-	.accordion-area .accordion-list > .cont { margin:50px 20px;  }
+	.accordion-area .accordion-list > .tit:has(.ic-arr:focus-visible) { outline:1px solid #000000; }
+	.accordion-area .accordion-list > .cont { display: none; margin:50px 20px;  }
 
 	.accordion-area .accordion-list.on > .tit  { background: #1447A2; }
 	.accordion-area .accordion-list.on > .tit > p { font-weight: 400; color:#FFFFFF; }
 	.accordion-area .accordion-list.on > .tit > .ic-arr { transform: rotate(180deg); background-color: #FFFFFF;  }
+
+	.accordion-area .accordion-list.on > .cont { display: block; }
 </style>
 </head>
 <body>
@@ -142,16 +147,24 @@
 						<img src="./img/sub_01.png" alt="">
 					</div>
 					<div class="cont02">
-						<div class="accordion-wrap onOff">
-							<ul class="accordion-area">
+						<div class="accordion-wrap">
+							<ul class="accordion-area accordionToggle">
 								<li class="accordion-list on">
+									<div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
+									<div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
+								</li>
+								<li class="accordion-list">
+									<div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
+									<div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
+								</li>
+								<li class="accordion-list">
 									<div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
 									<div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
 								</li>
 							</ul>
 						</div>
 					</div>
-					<div class="cont3"><img src="./img/sub_03.png" alt=""></div>
+					<div class="cont03"><img src="./img/sub_03.png" alt=""></div>
 				</div>
 			</section>
 		</div>
@@ -164,6 +177,13 @@
 	</div>
     <script>
 		$(document).ready(function(){
+			/**
+			 * load
+			**/
+			$(window).on('load',function(){
+				fnPreload();
+			});
+
 
 			/**
 			 * shortcut slide
@@ -235,32 +255,34 @@
 			/**
 			 * accortion
 			 **/
-			var allMenu = (function() {
+			var accordionToggle = (function() {
 				return {
-					open : function() {
-						$('.layout-allmenu').addClass('on');
+					open: function(target) {
+						target.addClass("on");
+						target.attr("title", "닫기");
 					},
-					close : function() {
-						$('.layout-allmenu').removeClass('on');
+					close: function(target) {
+						target.removeClass("on");
+						target.attr("title", "열기");
+					},
+					toggle: function(target) {
+						if (target.hasClass("on")) {
+							this.close(target);
+						} else {
+							this.open(target);
+						}
 					}
-				}
+				};
 			})();
-				
 
-			/*
-				event
-			*/
-			$(document).on('click', '.btn-menu-open', function() {
-				allMenu.open();
+			/**
+			 * Event binding
+			 */
+			$(document).on("click", ".accordionToggle .accordion-list > .tit", function() {
+				var $currentAccordion = $(this).closest(".accordion-list");
+				accordionToggle.toggle($currentAccordion);
 			});
 
-			$(document).on('click', '.btn-menu.close', function() {
-				allMenu.close();
-			});
-
-
-
-			
 		});
     </script>
 </body>
