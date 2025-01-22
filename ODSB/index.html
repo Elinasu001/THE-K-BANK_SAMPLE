@@ -73,8 +73,10 @@
 
 	/* section03*/
 	.mainSec.section03 .inner { display:flex; align-items: center; gap:30px; margin-top:90px; }
-	.mainSec.section03 img { width:685px; height:354px; }
+	.mainSec.section03 .inner > img { width:calc(100%/2); }
 
+	/* section03 swiper */
+	.swiper.noticeSwiper .swiper-slide a { display:block; }
 	
 	/* section04*/
 	.mainSec.section04 { margin-top:80px; }
@@ -159,7 +161,14 @@
 			<section class="mainSec section03">
 				<div class="inner">
 					<img src="./img/section03_l.png" alt="">
-					<img src="./img/section03_r.png" alt="">
+					<div class="swiper noticeSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
 				</div>
 			</section>
 
@@ -301,6 +310,22 @@
 				navigation: {
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
+				},
+			});
+
+			/**
+			 *  noticeSwiper
+			 **/
+			var noticeSwiper = new Swiper(".noticeSwiper", {
+				slidesPerView: '1',
+				spaceBetween: 20,
+				autoplay:{
+					delay:2000
+				},
+				loop: true,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
 				},
 			});
 
