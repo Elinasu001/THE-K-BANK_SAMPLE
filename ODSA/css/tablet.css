@@ -52,7 +52,7 @@ button { border:0; font-size:0; cursor: pointer; }
 #headerWrap .menu-wrap > .menu-util  { gap:30px; }
 #headerWrap .menu-wrap > .menu-util > ul { gap:20px; }
 #headerWrap .menu-wrap > .menu-util > ul > li > a { padding:9px 14px; border-radius: 8px; font-weight: 600; }
-#headerWrap .menu-wrap > .menu-util > .menu-actions { display:flex; gap:18px; }
+#headerWrap .menu-wrap > .menu-util > .menu-actions { display:flex; align-items: center; gap:18px; }
 #headerWrap .menu-wrap > .menu-util .btn-search { width:30px; height:30px; background: url(../img/ico_search_white.png) no-repeat 100%/30px auto; }
 #headerWrap .menu-wrap > .menu-util .btn-menu { width:30px; height:30px; background: url(../img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
 
