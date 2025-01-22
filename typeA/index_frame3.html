@@ -3,168 +3,296 @@
 <head>
 <meta charset="utf-8" />
 <meta name="Author" content="FUZ UI.DEV." />
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no" />
 <title>한국투자저축은행</title>
 <link type="text/css" rel="stylesheet" href="css/mobile.css" />
-<link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
+
 <style>
-	html , body {overflow:auto; width:375px !important; height:812px !important;}
-::-webkit-scrollbar{display:none;}
-	#wrap{width:375px;height:812px;margin:0;padding:0;background-color: #fff;}
-	#container{width:375px;}
-	#contents{overflow-x:hidden;position:relative;width:375px;height:812px;}
-	.header {position: fixed;left:0;top:0;right:0;width:375px;z-index: 9}
-  .header a {display: block;position: absolute;left:0;top:0;width:90px;height:64px;}
-	.util {position: fixed;left:0;right:0;bottom:0;width:375px;height:60px;}
-	.util a {position: absolute; top:0; display: block; width: 82px; height: 60px;}
-	.util .link1 {left:20px;}
-	.util .link2 {left:102px;}
-	.util .link3 {left:184px;}
-	.util .link4 {left:266px;}  
-	.menu_all {position: fixed;right:-375px;top:0;z-index: 99;transition: all .2s;}
-	.menu_all.active {right:0;}
-	.menu_all .close {display: block;position: absolute;left:13px;top:0;width:64px;height:64px;border:none;outline: none;cursor: pointer;background-color: transparent;}
-.accordion {
-	margin-top:64px;
-}
-input[id*='answer'] {display:none;}
-input[id*='answer'] + label {
-  position:relative;
-  display:block;
-  cursor:pointer;
-}
+	html , body { width:375px !important; height:812px !important; background: #FFFFFF;}
+	/* ::-webkit-scrollbar{display:none;} */
+	#wrap{width:375px; height:812px;}
+	#container{width:375px; height:812px; }
+	#contents{position:relative;width:375px;height:812px;}
 
-input[id*='answer'] + label  em {
-  position:absolute;
-  top:0;
-  bottom:0;
-  right:10px;  
-  margin:auto;
-  width:30px;
-  height:30px;  
-  display:inline-block;
-  background:lighten(#FCCA46, 20%);
-  border-radius:50%;
-  text-align:center;
-    &::after {					
-      content:"";   
-      margin-top:8px;
-      border: solid #FCCA46;
-      border-width: 0 2px 2px 0;
-      display: inline-block;
-      padding: 3px;
-      transform: rotate(45deg);  
-      transition:all .25s;
-    }
-}
+	.inner { padding:0 20px; }
 
-input[id*='answer'] + label + div {
-  max-height:0;  
-  overflow:hidden;  
-  transition: all .25s;
-  background: lighten(#A1C181, 10%);
-  font-size:.9rem;
-  line-height:1.5;
-  color:darken(#A1C181, 20%);
-}
+	/* Header */
+	#headerWrap > .header {  transition: 0.1s linear;  }
+	#headerWrap .menu-wrap > ul > li > a,
+	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
 
-input[id*='answer'] + label + div p {
-  display:inline-block;
-  padding:1.5rem 1rem;
-  transition: all .25s;
-  
-}
+	#headerWrap > .header > h1 img{ width:109px; height: auto; }
 
-input[id*='answer']:checked + label + div {max-height:380px;}
+	/* button */
+	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
 
-/* input[id*='answer']:checked + label + div .acd_01 {
-  animation: fadeList .3s linear both;
-}
-input[id*='answer']:checked + label + div .acd_02 {
-  animation: fadeList .3s .1s linear both;
-}
-input[id*='answer']:checked + label + div .acd_03 {
-  animation: fadeList .3s .2s linear both;
-} */
+	/* section01 */
+	.mainSec.section01 { width:375px; height:542px; background: url(./img/main_banner_1.png) no-repeat 100%/375px auto; }
+	.mainSec.section01 .inner { padding:100px 24px 0 24px; }
+	.mainSec.section01 .inner img:first-child { width:253px; height:auto; }
+	.mainSec.section01 .inner img:last-child { margin-top: 25px; width:315px; height:auto; }
 
-input[id*='answer']:checked + label  em {
-  background:lighten(#FCCA46, 40%);   
-    &::after {					
-      content:"";   
-      margin-top:12px;
-      border: solid #FCCA46;
-      border-width: 0 2px 2px 0;
-      display: inline-block;
-      padding: 3px;
-      transform: rotate(45deg);  
-      transform: rotate(-135deg);
-    }
-}
-@keyframes fadeList {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
+	/* section02 */
+	.mainSec.section02 { margin:30px 0; }
+
+	/* section03 */
+	.mainSec.section03 { padding:50px 0 57px 0; background: #F8F8F8;}
+
+	.swiper.cardSwiper { width: 100%; height: 100%; padding:40px 0; }
+	.swiper.cardSwiper .swiper-wrapper { transition-timing-function: linear; }
+	.swiper.cardSwiper  .swiper-slide {
+		text-align: center;
+		font-size: 18px;
+		background: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width:270px;
+		height:300px;
+		border-radius: 15px;
+	}
+	.swiper.cardSwiper  .swiper-slide:not(.swiper-slide.swiper-slide-active) {
+		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.12);
+	}
+	.swiper.cardSwiper .swiper-slide img {
+		display: block;
+		object-fit: cover;
+		width:176px;
+	}
+	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
+		background:#1447A2;
+	}
+
+	/* sweipr pagination */
+	.swiper.cardSwiper .swiper-pagination-bullet { width:14px; height:14px; }
+	.swiper.cardSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:34px; border-radius: 14px; background:#2E5AF4; }
+	
+	/* section04 */
+	.mainSec.section04 { padding:60px 0; }
+	.mainSec.section04 img { width:331px; height:198px; }
+	
+	/* search popup */
+	.search-area,
+	.tab-slidemenu { margin-top:20px; }
+	.tab-slidemenu { padding-left:20px; }
+	.listmenu-area { margin-top:33px; }
+	.tab-slidemenu  { display: flex; align-items: center; gap:12px; width:1000px; }
+	.tab-slidemenu > li > a { display:block; line-height: 34px; height: 34px; padding:0 16px; border-radius: 14px; font-size: 14px; font-weight: 400; color:#1447A2; background-color: #F8F8F8; }
+	.listmenu-area ul > li.tit { margin-bottom:30px; font-size:14px; font-weight: 500; color:#666666; }
+
+	/* keyframes */
+	.y-slide { animation-name: y-slide; animation-duration: 0.6s; animation-timing-function: ease; animation-delay: 0.2s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; opacity: 0; transform: translateY(-20px); }
+	@keyframes y-slide {
+		0% { transform: translateX("-20px"); opacity: 0; }
+		100% { transform: translateX(0); opacity: 1; }
+	}
+	
 </style>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="./js/swiper.min.js"></script>
+<script type="text/javascript" src="js/aos.js"></script>
+
 </head>
 <body>
-<div id="wrap">
+<div id="wrap"  style="height:100%;">
+	<header id="headerWrap">
+		<div class="header main">
+			<h1>
+				<a href="./index.html">
+					<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo dp-none">
+					<img src="./img/img_white_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="white-logo">
+				</a>
+			</h1>
+			<nav class="menu-wrap">
+				<div class="menu-util">
+					<div class="search-wrap">
+						<button type="button" class="btn-search"  onclick="openPopup('searchPopup')">검색창 열기</button>
+						<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
+					</div>
+				</div>
+			</nav>
+			
+		</div>
+	</header>
 	<div id="container">
 		<div id="contents">
-			<div class="header">
-				<img src="./img/header_2.png" alt="">
-        <a href="index_frame2.html"></a>
-			</div>
-			<div class="accordion">
-			  <input type="radio" name="accordion" id="answer01">  
-			  <label for="answer01"><img src="./img/acd_t_01.png" alt=""></label>			  
-			  <div><a href="keypad.html">
-          <img class="acd_01" src="./img/acd_01.png" alt="">
-          <img class="acd_02" src="./img/acd_02.png" alt="">
-          <img class="acd_03" src="./img/acd_03.png" alt="">
-        </a></div>       
-			  
-			  <input type="radio" name="accordion" id="answer02">  
-			  <label for="answer02"><img src="./img/acd_t_02.png" alt=""></label>			  
-			  <div><a href="keypad.html">
-          <img class="acd_01" src="./img/acd_04.png" alt="">
-          <img class="acd_02" src="./img/acd_05.png" alt="">
-        </a></div>			  
-			  
-			  <input type="radio" name="accordion" id="answer03">  
-			  <label for="answer03"><img src="./img/acd_t_03.png" alt=""></label>			  
-			  <div><p></p></div>
-			</div>
-			<div class="util">
-				<img src="./img/sticky_bottom2.png" alt="">
-				<a class="link1" href="index_frame2.html"></a>
-				<a class="link2" href="index_frame3.html"></a>
-				<a class="link3" href="index_frame4.html"></a>				
-				<a class="link4" href=""></a>				
-			</div>
-			<div class="menu_all">
-				<img src="./img/menu_all.png" alt="">
-				<button class="close"></button>
-			</div>
+			<section class="mainSec section01">
+				<div class="inner">
+					<img src="./img/main_cont_t.png" alt="">
+					<img src="./img/main_cont_b.png" alt="" class="y-slide">
+				</div>
+			</section>
+
+			<section class="mainSec section02">
+				<div class="inner">
+					<img src="./img/main_sec_2.png" alt="">
+				</div>
+			</section>
+
+			<section class="mainSec section03">
+				<div class="inner">
+					<img src="./img/main_sec_3.png" alt="">
+				</div>
+				<div class="swiper cardSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="./img/slide1.png" alt=""></div>
+						<div class="swiper-slide"><img src="./img/slide3.png" alt=""></div>
+						<div class="swiper-slide"><img src="./img/slide3.png" alt=""></div>
+						<div class="swiper-slide"><img src="./img/slide4.png" alt=""></div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</section>
+
+			<section class="mainSec section04">
+				<div class="inner">
+					<img src="./img/main_sec_4.png" alt="">
+				</div>
+			</section>
+
+			<section class="mainSec section05">
+					<img src="./img/main_sec_5.png" alt="">
+			</section>
+
+			<footer>
+				<img src="./img/footer.png" alt="">
+			</footer>
+		
 		</div>
 	</div>
+
+	
+
+	<div id="searchPopup" class="layerpopup laypop-all">
+		<div class="pop-header">
+			<h2 class="pop-title">전체메뉴</h2>
+			<button type="button" name="button" class="btn-layer-close" onclick="closePopup('searchPopup')">닫기</button>
+		</div>
+		<div class="pop-con-wrap">
+			
+			<div class="search-area">
+				<div class="inner">
+					<img src="./img/search_input.png" alt="">
+				</div>
+				<ul class="tab-slidemenu">
+					<li><a href="javascript:void(0);">예금</a></li>
+					<li><a href="javascript:void(0);">대출</a></li>
+					<li><a href="javascript:void(0);">적금</a></li>
+					<li><a href="javascript:void(0);">인터넷뱅킹</a></li>
+					<li><a href="javascript:void(0);">모바일뱅킹</a></li>
+				</ul>
+			</div>
+
+			<div class="listmenu-area">
+				<div class="inner">
+					<ul>
+						<li class="tit">전체 (1)</li>
+						<li><a href="./index_frame3.html"><img src="./img/search_list.png" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 </div>
-<script>
-$('.util .link4').click(function(){
-    $('.menu_all').addClass('active');    
-    return false;
-}); 
-$('.menu_all .close').click(function () {
-    $('.menu_all').removeClass('active');    
-})
+<script type="text/javascript">
+	$(document).ready(function(){
+		/**
+		 * header white change
+		**/
+		var headerL = (function() {
+			var scrollY = 0; // 스크롤 위치 저장
+
+			return {
+				headerAni: function() {
+					if ($('.header').hasClass('main')) {
+						if (scrollY > 0) {
+							$('.header').addClass('bg-w');
+							$(".white-logo").addClass("dp-none");
+							$(".dark-logo").removeClass("dp-none");
+						} else {
+							$('.header').removeClass('bg-w');
+							$(".dark-logo").addClass("dp-none");
+							$(".white-logo").removeClass("dp-none");
+						}
+					}
+				},
+				// 스크롤 처리
+				scrolling: function () {
+					scrollY = $(window).scrollTop();
+					var documentH = $(document).height();
+					var windowH = $(window).height();
+
+					if (documentH > windowH) {
+						this.headerAni();
+					}
+				},
+			};	
+		})();
+
+		//event
+		$(window).on('scroll', function() {
+			headerL.scrolling();
+		});
+		//resize
+		$(window).on('resize', function () {
+			headerL.scrolling();
+		});
+
+		/**
+		 * swiper
+		**/
+		var swiper = new Swiper(".cardSwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 10,
+			centeredSlides: true,
+			loop:true,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+			autoplay:{
+                delay:3000
+            }
+		});
+
+		/**
+		 * popup
+		**/
+		var popupL = (function() {
+			return {
+				openPopup : function(id) {
+					var _target = $('#' + id);
+					$('html, body').css({ "overflow": "hidden" });
+					_target.show().attr('tabindex', '-1').focus();
+					_target.find('.btn-layer-close').on('click', function(e) {
+						e.preventDefault();
+						closePopup(id);
+					});
+
+				},
+
+				closePopup : function(id){
+					var _target = $('#' + id);
+					$('html, body').css({ "overflow": "" });
+					_target.fadeOut(300);
+				}
+			}
+		})();
+
+		// 전역
+		window.openPopup = popupL.openPopup;
+		window.closePopup = popupL.closePopup;
+
+
+
+	});
 </script>
 </body>
 </html>
