@@ -449,7 +449,7 @@
 					},
 					scrolling: function() {
 						lastY = $(window).scrollTop();
-						seLayout.headerAni();
+						headerL.headerAni();
 					},
 					setSearchActive: function(active) {
 						isSearchActive = active; // 검색 상태 설정
@@ -462,13 +462,18 @@
 				headerL.scrolling();
 			});
 
+			$(window).on('resize', function() {
+				headerL.scrolling();
+			});
+
+
 			/**
 			 * header white button
 			 **/
 			var searchBtn = (function() {
 				return {
 					open: function() {
-						seLayout.setSearchActive(true); // 검색 활성 상태로 설정
+						headerL.setSearchActive(true); // 검색 활성 상태로 설정
 						$(".search-wrap").addClass("on");
 						$(".header").addClass("bg-w");
 						$("body").addClass("overflow-hidden");
@@ -476,13 +481,13 @@
 						$(".dark-logo").removeClass("dp-none");
 					},
 					close: function() {
-						seLayout.setSearchActive(false); // 검색 비활성 상태로 설정
+						headerL.setSearchActive(false); // 검색 비활성 상태로 설정
 						$(".search-wrap").removeClass("on");
 						$(".header").removeClass("bg-w");
 						$("body").removeClass("overflow-hidden");
 						$(".dark-logo").addClass("dp-none");
 						$(".white-logo").removeClass("dp-none");
-						seLayout.headerAni(); // 헤더 상태 갱신
+						headerL.headerAni(); // 헤더 상태 갱신
 					},
 					toggle: function() {
 						if ($(".search-wrap").hasClass("on")) {

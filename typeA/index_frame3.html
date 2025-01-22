@@ -14,10 +14,9 @@
 <style>
 	html , body { width:375px !important; height:812px !important; background: #FFFFFF;}
 	/* ::-webkit-scrollbar{display:none;} */
-	#wrap{width:375px; height:812px;}
+	#wrap{width:375px; height:812px; background: #FFFFFF;}
 	#container{width:375px; height:812px; }
 	#contents{position:relative;width:375px;height:812px;}
-
 	.inner { padding:0 20px; }
 
 	/* Header */
@@ -32,51 +31,6 @@
 	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
 	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
 
-	/* section01 */
-	.mainSec.section01 { width:375px; height:542px; background: url(./img/main_banner_1.png) no-repeat 100%/375px auto; }
-	.mainSec.section01 .inner { padding:100px 24px 0 24px; }
-	.mainSec.section01 .inner img:first-child { width:253px; height:auto; }
-	.mainSec.section01 .inner img:last-child { margin-top: 25px; width:315px; height:auto; }
-
-	/* section02 */
-	.mainSec.section02 { margin:30px 0; }
-
-	/* section03 */
-	.mainSec.section03 { padding:50px 0 57px 0; background: #F8F8F8;}
-
-	.swiper.cardSwiper { width: 100%; height: 100%; padding:40px 0; }
-	.swiper.cardSwiper .swiper-wrapper { transition-timing-function: linear; }
-	.swiper.cardSwiper  .swiper-slide {
-		text-align: center;
-		font-size: 18px;
-		background: #fff;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width:270px;
-		height:300px;
-		border-radius: 15px;
-	}
-	.swiper.cardSwiper  .swiper-slide:not(.swiper-slide.swiper-slide-active) {
-		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.12);
-	}
-	.swiper.cardSwiper .swiper-slide img {
-		display: block;
-		object-fit: cover;
-		width:176px;
-	}
-	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
-		background:#1447A2;
-	}
-
-	/* sweipr pagination */
-	.swiper.cardSwiper .swiper-pagination-bullet { width:14px; height:14px; }
-	.swiper.cardSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:34px; border-radius: 14px; background:#2E5AF4; }
-	
-	/* section04 */
-	.mainSec.section04 { padding:60px 0; }
-	.mainSec.section04 img { width:331px; height:198px; }
-	
 	/* search popup */
 	.search-area,
 	.tab-slidemenu { margin-top:20px; }
@@ -86,26 +40,41 @@
 	.tab-slidemenu > li > a { display:block; line-height: 34px; height: 34px; padding:0 16px; border-radius: 14px; font-size: 14px; font-weight: 400; color:#1447A2; background-color: #F8F8F8; }
 	.listmenu-area ul > li.tit { margin-bottom:30px; font-size:14px; font-weight: 500; color:#666666; }
 
-	/* keyframes */
-	.y-slide { animation-name: y-slide; animation-duration: 0.6s; animation-timing-function: ease; animation-delay: 0.2s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; opacity: 0; transform: translateY(-20px); }
-	@keyframes y-slide {
-		0% { transform: translateX("-20px"); opacity: 0; }
-		100% { transform: translateX(0); opacity: 1; }
-	}
-	
+  /* sub section01 */
+  .sub-section01 { margin-top:50px; }
+  .sub-section01 img { width:302px; height:279px; }
+
+  /* sub section02 */
+  .sub-section02 { margin-top:42px; }
+  /* 아코디언 */
+	.accordion-area .accordion-list + li { margin-top:20px; }
+	.accordion-area .accordion-list > .tit { display:flex; align-items: center; justify-content: space-between;  width:100%; height:51px; padding:0 10px 0 20px; border-radius: 10px; background: #EEF2F9; }
+	.accordion-area .accordion-list > .tit > p { font-size:18px; font-weight: 600; color:#242424; }
+
+	.accordion-area .accordion-list > .tit > .ic-arr { font-size:0; width:48px; height:48px; background-color: #111111; -webkit-mask-image:url(./img/ico_arrow.svg); -webkit-mask-repeat:no-repeat; -webkit-mask-size:auto 32px; -webkit-mask-position:center; }
+	.accordion-area .accordion-list > .tit:has(.ic-arr:focus-visible) { outline:1px solid #000000; }
+	.accordion-area .accordion-list > .cont { display: none; margin:40px 0;  }
+
+	.accordion-area .accordion-list.on > .tit  { background: #1447A2; }
+	.accordion-area .accordion-list.on > .tit > p { font-weight: 400; color:#FFFFFF; }
+	.accordion-area .accordion-list.on > .tit > .ic-arr { transform: rotate(180deg); background-color: #FFFFFF;  }
+
+	.accordion-area .accordion-list.on > .cont { display: block; }
+
+   /* sub section03 */
+  .sub-section03 { margin:40px 0 54px 0; }
+
 </style>
-<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/aos.js"></script>
 
 </head>
 <body>
 <div id="wrap"  style="height:100%;">
 	<header id="headerWrap">
-		<div class="header main">
+		<div class="header bg-w">
 			<h1>
 				<a href="./index.html">
-					<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo dp-none">
-					<img src="./img/img_white_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="white-logo">
+					<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo">
 				</a>
 			</h1>
 			<nav class="menu-wrap">
@@ -121,43 +90,38 @@
 	</header>
 	<div id="container">
 		<div id="contents">
-			<section class="mainSec section01">
-				<div class="inner">
-					<img src="./img/main_cont_t.png" alt="">
-					<img src="./img/main_cont_b.png" alt="" class="y-slide">
-				</div>
-			</section>
+			<section class="sub-title-area">
+					<img src="./img/sub_tit.png" alt="">
+      </section>
 
-			<section class="mainSec section02">
-				<div class="inner">
-					<img src="./img/main_sec_2.png" alt="">
-				</div>
-			</section>
+      <section class="sub-section01">
+        <div class="inner">
+          <img src="./img/sub_1.png" alt="">
+        </div>
+      </section>
 
-			<section class="mainSec section03">
-				<div class="inner">
-					<img src="./img/main_sec_3.png" alt="">
-				</div>
-				<div class="swiper cardSwiper">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide"><img src="./img/slide1.png" alt=""></div>
-						<div class="swiper-slide"><img src="./img/slide3.png" alt=""></div>
-						<div class="swiper-slide"><img src="./img/slide3.png" alt=""></div>
-						<div class="swiper-slide"><img src="./img/slide4.png" alt=""></div>
-					</div>
-					<div class="swiper-pagination"></div>
-				</div>
-			</section>
+      <section class="sub-section02">
+        <div class="inner">
+          <div class="accordion-wrap">
+            <ul class="accordion-area accordionToggle">
+              <li class="accordion-list">
+                <div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
+                <div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
+              </li>
+              <li class="accordion-list">
+                <div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
+                <div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-			<section class="mainSec section04">
-				<div class="inner">
-					<img src="./img/main_sec_4.png" alt="">
-				</div>
-			</section>
-
-			<section class="mainSec section05">
-					<img src="./img/main_sec_5.png" alt="">
-			</section>
+      <section class="sub-section03">
+        <div class="inner">
+          <img src="./img/sub_3.png" alt="">
+        </div>
+      </section>
 
 			<footer>
 				<img src="./img/footer.png" alt="">
@@ -203,64 +167,7 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
-		/**
-		 * header white change
-		**/
-		var headerL = (function() {
-			var scrollY = 0; // 스크롤 위치 저장
-
-			return {
-				headerAni: function() {
-					if ($('.header').hasClass('main')) {
-						if (scrollY > 0) {
-							$('.header').addClass('bg-w');
-							$(".white-logo").addClass("dp-none");
-							$(".dark-logo").removeClass("dp-none");
-						} else {
-							$('.header').removeClass('bg-w');
-							$(".dark-logo").addClass("dp-none");
-							$(".white-logo").removeClass("dp-none");
-						}
-					}
-				},
-				// 스크롤 처리
-				scrolling: function () {
-					scrollY = $(window).scrollTop();
-					var documentH = $(document).height();
-					var windowH = $(window).height();
-
-					if (documentH > windowH) {
-						this.headerAni();
-					}
-				},
-			};	
-		})();
-
-		//event
-		$(window).on('scroll', function() {
-			headerL.scrolling();
-		});
-		//resize
-		$(window).on('resize', function () {
-			headerL.scrolling();
-		});
-
-		/**
-		 * swiper
-		**/
-		var swiper = new Swiper(".cardSwiper", {
-			slidesPerView: "auto",
-			spaceBetween: 10,
-			centeredSlides: true,
-			loop:true,
-			pagination: {
-				el: ".swiper-pagination",
-				clickable: true,
-			},
-			autoplay:{
-                delay:3000
-            }
-		});
+	
 
 		/**
 		 * popup
@@ -290,7 +197,36 @@
 		window.openPopup = popupL.openPopup;
 		window.closePopup = popupL.closePopup;
 
+    /**
+     * accortion
+     **/
+    var accordionToggle = (function() {
+      return {
+        open: function(target) {
+          target.addClass("on");
+          target.attr("title", "닫기");
+        },
+        close: function(target) {
+          target.removeClass("on");
+          target.attr("title", "열기");
+        },
+        toggle: function(target) {
+          if (target.hasClass("on")) {
+            this.close(target);
+          } else {
+            this.open(target);
+          }
+        }
+      };
+    })();
 
+    /**
+     * Event binding
+     */
+    $(document).on("click", ".accordionToggle .accordion-list > .tit", function() {
+      var $currentAccordion = $(this).closest(".accordion-list");
+      accordionToggle.toggle($currentAccordion);
+    });
 
 	});
 </script>
