@@ -12,9 +12,9 @@
 <script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
 
 <style>
-	html , body { width:375px !important; height:812px !important; }
+	html , body { width:375px !important; height:812px !important; background: #FFFFFF;}
 	/* ::-webkit-scrollbar{display:none;} */
-	#wrap{width:375px; height:812px; background: #FFFFFF;}
+	#wrap{width:375px; height:812px;}
 	#container{width:375px; height:812px; }
 	#contents{position:relative;width:375px;height:812px;}
 
@@ -44,12 +44,8 @@
 	/* section03 */
 	.mainSec.section03 { padding:50px 0 57px 0; background: #F8F8F8;}
 
-	.swiper.cardSwiper {
-		width: 100%;
-		height: 100%;
-		padding:40px 0;
-	}
-
+	.swiper.cardSwiper { width: 100%; height: 100%; padding:40px 0; }
+	.swiper.cardSwiper .swiper-wrapper { transition-timing-function: linear; }
 	.swiper.cardSwiper  .swiper-slide {
 		text-align: center;
 		font-size: 18px;
@@ -60,9 +56,8 @@
 		width:270px;
 		height:300px;
 		border-radius: 15px;
-
 	}
-	.swiper.cardSwiper  .swiper-slide:not(.swiper-slide.swiper-slide-active) { 
+	.swiper.cardSwiper  .swiper-slide:not(.swiper-slide.swiper-slide-active) {
 		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.12);
 	}
 	.swiper.cardSwiper .swiper-slide img {
@@ -74,24 +69,37 @@
 		background:#1447A2;
 	}
 
+	/* sweipr pagination */
+	.swiper.cardSwiper .swiper-pagination-bullet { width:14px; height:14px; }
+	.swiper.cardSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:34px; border-radius: 14px; background:#2E5AF4; }
+	
+	/* section04 */
+	.mainSec.section04 { padding:60px 0; }
+	.mainSec.section04 img { width:331px; height:198px; }
+	
 	/* search popup */
 	.search-area,
 	.tab-slidemenu { margin-top:20px; }
 	.tab-slidemenu { padding-left:20px; }
 	.listmenu-area { margin-top:33px; }
-
 	.tab-slidemenu  { display: flex; align-items: center; gap:12px; width:1000px; }
 	.tab-slidemenu > li > a { display:block; line-height: 34px; height: 34px; padding:0 16px; border-radius: 14px; font-size: 14px; font-weight: 400; color:#1447A2; background-color: #F8F8F8; }
+	.listmenu-area ul > li.tit { margin-bottom:30px; font-size:14px; font-weight: 500; color:#666666; }
 
-	.listmenu-area ul > li.tit { font-size:14px; font-weight: 500; color:#666666; }
-
+	/* keyframes */
+	.y-slide { animation-name: y-slide; animation-duration: 0.6s; animation-timing-function: ease; animation-delay: 0.2s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; opacity: 0; transform: translateY(-20px); }
+	@keyframes y-slide {
+		0% { transform: translateX("-20px"); opacity: 0; }
+		100% { transform: translateX(0); opacity: 1; }
+	}
+	
 </style>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/aos.js"></script>
 
 </head>
 <body>
-<div id="wrap">
+<div id="wrap"  style="height:100%;">
 	<header id="headerWrap">
 		<div class="header main">
 			<h1>
@@ -116,7 +124,7 @@
 			<section class="mainSec section01">
 				<div class="inner">
 					<img src="./img/main_cont_t.png" alt="">
-					<img src="./img/main_cont_b.png" alt="">
+					<img src="./img/main_cont_b.png" alt="" class="y-slide">
 				</div>
 			</section>
 
@@ -140,8 +148,25 @@
 					<div class="swiper-pagination"></div>
 				</div>
 			</section>
+
+			<section class="mainSec section04">
+				<div class="inner">
+					<img src="./img/main_sec_4.png" alt="">
+				</div>
+			</section>
+
+			<section class="mainSec section05">
+					<img src="./img/main_sec_5.png" alt="">
+			</section>
+
+			<footer>
+				<img src="./img/footer.png" alt="">
+			</footer>
+		
 		</div>
 	</div>
+
+	
 
 	<div id="searchPopup" class="layerpopup laypop-all">
 		<div class="pop-header">
@@ -232,6 +257,9 @@
 				el: ".swiper-pagination",
 				clickable: true,
 			},
+			autoplay:{
+                delay:3000
+            }
 		});
 
 		/**
