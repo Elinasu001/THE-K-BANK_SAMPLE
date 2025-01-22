@@ -70,9 +70,10 @@ button { border:0; font-size:0; cursor: pointer; }
 
 /* 팝업 */
 /*** 팝업 ***/
-.layerpopup .btn-layer-close { position:absolute; top:21px; right:20px; z-index:22; width:24px; height:24px; background:url("../images/common/btn_close.png") no-repeat 50%/24px auto; text-indent:-9999px; }
-.layerpopup.on { z-index: 1000; }
+.layerpopup { z-index: 1000; display:none; background:#FFFFFF; -webkit-overflow-scrolling:touch; overflow-y: auto;}
+.layerpopup .btn-layer-close { position:absolute; top:5px; right:10px; width:40px; height:40px; background:url("../img/ic-close-header.png") no-repeat 50%/24px auto; text-indent:-9999px; }
 /** 레이어 풀팝업 **/
-.layerpopup.laypop-all{position:fixed;top:0;left:0;right:0;bottom:0;width:100%; height:100%; border-top:none; background:#fff;}
-.layerpopup.laypop-all .pop-header {position:fixed;top:0;left:0;right:0;height:50px; line-height:50px; padding:0 20px; background:#fff;text-align:center;line-height:50px;}
-.layerpopup.laypop-all .pop-header .pop-title { font-size:0.88889rem; font-weight:500; }
+.layerpopup.laypop-all { position:fixed;top:0;left:0; right:0;bottom:0;width:100%; height:100%; border-top:none;}
+.layerpopup.laypop-all .pop-header { position:fixed; top:0; left:0; right:0; height:50px; line-height:50px; padding:0 20px; background:#FFFFFF; text-align:center; }
+.layerpopup.laypop-all .pop-header .pop-title { text-align: center; font-size:16px; font-weight:500; color:#242424; }
+.layerpopup.laypop-all .pop-con-wrap { margin-top:50px; overflow: hidden; }

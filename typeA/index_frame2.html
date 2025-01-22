@@ -62,21 +62,28 @@
 		border-radius: 15px;
 
 	}
-
 	.swiper.cardSwiper  .swiper-slide:not(.swiper-slide.swiper-slide-active) { 
 		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.12);
 	}
-
 	.swiper.cardSwiper .swiper-slide img {
 		display: block;
 		object-fit: cover;
 		width:176px;
 	}
-
-
 	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
 		background:#1447A2;
 	}
+
+	/* search popup */
+	.search-area,
+	.tab-slidemenu { margin-top:20px; }
+	.tab-slidemenu { padding-left:20px; }
+	.listmenu-area { margin-top:33px; }
+
+	.tab-slidemenu  { display: flex; align-items: center; gap:12px; width:1000px; }
+	.tab-slidemenu > li > a { display:block; line-height: 34px; height: 34px; padding:0 16px; border-radius: 14px; font-size: 14px; font-weight: 400; color:#1447A2; background-color: #F8F8F8; }
+
+	.listmenu-area ul > li.tit { font-size:14px; font-weight: 500; color:#666666; }
 
 </style>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
@@ -96,7 +103,7 @@
 			<nav class="menu-wrap">
 				<div class="menu-util">
 					<div class="search-wrap">
-						<button type="button" class="btn-search">검색창 열기</button>
+						<button type="button" class="btn-search"  onclick="openPopup('searchPopup')">검색창 열기</button>
 						<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
 					</div>
 				</div>
@@ -136,21 +143,35 @@
 		</div>
 	</div>
 
-	<div id="all-menu-view" class="layerpopup laypop-all on show" tabindex="0" data-focus-prev="btn-menu-close" style="display: block;">
-		<div class="pop-header none-bor">
+	<div id="searchPopup" class="layerpopup laypop-all">
+		<div class="pop-header">
 			<h2 class="pop-title">전체메뉴</h2>
-			<button type="button" name="button" class="btn-layer-close" onclick="closePopup('all-menu-view')">닫기</button>
+			<button type="button" name="button" class="btn-layer-close" onclick="closePopup('searchPopup')">닫기</button>
 		</div>
 		<div class="pop-con-wrap">
-			<div class="search-wrap">
-				<div class="search-area">
-					
+			
+			<div class="search-area">
+				<div class="inner">
+					<img src="./img/search_input.png" alt="">
+				</div>
+				<ul class="tab-slidemenu">
+					<li><a href="javascript:void(0);">예금</a></li>
+					<li><a href="javascript:void(0);">대출</a></li>
+					<li><a href="javascript:void(0);">적금</a></li>
+					<li><a href="javascript:void(0);">인터넷뱅킹</a></li>
+					<li><a href="javascript:void(0);">모바일뱅킹</a></li>
+				</ul>
+			</div>
+
+			<div class="listmenu-area">
+				<div class="inner">
+					<ul>
+						<li class="tit">전체 (1)</li>
+						<li><a href="./index_frame3.html"><img src="./img/search_list.png" alt=""></a></li>
+					</ul>
 				</div>
 			</div>
-			
-			<div class="listmenu-box">
-				
-			</div>
+
 		</div>
 	</div>
 
@@ -158,18 +179,14 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		/**
-		 * load
-		**/
-
-		/**
 		 * header white change
 		**/
-		var seLayout = (function() {
+		var headerL = (function() {
 			var scrollY = 0; // 스크롤 위치 저장
 
 			return {
 				headerAni: function() {
-					if ($('.header').hasClass('main')) { // 검색 상태가 아닌 경우만 처리
+					if ($('.header').hasClass('main')) {
 						if (scrollY > 0) {
 							$('.header').addClass('bg-w');
 							$(".white-logo").addClass("dp-none");
@@ -196,11 +213,11 @@
 
 		//event
 		$(window).on('scroll', function() {
-			seLayout.scrolling();
+			headerL.scrolling();
 		});
 		//resize
 		$(window).on('resize', function () {
-			seLayout.scrolling();
+			headerL.scrolling();
 		});
 
 		/**
@@ -220,6 +237,31 @@
 		/**
 		 * popup
 		**/
+		var popupL = (function() {
+			return {
+				openPopup : function(id) {
+					var _target = $('#' + id);
+					$('html, body').css({ "overflow": "hidden" });
+					_target.show().attr('tabindex', '-1').focus();
+					_target.find('.btn-layer-close').on('click', function(e) {
+						e.preventDefault();
+						closePopup(id);
+					});
+
+				},
+
+				closePopup : function(id){
+					var _target = $('#' + id);
+					$('html, body').css({ "overflow": "" });
+					_target.fadeOut(300);
+				}
+			}
+		})();
+
+		// 전역
+		window.openPopup = popupL.openPopup;
+		window.closePopup = popupL.closePopup;
+
 
 
 	});
