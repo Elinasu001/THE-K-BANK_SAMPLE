@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="Author" content="FUZ UI.DEV." />
+<meta name="viewport" content="width=device-width">
+<meta name="format-detection" content="telephone=no" />
+<title>한국투자저축은행</title>
+<link type="text/css" rel="stylesheet" href="./css/tablet.css"/>
+<link type="text/css" rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
+<style type="text/css">
+
+	/* Header */
+	#headerWrap .header {  transition: 0.1s linear;  }
+	#headerWrap .menu-wrap > ul > li > a,
+	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
+
+	/* common */
+	#contentsWrap { padding-top:142px; }
+	.mainSec { display: flex; justify-content: center; margin:0 auto; }
+	.inner { width:1400px; }
+	
+	/* button */
+	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
+	
+	footer { display: flex; align-items: center; justify-content: center; height: 350px; background: #000000; }
+
+	/* link */
+	.search-inner { position: relative; }
+	.link { content: ''; position: absolute; left:0; bottom:60px; width:900px; height:162px; }
+
+	/* keyframes */
+	.y-slide { animation-name: y-slide; animation-duration: 0.6s; animation-timing-function: ease; animation-delay: 0.2s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; opacity: 0; transform: translateY(-20px); }
+	@keyframes y-slide {
+		0% { transform: translateX("-20px"); opacity: 0; }
+		100% { transform: translateX(0); opacity: 1; }
+	}
+	/* section01 */
+	.mainSec.section01 { margin-top:30px; }
+
+	/* section01 swiper */
+	.mainSec.section01 .main-swiper-wrap { display:flex; margin-top:52px; gap:18px; min-width:1511px; }
+	.swiper.bannerSwiper{ flex:0 0 944px; width:944px; height:549px; }
+	.swiper.bannerSwiper .swiper-pagination { left:50px; bottom:50px; width:initial; }
+	.swiper.bannerSwiper .swiper-pagination-bullet { width:17px; height:17px; background-color: #FFFFFF; opacity: 0.2; }
+	.swiper.bannerSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:42px; opacity: 1; border-radius: 15px;}
+
+	.swiper.etcSwiper  {position: relative; }
+	.swiper.etcSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:50px; height:100%; background: #F8F8F8; z-index: 1; background: linear-gradient(to left, rgba(248, 248, 248, 0.9), rgba(248, 248, 248, 0)); }
+	.swiper.etcSwiper .swiper-slide { display: flex; width:360px !important; height:549px; background:linear-gradient(#D2DFED, #DFE9F1); border-radius: 30px; }
+	.swiper.etcSwiper .swiper-slide.swiper-slide-active { background:linear-gradient(#284272, #142139); }
+
+	.swiper.etcSwiper .swiper-button-prev,
+	.swiper.etcSwiper .swiper-button-next { width:48px; height: 48px; border-radius: 12px; background-color: rgba(0, 0, 0, 0.2); }
+	.swiper.etcSwiper .swiper-button-prev::after,
+	.swiper.etcSwiper .swiper-button-next::after { content: ""; position: absolute; width:48px; height:48px; background-color:#FFFFFF; -webkit-mask:url(./img/ic_swiper_arr.svg) no-repeat center; }
+	.swiper.etcSwiper .swiper-button-prev::after { transform: rotate(180deg); }
+	.swiper.etcSwiper .swiper-button-prev { left:20px; }
+	.swiper.etcSwiper .swiper-button-next { right:80px; }
+	.swiper.etcSwiper .swiper-slide img { width: 295px; height: auto; }
+
+	.swiper-slide { text-align: center; font-size: 18px; background: #fff; display: flex; justify-content: center; align-items: center; }
+	.swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+	/* section02 */
+	.mainSec.section02 { display:flex; align-items:center; margin-top:100px; height: 582px; background-color: #F4F7FC;}
+	.mainSec.section02 img { width:1400px; height: 432px; }
+
+	/* section03*/
+	.mainSec.section03 .inner { display:flex; align-items: center; gap:30px; margin-top:90px; }
+	.mainSec.section03 .inner > img { width:calc(100%/2); }
+
+	/* section03 swiper */
+	.swiper.noticeSwiper .swiper-slide { width:670px !important; }
+	.swiper.noticeSwiper .swiper-pagination { left:25px; bottom:20px; width:initial; }
+	.swiper.noticeSwiper .swiper-pagination-bullet { width:14px; height:14px; background-color: #FFFFFF; opacity: 0.2; }
+	.swiper.noticeSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:42px; opacity: 1; border-radius: 15px;}
+
+	/* section04*/
+	.mainSec.section04 { margin-top:80px; }
+
+	/* section05*/
+	.mainSec.section05 { margin-top:69px; }
+
+    /* section06*/
+	.mainSec.section06 { margin-top:94px; padding:13px 0;  border-top:2px solid #EEEEEE;}
+
+	/* 검색창 */
+	.search-area { display:flex; align-items: center; justify-content: center; }
+
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<header id="headerWrap">
+			<div class="header bg-w">
+				<div class="inner">
+					<ul class="top-header">
+						<li><a href="#none">상품공시실</a></li>
+						<li><a href="#none">한국교직원공제회</a></li>
+						<li><a href="#none">원격지원서비스</a></li>
+					</ul>
+					<div class="btm-header">
+						<h1>
+							<a href="./index.html">
+								<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo">
+							</a>
+						</h1>
+						<nav class="menu-wrap">
+							<ul>
+								<li><a href="#none">예금상품</a></li>
+								<li><a href="#none">대출상품</a></li>
+								<li><a href="#none">금융정보</a></li>
+								<li><a href="#none">금융소비자보호</a></li>
+								<li><a href="#none">은행소개</a></li>
+							</ul>
+							<div class="menu-util">
+								<button type="button" class="btn-search"  onclick="openPopup('searchPopup')">검색창 열기</button>
+								<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div id="contentsWrap">
+			<section class="mainSec section01">
+				<div class="inner">
+					<img src="./img/section01.png" alt="">
+					<div class="main-swiper-wrap">
+						<div class="swiper bannerSwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide"><img src="./img/banner01.png" alt=""></div>
+								<div class="swiper-slide"><img src="./img/banner01.png" alt=""></div>
+								<div class="swiper-slide"><img src="./img/banner01.png" alt=""></div>
+								<div class="swiper-slide"><img src="./img/banner01.png" alt=""></div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+						<div class="swiper etcSwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide"><a href="#none"><img src="./img/etc01.png" alt=""></a></div>
+								<div class="swiper-slide"><a href="#none"><img src="./img/etc01.png" alt=""></a></div>
+								<div class="swiper-slide"><a href="#none"><img src="./img/etc01.png" alt=""></a></div>
+							</div>
+							<div class="swiper-button-wrap">
+								<div class="swiper-button-next"></div>
+								<div class="swiper-button-prev"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="mainSec section02">
+				<div class="inner">
+					<img src="./img/section02.png" alt="">
+				</div>
+			</section>
+
+			<section class="mainSec section03">
+				<div class="inner">
+					<img src="./img/section03_l.png" alt="">
+					<div class="swiper noticeSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+			</section>
+
+			<section class="mainSec section04">
+				<div class="inner">
+					<img src="./img/section04.png" alt="">
+				</div>
+			</section>
+
+			<section class="mainSec section05">
+				<div class="inner">
+					<img src="./img/section05.png" alt="">
+				</div>
+			</section>
+
+            <section class="mainSec section06">
+				<div class="inner">
+					<img src="./img/section06.png" alt="">
+				</div>
+			</section>
+
+		</div>
+
+		<footer>
+			<div class="inner">
+				<img src="./img/footer.png" alt="">
+			</div>
+		</footer>
+
+		
+	<div id="searchPopup" class="layerpopup laypop-all">
+		<div class="pop-header">
+			<div class="inner">
+				<!-- <h2 class="pop-title">전체메뉴</h2> -->
+				<button type="button" name="button" class="btn-layer-close" onclick="closePopup('searchPopup')">닫기</button>
+			</div>
+		</div>
+		<div class="pop-con-wrap">
+			
+			<div class="search-area">
+				<div class="inner">
+					<a href="./index_sub.html"><img src="./img/img_search.png" alt=""></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+    <script>
+		$(document).ready(function(){
+
+			/**
+			 * header white change
+			**/
+			var headerL = (function() {
+				var scrollY = 0; // 스크롤 위치 저장
+
+				return {
+					headerAni: function() {
+						if (scrollY > 0) {
+							$('.header').addClass('on');
+							
+						} else {
+							$('.header').removeClass('on');
+						}
+					},
+					// 스크롤 처리
+					scrolling: function () {
+						scrollY = $(window).scrollTop();
+						var documentH = $(document).height();
+						var windowH = $(window).height();
+
+						if (documentH > windowH) {
+							this.headerAni();
+						}
+					},
+				};	
+			})();
+
+			//event
+			$(window).on('scroll', function() {
+				headerL.scrolling();
+			});
+			//resize
+			$(window).on('resize', function () {
+				headerL.scrolling();
+			});
+
+
+
+			/**
+			 * popup
+			**/
+			var popupL = (function() {
+				return {
+					openPopup : function(id) {
+						var _target = $('#' + id);
+						$('html, body').css({ "overflow": "hidden" });
+						_target.show().attr('tabindex', '-1').focus();
+						_target.find('.btn-layer-close').on('click', function(e) {
+							e.preventDefault();
+							closePopup(id);
+						});
+
+					},
+
+					closePopup : function(id){
+						var _target = $('#' + id);
+						$('html, body').css({ "overflow": "" });
+						_target.fadeOut(300);
+					}
+				}
+			})();
+
+			// 전역
+			window.openPopup = popupL.openPopup;
+			window.closePopup = popupL.closePopup;
+
+			/**
+			 *  bannerSwiper
+			 **/
+			var bannerSwiper = new Swiper(".bannerSwiper", {
+				slidesPerView: '1',
+				spaceBetween: 20,
+				autoplay:{
+					delay:2000,
+				},
+				loop: true,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+			});
+			
+			/**
+			 *  etcSwiper
+			 **/
+			var etcSwiper = new Swiper(".etcSwiper", {
+				slidesPerView: '1.5',
+				spaceBetween: 20,
+				initialSlide: 0,
+				allowTouchMove: false,
+				loop:true,
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+			});
+
+			/**
+			 *  noticeSwiper
+			 **/
+			var noticeSwiper = new Swiper(".noticeSwiper", {
+				slidesPerView: '1',
+				spaceBetween: 20,
+				autoplay: {
+					delay: 3000,
+				},
+				loop: true,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+			});
+
+		});
+    </script>
+</body>
+</html>
