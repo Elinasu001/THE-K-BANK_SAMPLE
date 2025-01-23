@@ -3,80 +3,229 @@
 <head>
 <meta charset="utf-8" />
 <meta name="Author" content="FUZ UI.DEV." />
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no" />
 <title>한국투자저축은행</title>
 <link type="text/css" rel="stylesheet" href="css/mobile.css" />
-<link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
-<style>
-	html , body {overflow:auto; width:375px !important; height:812px !important;}
-::-webkit-scrollbar{display:none;}
-	#wrap{width:375px;height:812px;margin:0;padding:0;}
-	#container{width:375px;}
-	#contents{overflow-x:hidden;position:relative;width:375px;height:812px;}
+<link type="text/css" rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
 
-	.img {position:relative;z-index:2;}
-	.img a {position:absolute;left:10px;top:0px;width:45px;height:45px;}
-	.img2 {position:relative;z-index:1;overflow-y:auto;height:569px;margin-top:-30px;background-color:#fff;}
-	.img2 span {margin-top:40px;opacity:0;transition:all .5s .2s ease-out;}
-	.img2 span.on {opacity:1; margin-top:0;}
-	
-	.img2 span:first-child {animation:opaUp .2s ease-out forwards;}
-	.img2 span:nth-child(2) {animation:opaUp .2s .2s ease-out forwards;}
-	.img2 span:nth-child(3) {animation:opaUp .2s .4s ease-out forwards;}
-	.img2 span:nth-child(4) {animation:opaUp .2s .6s ease-out forwards;}
-	.img2 span:nth-child(5) {animation:opaUp .2s .8s ease-out forwards;}
-	.img2 span:nth-child(6) {animation:opaUp .2s 1s ease-out forwards;}
-	@keyframes opaUp {
-	0% {
-		opacity:0;
-		margin-top:40px;
-	}
-	100% {
-		opacity:1;
-		margin-top:0;
-	}
-}
+<style>
+	html , body { width:375px !important; height:812px !important; background: #FFFFFF;}
+	/* ::-webkit-scrollbar{display:none;} */
+	#wrap{width:375px; height:812px; background: #FFFFFF;}
+	#container{width:375px; height:812px; }
+	#contents{position:relative;width:375px;height:812px;}
+	.inner { padding:0 20px; }
+
+	/* Header */
+	#headerWrap > .header {  transition: 0.1s linear;  }
+	#headerWrap .menu-wrap > ul > li > a,
+	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
+
+	#headerWrap > .header > h1 img{ width:109px; height: auto; }
+
+	/* button */
+	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
+
+	/* search popup */
+	.search-area,
+	.tab-slidemenu { margin-top:20px; }
+	.tab-slidemenu { padding-left:20px; }
+	.listmenu-area { margin-top:33px; }
+	.tab-slidemenu  { display: flex; align-items: center; gap:12px; width:1000px; }
+	.tab-slidemenu > li > a { display:block; line-height: 34px; height: 34px; padding:0 16px; border-radius: 14px; font-size: 14px; font-weight: 400; color:#1447A2; background-color: #F8F8F8; }
+	.listmenu-area ul > li.tit { margin-bottom:30px; font-size:14px; font-weight: 500; color:#666666; }
+
+	/* sub section01 */
+	.sub-section01 { margin-top:50px; }
+	.sub-section01 img { width:302px; height:279px; }
+
+	/* sub section02 */
+	.sub-section02 { margin-top:42px; }
+	/* 아코디언 */
+	.accordion-area .accordion-list + li { margin-top:20px; }
+	.accordion-area .accordion-list > .tit { display:flex; align-items: center; justify-content: space-between;  width:100%; height:51px; padding:0 10px 0 20px; border-radius: 10px; background: #EEF2F9; }
+	.accordion-area .accordion-list > .tit > p { font-size:18px; font-weight: 600; color:#242424; }
+
+	.accordion-area .accordion-list > .tit > .ic-arr { font-size:0; width:48px; height:48px; background-color: #111111; -webkit-mask-image:url(./img/ico_arrow.svg); -webkit-mask-repeat:no-repeat; -webkit-mask-size:auto 32px; -webkit-mask-position:center; transition: 0.2s linear;}
+	.accordion-area .accordion-list > .tit:has(.ic-arr:focus-visible) { outline:1px solid #000000; }
+	.accordion-area .accordion-list > .cont { display: none; margin:40px 0;  }
+
+	.accordion-area .accordion-list.on > .tit  { background: #1447A2; }
+	.accordion-area .accordion-list.on > .tit > p { font-weight: 400; color:#FFFFFF; }
+	.accordion-area .accordion-list.on > .tit > .ic-arr { transform: rotate(180deg); background-color: #FFFFFF;  }
+
+	.accordion-area .accordion-list.on > .cont { display: block; }
+
+   /* sub section03 */
+	.sub-section03 { margin:40px 0 54px 0; }
+
 </style>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/aos.js"></script>
+
 </head>
 <body>
-<div id="wrap">
+<div id="wrap"  style="height:100%;">
+	<header id="headerWrap">
+		<div class="header bg-w">
+			<h1>
+				<a href="./index.html">
+					<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo">
+				</a>
+			</h1>
+			<nav class="menu-wrap">
+				<div class="menu-util">
+					<div class="search-wrap">
+						<button type="button" class="btn-search"  onclick="openPopup('searchPopup')">검색창 열기</button>
+						<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
+					</div>
+				</div>
+			</nav>
+			
+		</div>
+	</header>
 	<div id="container">
 		<div id="contents">
-			<div class="img">
-				<img src="img/img_03_01.png" alt="">
-				<a href="index_frame2.html"></a>
-			</div>
-			<div class="img2">
-				<span><img src="img/img_03_02.png" alt=""></span>
-				<span><img src="img/img_03_03.png" alt=""></span>
-				<span><img src="img/img_03_04.png" alt=""></span>
-				<span><img src="img/img_03_05.png" alt=""></span>
-				<span><img src="img/img_03_06.png" alt=""></span>
-				<span><img src="img/img_03_07.png" alt=""></span>
-				<span><img src="img/img_03_08.png" alt=""></span>
-				<span><img src="img/img_03_03.png" alt=""></span>
-				<span><img src="img/img_03_04.png" alt=""></span>
-				<span><img src="img/img_03_05.png" alt=""></span>
-				<span><img src="img/img_03_06.png" alt=""></span>
-				<span><img src="img/img_03_07.png" alt=""></span>
-				<span><img src="img/img_03_08.png" alt=""></span>
+			<section class="sub-title-area">
+					<img src="./img/sub_tit.png" alt="">
+		</section>
+
+		<section class="sub-section01">
+		<div class="inner">
+			<img src="./img/sub_1.png" alt="">
+		</div>
+		</section>
+
+		<section class="sub-section02">
+		<div class="inner">
+			<div class="accordion-wrap">
+			<ul class="accordion-area accordionToggle">
+				<li class="accordion-list">
+				<div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
+				<div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
+				</li>
+				<li class="accordion-list">
+				<div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
+				<div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
+				</li>
+			</ul>
 			</div>
 		</div>
-	</div>
-</div>
+		</section>
 
+		<section class="sub-section03">
+		<div class="inner">
+			<img src="./img/sub_3.png" alt="">
+		</div>
+		</section>
+
+			<footer>
+				<img src="./img/footer.png" alt="">
+			</footer>
+		
+		</div>
+	</div>
+
+	<div id="searchPopup" class="layerpopup laypop-all">
+		<div class="pop-header">
+			<h2 class="pop-title">전체메뉴</h2>
+			<button type="button" name="button" class="btn-layer-close" onclick="closePopup('searchPopup')">닫기</button>
+		</div>
+		<div class="pop-con-wrap">
+			
+			<div class="search-area">
+				<div class="inner">
+					<img src="./img/search_input.png" alt="">
+				</div>
+				<ul class="tab-slidemenu">
+					<li><a href="javascript:void(0);">예금</a></li>
+					<li><a href="javascript:void(0);">대출</a></li>
+					<li><a href="javascript:void(0);">적금</a></li>
+					<li><a href="javascript:void(0);">인터넷뱅킹</a></li>
+					<li><a href="javascript:void(0);">모바일뱅킹</a></li>
+				</ul>
+			</div>
+
+			<div class="listmenu-area">
+				<div class="inner">
+					<ul>
+						<li class="tit">전체 (1)</li>
+						<li><a href="./index_frame3.html"><img src="./img/search_list.png" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
 <script type="text/javascript">
-	$('.img2').on('scroll', function(){
-		$('.img2 span').each(function(){
-			var atTop = $(this).offset().top;
-			if(atTop < 760) {
-				$(this).addClass('on');
+	$(document).ready(function(){
+	
+		/**
+		 * popup
+		**/
+		var popupL = (function() {
+			return {
+				openPopup : function(id) {
+					var _target = $('#' + id);
+					$('html, body').css({ "overflow": "hidden" });
+					_target.show().attr('tabindex', '-1').focus();
+					_target.find('.btn-layer-close').on('click', function(e) {
+						e.preventDefault();
+						closePopup(id);
+					});
+
+				},
+
+				closePopup : function(id){
+					var _target = $('#' + id);
+					$('html, body').css({ "overflow": "" });
+					_target.fadeOut(300);
+				}
 			}
-		});
-	})
+		})();
+
+		// 전역
+		window.openPopup = popupL.openPopup;
+		window.closePopup = popupL.closePopup;
+
+    /**
+     * accortion
+     **/
+    var accordionToggle = (function() {
+		return {
+			open: function(target) {
+			target.addClass("on");
+			target.attr("title", "닫기");
+			},
+			close: function(target) {
+			target.removeClass("on");
+			target.attr("title", "열기");
+			},
+			toggle: function(target) {
+			if (target.hasClass("on")) {
+				this.close(target);
+			} else {
+				this.open(target);
+			}
+			}
+		};
+    })();
+
+    /**
+     * Event binding
+     */
+    $(document).on("click", ".accordionToggle .accordion-list > .tit", function() {
+		var $currentAccordion = $(this).closest(".accordion-list");
+		accordionToggle.toggle($currentAccordion);
+    });
+
+	});
 </script>
 </body>
 </html>

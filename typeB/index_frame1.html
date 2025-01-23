@@ -9,106 +9,23 @@
 <link type="text/css" rel="stylesheet" href="css/mobile.css" />
 <link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
 <style>
-	html , body {overflow:auto; width:375px !important; height:812px !important;}
-::-webkit-scrollbar{display:none;}
-	#wrap{width:375px;height:812px;margin:0;padding:0;}
-	#container{width:375px;}
-	#contents{overflow-x:hidden;position:relative;width:375px;height:812px;overflow: hidden;}
-
-	.img2 {position:absolute;left:40px;top:130px;opacity:0;animation:opaUp .3s .5s ease-in-out forwards;}
-	.img3 {position:absolute;left:40px;top:221px;opacity:0;animation:opaUp .3s .9s ease-in-out forwards;}
-	.img4 {position:absolute;left:40px;top:370px;opacity:0;animation:opaUp .3s 1.3s ease-out forwards;}
-	@keyframes opaUp {
-	0% {
-		opacity:0;
-		margin-top:70px;
-	}
-	100% {
-		opacity:1;
-		margin-top:0;
-	}
-}
-.oval01 {position:absolute; bottom:-95px; right:-88px; animation: opaCircle 2s both; }
-.oval02 {position:absolute; bottom:-293px; right:-297px; animation: rotateCircle 1.5s linear both; }
-@keyframes opaCircle {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-@keyframes rotateCircle {
-	0% {
-		transform: rotate(180deg);
-	}
-	100% {
-		transform: rotate(0deg);
-	}
-}
-@keyframes slide-in-blurred-top {
-	0% {
-		transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-		transform-origin: 50% 0%;
-		filter: blur(40px);
-		opacity: 0;
-  }
-  100% {
-		transform: translateY(0) scaleY(1) scaleX(1);
-		transform-origin: 50% 50%;
-		filter: blur(0);
-		opacity: 1;
-	}
-}
-/* .slide-in-blurred-top {
-	animation: slide-in-blurred-top 0.8s cubic-bezier(0.86, 0, 0.07, 1) both;
-} */
-.img2 {
-	/* animation: slide-in-blurred-top 0.8s .2s cubic-bezier(0.86, 0, 0.07, 1) both; */
-	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-.img3 {
-	/* animation: slide-in-blurred-top 0.8s .3s cubic-bezier(0.86, 0, 0.07, 1) both; */
-	animation: slide-in-left 0.5s .1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-.img4 {
-	/* animation: slide-in-blurred-top 0.8s .5s cubic-bezier(0.86, 0, 0.07, 1) both; */
-	animation: slide-in-left 0.5s .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-@keyframes slide-in-left {
-  0% {
-	transform: translateX(-1000px);
-    opacity: 0;
-  }
-  100% {
-	transform: translateX(0);
-    opacity: 1;
-  }
-}
-.slide-in-left {
-	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
+#wrap{width:375px;height:812px; background: none !important;}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="js/swiper.min.js"></script>
 </head>
 <body>
 <div id="wrap">
 	<div id="container">
 		<div id="contents">
-			<div class="img" onclick="location.href='index_frame2.html'"><img src="img/img_01_01.png" alt=""></div>
-			<div class="img2"><img src="img/img_01_02.png" alt=""></div>
-			<div class="img3"><img src="img/img_01_03.png" alt=""></div>
-			<div class="img4"><img src="img/img_01_04.png" alt=""></div>
-			<div class="oval01"><img src="img/oval_01.png"></div>
-			<div class="oval02"><img src="img/oval_02.png"></div>
+			<div class="main">
+				<a href="index_frame2.html">
+					<div class="font-wrap-bg">
+						<img src="./img/Intro.gif">
+					</div>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	
-</script>
 </body>
 </html>

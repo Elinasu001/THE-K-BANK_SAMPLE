@@ -3,142 +3,295 @@
 <head>
 <meta charset="utf-8" />
 <meta name="Author" content="FUZ UI.DEV." />
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no" />
 <title>한국투자저축은행</title>
 <link type="text/css" rel="stylesheet" href="css/mobile.css" />
-<link type="text/css" rel="stylesheet" href="css/jquery-ui.css" />
-<link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
+<link type="text/css" rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
+
 <style>
-	html , body {overflow:auto; width:375px !important; height:812px !important;}
-::-webkit-scrollbar{display:none;}
-	#wrap{width:375px;height:812px;margin:0;padding:0;}
-	#container{width:375px;}
-	#contents{overflow-x:hidden;position:relative;width:375px;height:812px;}
+	html , body { width:375px !important; height:812px !important; background: #FFFFFF;}
+	/* ::-webkit-scrollbar{display:none;} */
+	#wrap{width:375px; height:812px;}
+	#container{width:375px; height:812px; }
+	#contents{position:relative;width:375px;height:812px;}
+
+	.inner { padding:0 20px; }
+
+	/* Header */
+	#headerWrap > .header {  transition: 0.1s linear;  }
+	#headerWrap .menu-wrap > ul > li > a,
+	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
+
+	#headerWrap > .header > h1 img{ width:109px; height: auto; }
+
+	/* button */
+	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
+
+	/* section01 */
+	.mainSec.section01 { width:375px; height:542px; background: url(./img/main_banner_1.png) no-repeat 100%/375px auto; }
+	.mainSec.section01 .inner { padding:100px 24px 0 24px; }
+	.mainSec.section01 .inner img:first-child { width:253px; height:auto; }
+	.mainSec.section01 .inner img:last-child { margin-top: 25px; width:315px; height:auto; }
+
+	/* section02 */
+	.mainSec.section02 { margin:30px 0; }
+
+	/* section03 */
+	.mainSec.section03 { padding:50px 0 57px 0; background: #F8F8F8;}
+
+	.swiper.cardSwiper { width: 100%; height: 100%; padding:40px 0; }
+	.swiper.cardSwiper .swiper-wrapper { transition-timing-function: linear; }
+	.swiper.cardSwiper  .swiper-slide {
+		text-align: center;
+		font-size: 18px;
+		background: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width:270px;
+		height:284px;
+		border-radius: 15px;
+	}
+	.swiper.cardSwiper  .swiper-slide:not(.swiper-slide.swiper-slide-active) {
+		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.12);
+	}
+	.swiper.cardSwiper .swiper-slide img {
+		display: block;
+		object-fit: cover;
+		width:176px;
+	}
+	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
+		background:#1447A2;
+	}
+
+	/* sweipr pagination */
+	.swiper.cardSwiper .swiper-pagination-bullet { width:14px; height:14px; }
+	.swiper.cardSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:34px; border-radius: 14px; background:#2E5AF4; }
 	
-	.pos {position:relative;}
-
-	.swiper-container.type1 {position:absolute;left:0;top:160px;width:100%;}
-	.swiper-container.type2 {position:absolute;left:0;top:484px;width:100%;padding-left:10px;}
-	.swiper-container.type2 .swiper-slide {position:relative;width:225px;text-align: center;}
-
-	.counter {position:absolute;left:25px;top:177px;display:inline-block;width:58px;height:30px;background-color:#ffcc00;border-radius:3px;color:#fff;font-size:24px;font-weight:bold;line-height:28px;text-align:center;}
-	.ani {position:absolute;left:50%;top:175px;overflow:hidden;width:calc(100% - 15px);height:100px;transform:translateX(-50%);}
-	.ani img {position:absolute;left:50%;top:0;width:317px;margin-left:-157px;transition:all .5s ease-out;transform-origin:center;}
-	.ani.on img {transform:rotate(45deg);}
-
-	.progress_bar {overflow:hidden;position:absolute; left:10px; top:193px; width:90%; height:16px; padding:0 13px; box-sizing:border-box;}
-	.progress_bar .bar {position:relative; width:100%; height:16px; background:rgba(255,255,255,.2);}
-	.progress_bar .bar .gauge {position:absolute; left:0; top:0; width:0; height:16px; background:#ffcc00; border-radius:0 8px 8px 0; transition:all .8s ease-out;}
-	.progress_bar.on .bar .gauge {width:65%;}
+	/* section04 */
+	.mainSec.section04 { padding:60px 0; }
+	.mainSec.section04 img { width:331px; height:198px; }
 	
-	.numeric {position:absolute;left:30px;top:135px;width:calc(100% - 50px);}
-	.numeric:after {content:'';display:block;clear:both;}
-	.numeric button {float:left;width:32px;height:32px;margin:8px 0 0 8px;background:rgba(255,255,255,.2);border:0;border-radius:6px;color:#fff;font-size:14px;font-weight:bold;line-height:30px;text-align:center;outline:0;}
-	.numeric button.on {background:#ffcc00;}
+	/* search popup */
+	.search-area,
+	.tab-slidemenu { margin-top:20px; }
+	.tab-slidemenu { padding-left:20px; }
+	.listmenu-area { margin-top:33px; }
+	.tab-slidemenu  { display: flex; align-items: center; gap:12px; width:1000px; }
+	.tab-slidemenu > li > a { display:block; line-height: 34px; height: 34px; padding:0 16px; border-radius: 14px; font-size: 14px; font-weight: 400; color:#1447A2; background-color: #F8F8F8; }
+	.listmenu-area ul > li.tit { margin-bottom:30px; font-size:14px; font-weight: 500; color:#666666; }
 
-	.swiper-container.type1 .swiper-wrapper { width: 365px; height: 200px; text-align: center; }
-	video { border-radius: 20px; position: relative; z-index: 99; box-shadow:7px 4px 6px rgb(33 33 33 / 6%) }
+	/* keyframes */
+	.y-slide { animation-name: y-slide; animation-duration: 0.6s; animation-timing-function: ease; animation-delay: 0.2s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; opacity: 0; transform: translateY(-20px); }
+	@keyframes y-slide {
+		0% { transform: translateX("-20px"); opacity: 0; }
+		100% { transform: translateX(0); opacity: 1; }
+	}
+	
 </style>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="js/jquery-ui.js"></script>
-<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/aos.js"></script>
+
 </head>
 <body>
-<div id="wrap">
+<div id="wrap"  style="height:100%;">
+	<header id="headerWrap">
+		<div class="header main">
+			<h1>
+				<a href="./index_frame2.html">
+					<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo dp-none">
+					<img src="./img/img_white_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="white-logo">
+				</a>
+			</h1>
+			<nav class="menu-wrap">
+				<div class="menu-util">
+					<div class="search-wrap">
+						<button type="button" class="btn-search"  onclick="openPopup('searchPopup')">검색창 열기</button>
+						<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
+					</div>
+				</div>
+			</nav>
+			
+		</div>
+	</header>
 	<div id="container">
 		<div id="contents">
-			<div class="pos">
-				<div class="img"><img src="img/img_02_08.png" alt=""></div>
-				<div class="swiper-container type1">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<!-- <img src="img/img_02_01.png" alt=""> -->
-							<video src="img/graph_1.mp4" autoplay loop width="335px" height="170px"></video>
-						</div>
-						<div class="swiper-slide">
-							<!-- <img src="img/img_02_02.png" alt=""> -->
-							<video src="img/graph_2.mp4" autoplay loop width="335px" height="170px"></video>
-						</div>
-					</div>
+			<section class="mainSec section01">
+				<div class="inner">
+					<img src="./img/main_cont_t.png" alt="">
+					<img src="./img/main_cont_b.png" alt="" class="y-slide">
 				</div>
-				<div class="swiper-container type2">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<img src="img/img_02_03.png" alt="">
-							<span class="counter">585</span>
-							<a href="index_frame3.html" style="position:absolute;left:10px;bottom:12px;width:90%;height:40px;"></a>
-						</div>
-						<div class="swiper-slide anima">
-							<img src="img/img_02_04.png" alt="">
-							<div class="ani">
-								<img src="img/img_02_09.png" alt="">
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<img src="img/img_02_05.png" alt="">
-							<div class="numeric">
-								<button type="button" class="on">1</button>
-								<button type="button" class="on">2</button>
-								<button type="button" class="on">3</button>
-								<button type="button" class="on">4</button>
-								<button type="button" class="on">5</button>
-								<button type="button" class="on">6</button>
-								<button type="button">7</button>
-								<button type="button">8</button>
-								<button type="button">9</button>
-								<button type="button">10</button>
-								<button type="button">11</button>
-								<button type="button">12</button>
-							</div>
-						</div>
-						<div class="swiper-slide anima">
-							<img src="img/img_02_06.png" alt="">
-							<div class="progress_bar">
-								<div class="bar"><span class="gauge"></span></div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<img src="img/img_02_07.png" alt="">
-							<a href="index_frame4.html" style="position:absolute;left:10px;bottom:12px;width:90%;height:40px;"></a>
-						</div>
-					</div>
+			</section>
+
+			<section class="mainSec section02">
+				<div class="inner">
+					<img src="./img/main_sec_2.png" alt="">
 				</div>
-			</div>
+			</section>
+
+			<section class="mainSec section03">
+				<div class="inner">
+					<img src="./img/main_sec_3.png" alt="">
+				</div>
+				<div class="swiper cardSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="./img/slide1.png" alt=""></div>
+						<div class="swiper-slide"><img src="./img/slide3.png" alt=""></div>
+						<div class="swiper-slide"><img src="./img/slide3.png" alt=""></div>
+						<div class="swiper-slide"><img src="./img/slide4.png" alt=""></div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</section>
+
+			<section class="mainSec section04">
+				<div class="inner">
+					<img src="./img/main_sec_4.png" alt="">
+				</div>
+			</section>
+
+			<section class="mainSec section05">
+					<img src="./img/main_sec_5.png" alt="">
+			</section>
+
+			<footer>
+				<img src="./img/footer.png" alt="">
+			</footer>
+		
 		</div>
 	</div>
+
+	
+
+	<div id="searchPopup" class="layerpopup laypop-all">
+		<div class="pop-header">
+			<h2 class="pop-title">전체메뉴</h2>
+			<button type="button" name="button" class="btn-layer-close" onclick="closePopup('searchPopup')">닫기</button>
+		</div>
+		<div class="pop-con-wrap">
+			
+			<div class="search-area">
+				<div class="inner">
+					<img src="./img/search_input.png" alt="">
+				</div>
+				<ul class="tab-slidemenu">
+					<li><a href="javascript:void(0);">예금</a></li>
+					<li><a href="javascript:void(0);">대출</a></li>
+					<li><a href="javascript:void(0);">적금</a></li>
+					<li><a href="javascript:void(0);">인터넷뱅킹</a></li>
+					<li><a href="javascript:void(0);">모바일뱅킹</a></li>
+				</ul>
+			</div>
+
+			<div class="listmenu-area">
+				<div class="inner">
+					<ul>
+						<li class="tit">전체 (1)</li>
+						<li><a href="./index_frame3.html"><img src="./img/search_list.png" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 </div>
-
 <script type="text/javascript">
-	var swiper = new Swiper('.swiper-container.type1');
-	var swiper2 = new Swiper('.swiper-container.type2', {
-		slidesPerView: 'auto',
-		spaceBetween: 2,
-	});
-	swiper2.on('slideChange', function(){
-		if(swiper2.realIndex == 1) {
-			$('.swiper-slide').find('.ani').addClass('on');
-		} else if (swiper2.realIndex == 3) {
-			$('.swiper-slide').find('.progress_bar').addClass('on');
-		}
-	})
+	$(document).ready(function(){
+		/**
+		 * header white change
+		**/
+		var headerL = (function() {
+			var scrollY = 0; // 스크롤 위치 저장
 
-	$({ Counter: 0 }).animate(
-		{
-			Counter: $('.counter').text()
-		}, {
-			duration: 1000,
-			easing: 'swing',
-			step: function() {
-			$('.counter').text(Math.ceil(this.Counter));
-		}
-	});
+			return {
+				headerAni: function() {
+					if ($('.header').hasClass('main')) {
+						if (scrollY > 0) {
+							$('.header').addClass('bg-w');
+							$(".white-logo").addClass("dp-none");
+							$(".dark-logo").removeClass("dp-none");
+						} else {
+							$('.header').removeClass('bg-w');
+							$(".dark-logo").addClass("dp-none");
+							$(".white-logo").removeClass("dp-none");
+						}
+					}
+				},
+				// 스크롤 처리
+				scrolling: function () {
+					scrollY = $(window).scrollTop();
+					var documentH = $(document).height();
+					var windowH = $(window).height();
 
-//	$('.numeric button').each(function(){
-//		$(this).on('click', function(){
-//			$(this).toggleClass('on');
-//		})
-//	});
+					if (documentH > windowH) {
+						this.headerAni();
+					}
+				},
+			};	
+		})();
+
+		//event
+		$(window).on('scroll', function() {
+			headerL.scrolling();
+		});
+		//resize
+		$(window).on('resize', function () {
+			headerL.scrolling();
+		});
+
+		/**
+		 * swiper
+		**/
+		var swiper = new Swiper(".cardSwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 10,
+			centeredSlides: true,
+			loop:true,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+			autoplay:{
+                delay:2000
+            }
+		});
+
+		/**
+		 * popup
+		**/
+		var popupL = (function() {
+			return {
+				openPopup : function(id) {
+					var _target = $('#' + id);
+					$('html, body').css({ "overflow": "hidden" });
+					_target.show().attr('tabindex', '-1').focus();
+					_target.find('.btn-layer-close').on('click', function(e) {
+						e.preventDefault();
+						closePopup(id);
+					});
+
+				},
+
+				closePopup : function(id){
+					var _target = $('#' + id);
+					$('html, body').css({ "overflow": "" });
+					_target.fadeOut(300);
+				}
+			}
+		})();
+
+		// 전역
+		window.openPopup = popupL.openPopup;
+		window.closePopup = popupL.closePopup;
+
+
+
+	});
 </script>
 </body>
 </html>

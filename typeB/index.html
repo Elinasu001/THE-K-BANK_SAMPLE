@@ -3,31 +3,29 @@
 <head>
 <meta charset="utf-8" />
 <meta name="Author" content="FUZ UI.DEV." />
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no" />
 <title>한국투자저축은행</title>
-<link type="text/css" rel="stylesheet" href="css/mobile.css" />
 <style type="text/css">
 	iframe{margin:0;padding:0;border:0;}
-	
-	#container{width:375px;}
-	#contents{position:relative;width:375px;height:812px;overflow:hidden;}
-
-	
+	#container{overflow: hidden;}
+	/* #contents{position:relative;width:375px;height:812px;overflow:hidden;} */
 </style>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<link type="text/css" rel="stylesheet" href="css/mobile.css" />
+<link type="text/css" rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+<script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
 </head>
-<body>
+<body style="overflow: hidden; padding:20px; display:flex; align-items: center; justify-content: center;">
 <div id="wrap">
-	<div class="inner">
-		<div id="container">
-			<div id="contents">
-				<iframe src="index_frame1.html" width="375" height="812" id="mFrames"></iframe>
-			</div>
+	<div id="container">
+		<div id="contents">
+			<iframe src="index_frame1.html" width="375" height="812" id="mFrames" style="overflow: auto;"></iframe>
 		</div>
 	</div>
 </div>
-<script>
+<script type="text/javascript">
+
 </script>
 </body>
 </html>
