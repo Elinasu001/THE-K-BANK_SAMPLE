@@ -14,11 +14,11 @@
 <style>
 	html , body { width:375px !important; height:812px !important; background: #FFFFFF;}
 	/* ::-webkit-scrollbar{display:none;} */
-	#wrap{width:375px; height:812px;}
+	#wrap{width:375px; height:812px; background: #FFFFFF;}
 	#container{width:375px; height:812px; }
 	#contents{position:relative;width:375px;height:812px;}
 
-	.inner { padding:0 20px; }
+	.inner { padding:0 20px; min-width: 335px; }
 
 	/* Header */
 	#headerWrap > .header {  transition: 0.1s linear;  }
@@ -29,54 +29,9 @@
 
 	/* button */
 	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
-	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
-	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu.png) no-repeat 100%/30px auto; }
 
-	/* section01 */
-	.mainSec.section01 { width:375px; height:542px; background: url(./img/main_banner_1.png) no-repeat 100%/375px auto; }
-	.mainSec.section01 .inner { padding:100px 24px 0 24px; }
-	.mainSec.section01 .inner img:first-child { width:253px; height:auto; }
-	.mainSec.section01 .inner img:last-child { margin-top: 25px; width:315px; height:auto; }
-
-	/* section02 */
-	.mainSec.section02 { margin:30px 0; }
-
-	/* section03 */
-	.mainSec.section03 { padding:50px 0 57px 0; background: #F8F8F8;}
-
-	.swiper.cardSwiper { width: 100%; height: 100%; padding:40px 0; }
-	.swiper.cardSwiper .swiper-wrapper { transition-timing-function: linear; }
-	.swiper.cardSwiper  .swiper-slide {
-		text-align: center;
-		font-size: 18px;
-		background: #fff;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width:270px;
-		height:284px;
-		border-radius: 15px;
-	}
-	.swiper.cardSwiper  .swiper-slide:not(.swiper-slide.swiper-slide-active) {
-		box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.12);
-	}
-	.swiper.cardSwiper .swiper-slide img {
-		display: block;
-		object-fit: cover;
-		width:176px;
-	}
-	.swiper.cardSwiper .swiper-slide.swiper-slide-active {
-		background:#1447A2;
-	}
-
-	/* sweipr pagination */
-	.swiper.cardSwiper .swiper-pagination-bullet { width:14px; height:14px; }
-	.swiper.cardSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:34px; border-radius: 14px; background:#2E5AF4; }
-	
-	/* section04 */
-	.mainSec.section04 { padding:60px 0; }
-	.mainSec.section04 img { width:331px; height:198px; }
-	
 	/* search popup */
 	.search-area,
 	.tab-slidemenu { margin-top:20px; }
@@ -92,7 +47,93 @@
 		0% { transform: translateX("-20px"); opacity: 0; }
 		100% { transform: translateX(0); opacity: 1; }
 	}
+
+	.x-slide { animation-name: wobble-hor-bottom; animation:0.8s ease 0s 1 normal both running wobble-hor-bottom; }
 	
+@keyframes wobble-hor-bottom {
+    0%,to {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%
+    }
+
+    15% {
+        -webkit-transform: translateX(-30px) rotate(-6deg);
+        transform: translateX(-30px) rotate(-6deg)
+    }
+
+    30% {
+        -webkit-transform: translateX(15px) rotate(6deg);
+        transform: translateX(15px) rotate(6deg)
+    }
+
+    45% {
+        -webkit-transform: translateX(-15px) rotate(-3.6deg);
+        transform: translateX(-15px) rotate(-3.6deg)
+    }
+
+    60% {
+        -webkit-transform: translateX(9px) rotate(2.4deg);
+        transform: translateX(9px) rotate(2.4deg)
+    }
+
+    75% {
+        -webkit-transform: translateX(-6px) rotate(-1.2deg);
+        transform: translateX(-6px) rotate(-1.2deg)
+    }
+}
+
+
+	/* section01 */
+	.mainSec.section01 { padding-top:90px; }
+	/* section01 swiper */
+	.swiper-slide { text-align: center; font-size: 18px; background: #fff; display: flex; justify-content: center; align-items: center; }
+	.swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+	.swiper.mainSwiper { margin-top:20px; }
+	.swiper.mainSwiper .swiper-pagination { width:initial; left:40px; bottom:40px; padding:0 16px; height: 26px; line-height: 26px; border-radius: 13px; background: rgba(0, 52, 96, 0.47); color:#FFFFFF}
+	.swiper.mainSwiper .swiper-pagination .swiper-pagination-total { color:rgba(225, 225, 225, 0.6); }
+	
+	/* section03 */
+	.mainSec.section03 { display:flex; align-items: center; justify-content: space-between; margin-top:14px; position: relative; height:117px; padding:0 13px 0px 20px; overflow: hidden; background: #E9F1F3; border-radius: 20px;  }
+	.mainSec.section03 > img:first-child { width:142px; }
+	.mainSec.section03 .img-r { position: relative; width:129px; }
+	.mainSec.section03 .img-r .ico.type01 { width:34px; top:8px; left:0; }
+	.mainSec.section03 .img-r .ico.type02 { width:34px; right:30px; height:34px; top:-3px; transform: rotate(10deg); }
+	.mainSec.section03 .img-r .ico { content: ""; position: absolute; }
+
+	.float { animation-name: float;  animation: float 1s ease-in-out infinite; }
+	@keyframes float {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	/* section04 */
+	.mainSec.section04 { margin-top:26px;}
+	.mainSec.section04 > img { box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1); border-radius: 16px;  }
+
+	/*section05 */
+	.mainSec.section05 { margin-top:28px; } 
+	.swiper-buttons { position:absolute; content: ""; display: flex; bottom:30px; left:30px; }
+	.swiper-buttons .swiper-pagination { width: initial; position: initial; margin-right:15px; }
+
+	.swiper-buttons .swiper-pagination-bullet { width:14px; height:14px; background-color: #FFFFFF; opacity: 0.5; }
+	.swiper-buttons .swiper-pagination-bullet.swiper-pagination-bullet-active { width:42px; opacity: 1; border-radius: 15px;}
+
+	.swiper-buttons .swiper-stop-play { display: flex; align-items: center; z-index:1;  }
+	.swiper-buttons .swiper-stop-play button { cursor: pointer; }
+	.swiper-buttons .swiper-stop-play .pause { width:12px; height:13px; background: url(./img/ico_pause.png)no-repeat 50%/12px auto; }
+
+	/*section06 */
+	.mainSec.section06 {  display:flex; align-items: center; justify-content: center; margin:38px 0; }
+	.mainSec.section06 > img { width:200px; height:72px; }
 </style>
 <script type="text/javascript" src="js/aos.js"></script>
 
@@ -103,8 +144,7 @@
 		<div class="header main">
 			<h1>
 				<a href="./index_frame2.html">
-					<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo dp-none">
-					<img src="./img/img_white_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="white-logo">
+					<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo">
 				</a>
 			</h1>
 			<nav class="menu-wrap">
@@ -120,43 +160,58 @@
 	</header>
 	<div id="container">
 		<div id="contents">
-			<section class="mainSec section01">
-				<div class="inner">
+			<div class="inner">
+				<section class="mainSec section01">
 					<img src="./img/main_cont_t.png" alt="">
-					<img src="./img/main_cont_b.png" alt="" class="y-slide">
-				</div>
-			</section>
-
-			<section class="mainSec section02">
-				<div class="inner">
-					<img src="./img/main_sec_2.png" alt="">
-				</div>
-			</section>
-
-			<section class="mainSec section03">
-				<div class="inner">
-					<img src="./img/main_sec_3.png" alt="">
-				</div>
-				<div class="swiper cardSwiper">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide"><img src="./img/slide1.png" alt=""></div>
-						<div class="swiper-slide"><img src="./img/slide3.png" alt=""></div>
-						<div class="swiper-slide"><img src="./img/slide3.png" alt=""></div>
-						<div class="swiper-slide"><img src="./img/slide4.png" alt=""></div>
+					<div class="swiper mainSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><a href="#none"><img src="./img/mian_banner.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/mian_banner.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/mian_banner.png" alt=""></a></div>
+						</div>
+						<div class="swiper-pagination"></div>
 					</div>
-					<div class="swiper-pagination"></div>
-				</div>
-			</section>
+				</section>
 
-			<section class="mainSec section04">
-				<div class="inner">
-					<img src="./img/main_sec_4.png" alt="">
-				</div>
-			</section>
+				<section class="mainSec section02">
+						<img src="./img/section02.png" alt="">
+				</section>
 
-			<section class="mainSec section05">
-					<img src="./img/main_sec_5.png" alt="">
-			</section>
+				<section class="mainSec section03">
+						<img src="./img/section03_tit.png" alt="">
+						<div class="img-r">
+							<img src="./img/ico_1.png" alt="" class="ico type01 float">
+							<img src="./img/ico_2.png" alt="" class="ico type02 float">
+							<img src="./img/section03.png" alt="" class="ico-3">
+						</div>
+				</section>
+
+				<section class="mainSec section04">
+					<img src="./img/section04.png" alt="">
+				</section>
+
+				<section class="mainSec section05">
+					<div class="swiper mainSwiper05">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><a href="#none"><img src="./img/section05.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/section05.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/section05.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/section05.png" alt=""></a></div>
+						</div>
+						<div class="swiper-buttons">
+							<div class="swiper-pagination"></div>
+							<div class="swiper-stop-play">
+								<button id="puase" class="pause">일시정지</button>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="mainSec section06">
+					<img src="./img/section06.png" alt="">
+				</section>
+
+			</div>
 
 			<footer>
 				<img src="./img/footer.png" alt="">
@@ -202,6 +257,7 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
+	
 		/**
 		 * header white change
 		**/
@@ -210,16 +266,11 @@
 
 			return {
 				headerAni: function() {
-					if ($('.header').hasClass('main')) {
-						if (scrollY > 0) {
-							$('.header').addClass('bg-w');
-							$(".white-logo").addClass("dp-none");
-							$(".dark-logo").removeClass("dp-none");
-						} else {
-							$('.header').removeClass('bg-w');
-							$(".dark-logo").addClass("dp-none");
-							$(".white-logo").removeClass("dp-none");
-						}
+					if (scrollY > 0) {
+						$('.header').addClass('on');
+						
+					} else {
+						$('.header').removeClass('on');
 					}
 				},
 				// 스크롤 처리
@@ -227,7 +278,7 @@
 					scrollY = $(window).scrollTop();
 					var documentH = $(document).height();
 					var windowH = $(window).height();
-
+ 
 					if (documentH > windowH) {
 						this.headerAni();
 					}
@@ -244,23 +295,62 @@
 			headerL.scrolling();
 		});
 
+
 		/**
-		 * swiper
-		**/
-		var swiper = new Swiper(".cardSwiper", {
-			slidesPerView: "auto",
-			spaceBetween: 10,
-			centeredSlides: true,
-			loop:true,
+		 *  mainSwiper
+		 **/
+			var mainSwiper = new Swiper(".mainSwiper", {
+			slidesPerView: '1',
+			spaceBetween: 0,
+			autoplay: {
+				delay: 3000,
+			},
+			loop: true,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+				type: "fraction",
+			},
+		});
+
+		/**
+		 *  mainSwiper05
+		 **/
+		var mainSwiper05 = new Swiper(".mainSwiper05", {
+			slidesPerView: '1',
+			spaceBetween: 0,
+			autoplay: {
+				delay: 3000,
+			},
+			loop: true,
 			pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
 			},
-			autoplay:{
-                delay:2000
-            }
 		});
 
+		// Pause and Play functionality
+var puasePlayB = (function() {
+    var isPaused = false; // 현재 상태를 추적
+    return {
+        toggle: function() {
+            if (isPaused) {
+                mainSwiper05.autoplay.start(); // autoplay 시작
+                isPaused = false;
+            } else {
+                mainSwiper05.autoplay.stop(); // autoplay 중지
+                isPaused = true;
+            }
+        }
+    };
+})();
+
+// Event binding
+$(document).on("click", "#puase", function() { // 클래스 앞에 . 추가
+    puasePlayB.toggle();
+});
+
+	
 		/**
 		 * popup
 		**/

@@ -37,7 +37,7 @@ iframe{margin:0;padding:0;border:0;}
 #headerWrap { z-index:1000; }
 #headerWrap h1 a { display:block; width:179px; height:53px; }
 #headerWrap { position:fixed; top:0; right:0; left:0; width:100%; background:transparent;}
-#headerWrap > .header { position: relative; display:flex; align-items: center; justify-content:space-between; padding:0 20px; height:70px; background:transparent; z-index: 100;}
+#headerWrap > .header { position: relative; display:flex; align-items: center; justify-content:space-between; padding:0 20px; height:70px; background:#FFFFFF; z-index: 100;}
 
 #headerWrap .menu-wrap,
 #headerWrap .menu-wrap > ul,
@@ -66,7 +66,7 @@ button { border:0; font-size:0; cursor: pointer; }
 #headerWrap > .header.bg-w > .menu-wrap > .menu-util .btn-menu { background: url(../img/ico_allmenu.png) no-repeat 100%/30px auto; }
 
 /* header search */
-#headerWrap > .header.bg-w { box-shadow:0px 0px 10px rgba(0, 0, 0, 0.3); }
+#headerWrap > .header.on { box-shadow:0px 0px 10px rgba(0, 0, 0, 0.3); }
 
 /* 팝업 */
 /*** 팝업 ***/
