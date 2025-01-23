@@ -72,10 +72,31 @@
 
 	/* section03*/
 	.mainSec.section03 .inner { display:flex; align-items: center; gap:30px; margin-top:90px; }
-	.mainSec.section03 .inner > img { width:calc(100%/2); }
+	.mainSec.section03 .inner > div { width:calc(100%/2); }
+
+
+	/* section03 animation */
+	.mainSec.section03 .img-area { display:flex;  padding:47px 0 60px 40px; height: 354px; border-radius: 20px; background: #7983EB; }
+	.mainSec.section03 .img-area > img { width:319px; height: 247px; }
+	.mainSec.section03 .img-r { position: relative; width:307px; }
+	.mainSec.section03 .img-r .ico.type01 { width:60px; top:30px; left:10px; }
+	.mainSec.section03 .img-r .ico.type02 { width:80px; height:80px; right:40px; top:-30px; transform: rotate(10deg); }
+	.mainSec.section03 .img-r .ico { content: ""; position: absolute; }
+
+	.float { animation-name: float;  animation: float 1s ease-in-out infinite; }
+	@keyframes float {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
 
 	/* section03 swiper */
-	.swiper.noticeSwiper .swiper-slide { width:670px !important; }
 	.swiper.noticeSwiper .swiper-pagination { left:25px; bottom:20px; width:initial; }
 	.swiper.noticeSwiper .swiper-pagination-bullet { width:14px; height:14px; background-color: #FFFFFF; opacity: 0.2; }
 	.swiper.noticeSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:42px; opacity: 1; border-radius: 15px;}
@@ -165,7 +186,14 @@
 
 			<section class="mainSec section03">
 				<div class="inner">
-					<img src="./img/section03_l.png" alt="">
+					<div class="img-area">
+						<img src="./img/section03_tit.png" alt="">
+						<div class="img-r">
+							<img src="./img/ico_1.png" alt="" class="ico type01 float">
+							<img src="./img/ico_2.png" alt="" class="ico type02 float">
+							<img src="./img/section03.png" alt="" class="ico-3">
+						</div>
+					</div>
 					<div class="swiper noticeSwiper">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>

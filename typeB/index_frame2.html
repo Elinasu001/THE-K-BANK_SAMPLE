@@ -262,6 +262,7 @@
 		 * header white change
 		**/
 		var headerL = (function() {
+
 			var scrollY = 0; // 스크롤 위치 저장
 
 			return {
@@ -275,15 +276,16 @@
 				},
 				// 스크롤 처리
 				scrolling: function () {
+
 					scrollY = $(window).scrollTop();
 					var documentH = $(document).height();
 					var windowH = $(window).height();
- 
+
 					if (documentH > windowH) {
 						this.headerAni();
 					}
 				},
-			};	
+			};
 		})();
 
 		//event
@@ -297,13 +299,13 @@
 
 
 		/**
-		 *  mainSwiper
-		 **/
-			var mainSwiper = new Swiper(".mainSwiper", {
+		*  mainSwiper
+		**/
+		var mainSwiper = new Swiper(".mainSwiper", {
 			slidesPerView: '1',
 			spaceBetween: 10,
 			autoplay: {
-				delay: 3000,
+				delay: 2000,
 			},
 			loop: true,
 			pagination: {
@@ -320,7 +322,7 @@
 			slidesPerView: '1',
 			spaceBetween: 10,
 			autoplay: {
-				delay: 3000,
+				delay: 2000,
 			},
 			loop: true,
 			pagination: {
@@ -329,26 +331,26 @@
 			},
 		});
 
-		// Pause and Play functionality
-var puasePlayB = (function() {
-    var isPaused = false; // 현재 상태를 추적
-    return {
-        toggle: function() {
-            if (isPaused) {
-                mainSwiper05.autoplay.start(); // autoplay 시작
-                isPaused = false;
-            } else {
-                mainSwiper05.autoplay.stop(); // autoplay 중지
-                isPaused = true;
-            }
-        }
-    };
-})();
+		//mySiper05 pause
+		var puasePlayB = (function() {
+			var isPaused = false; // 현재 상태 추적
+			return {
+				toggle: function() {
+					if (isPaused) {
+						mainSwiper05.autoplay.start(); // 시작
+						isPaused = false;
+					} else {
+						mainSwiper05.autoplay.stop(); // 중지
+						isPaused = true;
+					}
+				}
+			};
+		})();
 
-// Event binding
-$(document).on("click", "#puase", function() { // 클래스 앞에 . 추가
-    puasePlayB.toggle();
-});
+		// Event
+		$(document).on("click", "#puase", function() { // 클래스 앞에 . 추가
+			puasePlayB.toggle();
+		});
 
 	
 		/**
