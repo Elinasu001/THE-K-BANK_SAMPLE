@@ -20,77 +20,48 @@
 	/* common */
 	#contentsWrap { padding-top:142px; }
 	.mainSec { display: flex; justify-content: center; margin:0 auto; }
-	.inner { width:1400px; }
-	
+	.inner { width:1200px; }
 	/* button */
 	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
 	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
 	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
 	
-	footer { display: flex; align-items: center; justify-content: center; height: 350px; background: #000000; }
+    /* breadcrumb */
+	.breadcrumb { z-index: 1; content:""; position: absolute; display: flex; align-items: center; gap:50px; font-size:20px; top:188px; right:24px; }
+	.breadcrumb  > a { font-size:14px; color: #FFFFFF;}
+	.breadcrumb > a::after { content: ""; position: absolute; top:50%; transform: translateY(-50%); width:20px; height:20px; margin:0 15px; background: url(./img/ico_breadcrumb.png) no-repeat 50%/20px auto; }
+	.breadcrumb > a:last-child::after { content: none; }
+    .breadcrumb .home::before { content: ""; position: absolute; width: 18px; height: 18px; top:50%; left:-15px; transform: translateY(-50%); background: url(./img/ico_home.png) no-repeat center 50%/18px auto; }
+    .breadcrumb .home { position: relative; font-size: 0; }
+
+	footer { display: flex; align-items: center; justify-content: center; height: 332px; margin-top:116px; background: #3D3D3D; }
 
 	/* link */
 	.search-inner { position: relative; }
 	.link { content: ''; position: absolute; left:0; bottom:60px; width:900px; height:162px; }
 
-	/* keyframes */
-	.y-slide { animation-name: y-slide; animation-duration: 0.6s; animation-timing-function: ease; animation-delay: 0.2s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; opacity: 0; transform: translateY(-20px); }
-	@keyframes y-slide {
-		0% { transform: translateX("-20px"); opacity: 0; }
-		100% { transform: translateX(0); opacity: 1; }
-	}
-	/* section01 */
-	.mainSec.section01 { margin-top:30px; }
-
-	/* section01 swiper */
-	.mainSec.section01 .main-swiper-wrap { display:flex; margin-top:52px; gap:18px; min-width:1511px; }
-	.swiper.bannerSwiper{ flex:0 0 944px; width:944px; height:549px; }
-	.swiper.bannerSwiper .swiper-pagination { left:50px; bottom:50px; width:initial; }
-	.swiper.bannerSwiper .swiper-pagination-bullet { width:17px; height:17px; background-color: #FFFFFF; opacity: 0.2; }
-	.swiper.bannerSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:42px; opacity: 1; border-radius: 15px;}
-
-	.swiper.etcSwiper  {position: relative; }
-	.swiper.etcSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:50px; height:100%; background: #F8F8F8; z-index: 1; background: linear-gradient(to left, rgba(248, 248, 248, 0.9), rgba(248, 248, 248, 0)); }
-	.swiper.etcSwiper .swiper-slide { display: flex; width:360px !important; height:549px; background:linear-gradient(#D2DFED, #DFE9F1); border-radius: 30px; }
-	.swiper.etcSwiper .swiper-slide.swiper-slide-active { background:linear-gradient(#284272, #142139); }
-
-	.swiper.etcSwiper .swiper-button-prev,
-	.swiper.etcSwiper .swiper-button-next { width:48px; height: 48px; border-radius: 12px; background-color: rgba(0, 0, 0, 0.2); }
-	.swiper.etcSwiper .swiper-button-prev::after,
-	.swiper.etcSwiper .swiper-button-next::after { content: ""; position: absolute; width:48px; height:48px; background-color:#FFFFFF; -webkit-mask:url(./img/ic_swiper_arr.svg) no-repeat center; }
-	.swiper.etcSwiper .swiper-button-prev::after { transform: rotate(180deg); }
-	.swiper.etcSwiper .swiper-button-prev { left:20px; }
-	.swiper.etcSwiper .swiper-button-next { right:80px; }
-	.swiper.etcSwiper .swiper-slide img { width: 295px; height: auto; }
-
-	.swiper-slide { text-align: center; font-size: 18px; background: #fff; display: flex; justify-content: center; align-items: center; }
-	.swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
-
-	/* section02 */
-	.mainSec.section02 { display:flex; align-items:center; margin-top:100px; height: 582px; background-color: #F4F7FC;}
-	.mainSec.section02 img { width:1400px; height: 432px; }
-
-	/* section03*/
-	.mainSec.section03 .inner { display:flex; align-items: center; gap:30px; margin-top:90px; }
-	.mainSec.section03 .inner > img { width:calc(100%/2); }
-
-	/* section03 swiper */
-	.swiper.noticeSwiper .swiper-slide { width:670px !important; }
-	.swiper.noticeSwiper .swiper-pagination { left:25px; bottom:20px; width:initial; }
-	.swiper.noticeSwiper .swiper-pagination-bullet { width:14px; height:14px; background-color: #FFFFFF; opacity: 0.2; }
-	.swiper.noticeSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:42px; opacity: 1; border-radius: 15px;}
-
-	/* section04*/
-	.mainSec.section04 { margin-top:80px; }
-
-	/* section05*/
-	.mainSec.section05 { margin-top:69px; }
-
-    /* section06*/
-	.mainSec.section06 { margin-top:94px; padding:13px 0;  border-top:2px solid #EEEEEE;}
-
 	/* 검색창 */
 	.search-area { display:flex; align-items: center; justify-content: center; }
+
+    /* sub-title-area */
+	#contentsWrap,
+	.sub-title-area,
+	.sub-title-area .inner { display:flex; justify-content: center; align-items: center; flex-direction: column;  }
+	#contentsWrap { overflow: hidden; }
+	.sub-title-area { position: relative; width:100%; height:424px;  color:#FFFFFF; background: #022A8B url(./img/sub_tit.png) no-repeat center center; }
+	
+	.sub-title-area::after { content: ""; position: absolute;  width:450px; height:424px; }
+	.sub-title-area::after { right:0; background: url(./img/sub_tit_r.png) no-repeat 100%; }
+	.sub-title-area .inner > h2 { margin-top:20px; font-weight: 600; font-size:52px; }
+	.sub-title-area .inner > .txt { font-weight: 300; font-size:20px; }
+    .sub-title-area .inner > img { position: absolute; content: "";  top:70%; width:1200px; height:auto; z-index:1; border-radius: 28px; border:1px solid #DDDDDD; box-shadow: 0px 0px 20px rgba(5, 17, 51, 0.16); }
+
+    /* sub01 */
+    .sub_01 { margin-top:212px; }
+    .sub_01 img:last-child { margin-top:70px; height: 2206px;}
+
+    /* sub02 */
+    .sub_02 { border-top:1px solid #DDDDDD; display:flex; align-items: center; justify-content: flex-end; width:100%; margin-top:64px; padding-top:20px; font-size:14px; color:#999999; }
 
 </style>
 </head>
@@ -128,73 +99,32 @@
 			</div>
 		</header>
 
+        <div class="breadcrumb">
+			<a href="/home" class="home ir">홈</a>
+			<a href="#none" class="depth1">예금상품</a>
+			<a href="#none" class="depth2">인터넷뱅킹 전용상품</a>
+			<a href="#none" class="depth3">e-보통예금</a>
+		</div>
+
 		<div id="contentsWrap">
-			<section class="mainSec section01">
+			<section class="sub-title-area">
 				<div class="inner">
-					<img src="./img/section01.png" alt="">
-					<div class="main-swiper-wrap">
-						<div class="swiper bannerSwiper">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide"><img src="./img/banner01.png" alt=""></div>
-								<div class="swiper-slide"><img src="./img/banner01.png" alt=""></div>
-								<div class="swiper-slide"><img src="./img/banner01.png" alt=""></div>
-								<div class="swiper-slide"><img src="./img/banner01.png" alt=""></div>
-							</div>
-							<div class="swiper-pagination"></div>
-						</div>
-						<div class="swiper etcSwiper">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide"><a href="#none"><img src="./img/etc01.png" alt=""></a></div>
-								<div class="swiper-slide"><a href="#none"><img src="./img/etc01.png" alt=""></a></div>
-								<div class="swiper-slide"><a href="#none"><img src="./img/etc01.png" alt=""></a></div>
-							</div>
-							<div class="swiper-button-wrap">
-								<div class="swiper-button-next"></div>
-								<div class="swiper-button-prev"></div>
-							</div>
-						</div>
-					</div>
+					<p class="txt">[비대면거래]한국교직원공제회 회원 전용상품이에요.</p>
+					<h2>e-더드림 정기적금</h2>
+                    <img src="./img/sub_tit_info.png" alt="">
 				</div>
 			</section>
-
-			<section class="mainSec section02">
+            <section class="contents">
 				<div class="inner">
-					<img src="./img/section02.png" alt="">
-				</div>
-			</section>
-
-			<section class="mainSec section03">
-				<div class="inner">
-					<img src="./img/section03_l.png" alt="">
-					<div class="swiper noticeSwiper">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
-							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
-							<div class="swiper-slide"><a href="#none"><img src="./img/section03_sw_r.png" alt=""></a></div>
-						</div>
-						<div class="swiper-pagination"></div>
-					</div>
-				</div>
-			</section>
-
-			<section class="mainSec section04">
-				<div class="inner">
-					<img src="./img/section04.png" alt="">
-				</div>
-			</section>
-
-			<section class="mainSec section05">
-				<div class="inner">
-					<img src="./img/section05.png" alt="">
-				</div>
-			</section>
-
-            <section class="mainSec section06">
-				<div class="inner">
-					<img src="./img/section06.png" alt="">
-				</div>
-			</section>
-
+                    <div class="sub_01">
+                        <img src="./img/sub_tab.png" alt=""></img>
+                        <img src="./img/sub_cont.png" alt=""></img>
+                    </div>
+                    <div class="sub_02">
+                        <p>더케이저축은행 준법감시인 심의필 제 53-69호 (2024.02.01 ~ 2025.01.31)</p>
+                    </div>
+                </div>
+            </section>
 		</div>
 
 		<footer>
@@ -202,7 +132,7 @@
 				<img src="./img/footer.png" alt="">
 			</div>
 		</footer>
-
+ 
 		
 	<div id="searchPopup" class="layerpopup laypop-all">
 		<div class="pop-header">
