@@ -1,7 +1,10 @@
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+
 /* CSS 기본 설정 */
 * { box-sizing: border-box; }
-html, body{margin:0;padding:0;width:100%;height:100%;background:#424242;}
-body{font-family:'Malgun Gothic','맑은 고딕','dotum','돋움';font-size:16px;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;}
+html, body{margin:0;padding:0;width:100%;height:100%;background:#424242; font-weight:500;}
+body{font-family:'Pretendard Variable', 'Malgun Gothic','맑은 고딕','dotum','돋움';font-size:16px;-webkit-font-smoothing:antialiased;-webkit-font-smoothing:subpixel-antialiased;}
 div, p, form, blockquote, hr {border:0;padding:0;margin:0;}
 img, fieldset {border:0 none;margin:0;padding:0;vertical-align:middle;}
 ol, ul, dl, li, dt, dd {margin:0;padding:0;list-style:none}
