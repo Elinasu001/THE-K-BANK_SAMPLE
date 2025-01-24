@@ -40,6 +40,8 @@
 /* header bg-white button */
 #headerWrap .header.bg-w .menu-wrap > .menu-util .btn-search { background: var( --ic-search) no-repeat 100%/30px auto; }
 #headerWrap .header.bg-w .menu-wrap > .menu-util .btn-menu { background: var(--ic-allmenu) no-repeat 100%/30px auto; }
+#headerWrap .header.bg-w,
+#headerWrap .header.bg-w.box-shadow { box-shadow:0px 0px 10px rgba(0, 0, 0, 0.3); }
 
 /* header button */
 button { border:0; font-size:0; cursor: pointer; }
