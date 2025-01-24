@@ -22,7 +22,7 @@
 #headerWrap h1 a { display:block; width:179px; height:53px; }
 #headerWrap { position:fixed; top:0; right:0; left:0; width:100%; background:transparent;}
 #headerWrap .header {display:flex; align-items: center; justify-content: center; position: relative;  padding:0 20px; width:100%; height:100px; background:transparent; z-index: 100;  transition: 0.1s linear;}
-#headerWrap .header > .inner { min-width:1720px; display:flex; justify-content: center; gap:140px;}
+#headerWrap .header > .inner { min-width:1720px; display:flex; justify-content: space-between; gap:140px;}
 #headerWrap .menu-wrap,
 #headerWrap .menu-wrap > ul,
 #headerWrap .menu-util,
