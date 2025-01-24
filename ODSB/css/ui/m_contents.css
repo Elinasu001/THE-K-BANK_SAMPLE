@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+:root{
+    --ic-swiper-arr: url(../../img/ic_swiper_arr.svg);
+}
+
 /* common */
 .mainSec { display: flex; justify-content: center; margin:0 auto; }
 
@@ -30,7 +34,7 @@ footer { display: flex; align-items: center; justify-content: center; height: 35
 .swiper.etcSwiper .swiper-button-prev,
 .swiper.etcSwiper .swiper-button-next { width:48px; height: 48px; border-radius: 12px; background-color: rgba(0, 0, 0, 0.2); }
 .swiper.etcSwiper .swiper-button-prev::after,
-.swiper.etcSwiper .swiper-button-next::after { content: ""; position: absolute; width:48px; height:48px; background-color:#FFFFFF; -webkit-mask:url(./img/ic_swiper_arr.svg) no-repeat center; }
+.swiper.etcSwiper .swiper-button-next::after { content: ""; position: absolute; width:48px; height:48px; background-color:#FFFFFF; -webkit-mask:var(--ic-swiper-arr) no-repeat center; }
 .swiper.etcSwiper .swiper-button-prev::after { transform: rotate(180deg); }
 .swiper.etcSwiper .swiper-button-prev { left:20px; }
 .swiper.etcSwiper .swiper-button-next { right:80px; }
