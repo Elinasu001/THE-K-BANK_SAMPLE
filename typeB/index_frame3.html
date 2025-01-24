@@ -17,19 +17,21 @@
 	#wrap{width:375px; height:812px; background: #FFFFFF;}
 	#container{width:375px; height:812px; }
 	#contents{position:relative;width:375px;height:812px;}
-	.inner { padding:0 20px; }
+
+	/* common */
+	.inner { padding:0 20px; min-width: 335px; }
+	hr.line { height:16px; margin:0 -20px; background: #F8F8F8; }
 
 	/* Header */
 	#headerWrap > .header {  transition: 0.1s linear;  }
 	#headerWrap .menu-wrap > ul > li > a,
 	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
-
 	#headerWrap > .header > h1 img{ width:109px; height: auto; }
 
 	/* button */
 	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
-	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
-	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search.png) no-repeat 100%/30px auto; }
+	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu.png) no-repeat 100%/30px auto; }
 
 	/* search popup */
 	.search-area,
@@ -40,40 +42,24 @@
 	.tab-slidemenu > li > a { display:block; line-height: 34px; height: 34px; padding:0 16px; border-radius: 14px; font-size: 14px; font-weight: 400; color:#1447A2; background-color: #F8F8F8; }
 	.listmenu-area ul > li.tit { margin-bottom:30px; font-size:14px; font-weight: 500; color:#666666; }
 
-	/* sub section01 */
-	.sub-section01 { margin-top:50px; }
-	.sub-section01 img { width:302px; height:279px; }
+	/* sub-title-area */
+	.sub-title-area { margin-top:76px; }
 
-	/* sub section02 */
-	.sub-section02 { margin-top:42px; }
-	/* 아코디언 */
-	.accordion-area .accordion-list + li { margin-top:20px; }
-	.accordion-area .accordion-list > .tit { display:flex; align-items: center; justify-content: space-between;  width:100%; height:51px; padding:0 10px 0 20px; border-radius: 10px; background: #EEF2F9; }
-	.accordion-area .accordion-list > .tit > p { font-size:18px; font-weight: 600; color:#242424; }
+	/* sub-section01 */
+	.sub-section01 { padding:28px 0 52px 0; }
 
-	.accordion-area .accordion-list > .tit > .ic-arr { font-size:0; width:48px; height:48px; background-color: #111111; -webkit-mask-image:url(./img/ico_arrow.svg); -webkit-mask-repeat:no-repeat; -webkit-mask-size:auto 32px; -webkit-mask-position:center; transition: 0.2s linear;}
-	.accordion-area .accordion-list > .tit:has(.ic-arr:focus-visible) { outline:1px solid #000000; }
-	.accordion-area .accordion-list > .cont { display: none; margin:40px 0;  }
-
-	.accordion-area .accordion-list.on > .tit  { background: #1447A2; }
-	.accordion-area .accordion-list.on > .tit > p { font-weight: 400; color:#FFFFFF; }
-	.accordion-area .accordion-list.on > .tit > .ic-arr { transform: rotate(180deg); background-color: #FFFFFF;  }
-
-	.accordion-area .accordion-list.on > .cont { display: block; }
-
-   /* sub section03 */
-	.sub-section03 { margin:40px 0 54px 0; }
+	/* sub-section02 */
+	.sub-section02 { padding:32px 0 60px 0; }
 
 </style>
-<script type="text/javascript" src="js/aos.js"></script>
 
 </head>
 <body>
 <div id="wrap"  style="height:100%;">
 	<header id="headerWrap">
-		<div class="header bg-w">
+		<div class="header main">
 			<h1>
-				<a href="./index.html">
+				<a href="./index_frame2.html">
 					<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo">
 				</a>
 			</h1>
@@ -88,40 +74,22 @@
 			
 		</div>
 	</header>
+
 	<div id="container">
 		<div id="contents">
-			<section class="sub-title-area">
+			<div class="inner">
+				<section class="sub-title-area">
 					<img src="./img/sub_tit.png" alt="">
-		</section>
-
-		<section class="sub-section01">
-		<div class="inner">
-			<img src="./img/sub_1.png" alt="">
-		</div>
-		</section>
-
-		<section class="sub-section02">
-		<div class="inner">
-			<div class="accordion-wrap">
-			<ul class="accordion-area accordionToggle">
-				<li class="accordion-list">
-				<div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
-				<div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
-				</li>
-				<li class="accordion-list">
-				<div class="tit"><p>상품안내</p><button type="button" class="ic-arr">열림</button></div>
-				<div class="cont"><img src="./img/accordion_cont.png" alt=""></div>
-				</li>
-			</ul>
+				</section>
+				<hr class="line">
+				<section class="sub-section01">
+					<img src="./img/sub_1.png" alt="">
+				</section>
+				<hr class="line">
+				<section class="sub-section02">
+					<img src="./img/sub_2.png" alt="">
+				</section>
 			</div>
-		</div>
-		</section>
-
-		<section class="sub-section03">
-		<div class="inner">
-			<img src="./img/sub_3.png" alt="">
-		</div>
-		</section>
 
 			<footer>
 				<img src="./img/footer.png" alt="">
@@ -129,6 +97,8 @@
 		
 		</div>
 	</div>
+
+	
 
 	<div id="searchPopup" class="layerpopup laypop-all">
 		<div class="pop-header">
@@ -167,6 +137,46 @@
 	$(document).ready(function(){
 	
 		/**
+		 * header white change
+		**/
+		var headerL = (function() {
+
+			var scrollY = 0; // 스크롤 위치 저장
+
+			return {
+				headerAni: function() {
+					if (scrollY > 0) {
+						$('.header').addClass('on');
+						
+					} else {
+						$('.header').removeClass('on');
+					}
+				},
+				// 스크롤 처리
+				scrolling: function () {
+
+					scrollY = $(window).scrollTop();
+					var documentH = $(document).height();
+					var windowH = $(window).height();
+
+					if (documentH > windowH) {
+						this.headerAni();
+					}
+				},
+			};
+		})();
+
+		//event
+		$(window).on('scroll', function() {
+			headerL.scrolling();
+		});
+		//resize
+		$(window).on('resize', function () {
+			headerL.scrolling();
+		});
+
+	
+		/**
 		 * popup
 		**/
 		var popupL = (function() {
@@ -194,36 +204,7 @@
 		window.openPopup = popupL.openPopup;
 		window.closePopup = popupL.closePopup;
 
-    /**
-     * accortion
-     **/
-    var accordionToggle = (function() {
-		return {
-			open: function(target) {
-			target.addClass("on");
-			target.attr("title", "닫기");
-			},
-			close: function(target) {
-			target.removeClass("on");
-			target.attr("title", "열기");
-			},
-			toggle: function(target) {
-			if (target.hasClass("on")) {
-				this.close(target);
-			} else {
-				this.open(target);
-			}
-			}
-		};
-    })();
 
-    /**
-     * Event binding
-     */
-    $(document).on("click", ".accordionToggle .accordion-list > .tit", function() {
-		var $currentAccordion = $(this).closest(".accordion-list");
-		accordionToggle.toggle($currentAccordion);
-    });
 
 	});
 </script>
