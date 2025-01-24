@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+:root{
+    --ico-breadcrumb: url(../../img/ico_breadcrumb.png);
+    --ico-home: url(../../img/ico_home.png);
+
+
+}
+
+/* breadcrumb */
+.breadcrumbWrap { display: flex; justify-content: center; width:100%; }
+.breadcrumbWrap .inner { position: relative; min-width:1400px;}
+.breadcrumb {  z-index: 1; content:""; position: absolute; display: flex; align-items: center; gap:50px; font-size:20px; top:188px; right:0; }
+.breadcrumb a { font-size:14px; color: #FFFFFF;}
+.breadcrumb a::after { content: ""; position: absolute; top:50%; transform: translateY(-50%); width:20px; height:20px; margin:0 15px; background:  var(--ico-breadcrumb) no-repeat 50%/20px auto; }
+.breadcrumb a:last-child::after { content: none; }
+.breadcrumb a.home { position: relative; font-size: 0; }
+.breadcrumb a.home::before { content: ""; position: absolute; width: 18px; height: 18px; top:50%; left:-15px; transform: translateY(-50%); background: var(--ico-home) no-repeat center 50%/18px auto; }
+
+/* footer */
+footer { display: flex; align-items: center; justify-content: center; height: 332px; margin-top:116px; background: #3D3D3D; }
+
+/* sub-title-area */
+#contentsWrap,
+.sub-title-area,
+.sub-title-area .inner { display:flex; justify-content: center; align-items: center; flex-direction: column;  }
+#contentsWrap { overflow: hidden; }
+.sub-title-area { position: relative; width:100%; height:424px;  color:#FFFFFF; background: #022A8B url(./img/sub_tit.png) no-repeat center center; }
+
+.sub-title-area::after { content: ""; position: absolute;  width:450px; height:424px; }
+.sub-title-area::after { right:0; background: url(./img/sub_tit_r.png) no-repeat 100%; }
+.sub-title-area .inner > h2 { margin-top:20px; font-weight: 600; font-size:52px; }
+.sub-title-area .inner > .txt { font-weight: 300; font-size:20px; }
+.sub-title-area .inner > img { position: absolute; content: "";  top:70%; width:1200px; height:auto; z-index:1; border-radius: 28px; border:1px solid #DDDDDD; box-shadow: 0px 0px 20px rgba(5, 17, 51, 0.16); }
+
+/* sub01 */
+.sub_01 { margin-top:212px; }
+.sub_01 img:last-child { margin-top:70px; height: 2206px;}
+
+/* sub02 */
+.sub_02 { border-top:1px solid #DDDDDD; display:flex; align-items: center; justify-content: flex-end; width:100%; margin-top:64px; padding-top:20px; font-size:14px; color:#999999; }

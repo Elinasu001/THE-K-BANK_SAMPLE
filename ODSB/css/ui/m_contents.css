@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+/* common */
+.mainSec { display: flex; justify-content: center; margin:0 auto; }
+
+footer { display: flex; align-items: center; justify-content: center; height: 350px; background: #000000; }
+
+/* keyframes */
+.y-slide { animation-name: y-slide; animation-duration: 0.6s; animation-timing-function: ease; animation-delay: 0.2s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; opacity: 0; transform: translateY(-20px); }
+@keyframes y-slide {
+    0% { transform: translateX("-20px"); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* section01 */
+.mainSec.section01 { margin-top:30px; }
+
+/* section01 swiper */
+.mainSec.section01 .main-swiper-wrap { display:flex; margin-top:52px; gap:18px; min-width:1511px; }
+.swiper.bannerSwiper{ flex:0 0 944px; width:944px; height:549px; }
+.swiper.bannerSwiper .swiper-pagination { left:50px; bottom:50px; width:initial; }
+.swiper.bannerSwiper .swiper-pagination-bullet { width:17px; height:17px; background-color: #FFFFFF; opacity: 0.2; }
+.swiper.bannerSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:42px; opacity: 1; border-radius: 15px;}
+
+.swiper.etcSwiper  {position: relative; }
+.swiper.etcSwiper::after { position: absolute; content: ""; top:50%; right:0; transform: translateY(-50%); width:50px; height:100%; background: #F8F8F8; z-index: 1; background: linear-gradient(to left, rgba(248, 248, 248, 0.9), rgba(248, 248, 248, 0)); }
+.swiper.etcSwiper .swiper-slide { display: flex; width:360px !important; height:549px; background:linear-gradient(#D2DFED, #DFE9F1); border-radius: 30px; }
+.swiper.etcSwiper .swiper-slide.swiper-slide-active { background:linear-gradient(#284272, #142139); }
+
+.swiper.etcSwiper .swiper-button-prev,
+.swiper.etcSwiper .swiper-button-next { width:48px; height: 48px; border-radius: 12px; background-color: rgba(0, 0, 0, 0.2); }
+.swiper.etcSwiper .swiper-button-prev::after,
+.swiper.etcSwiper .swiper-button-next::after { content: ""; position: absolute; width:48px; height:48px; background-color:#FFFFFF; -webkit-mask:url(./img/ic_swiper_arr.svg) no-repeat center; }
+.swiper.etcSwiper .swiper-button-prev::after { transform: rotate(180deg); }
+.swiper.etcSwiper .swiper-button-prev { left:20px; }
+.swiper.etcSwiper .swiper-button-next { right:80px; }
+.swiper.etcSwiper .swiper-slide img { width: 295px; height: auto; }
+
+.swiper-slide { text-align: center; font-size: 18px; background: #fff; display: flex; justify-content: center; align-items: center; }
+.swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+/* section02 */
+.mainSec.section02 { display:flex; align-items:center; margin-top:100px; height: 582px; background-color: #F4F7FC;}
+.mainSec.section02 img { width:1400px; height: 432px; }
+
+/* section03*/
+.mainSec.section03 .inner { display:flex; align-items: center; gap:30px; margin-top:90px; }
+.mainSec.section03 .inner > div { width:calc(100%/2); }
+
+/* section03 animation */
+.mainSec.section03 .img-area { display:flex;  padding:47px 0 60px 40px; height: 354px; border-radius: 20px; background: #7983EB; }
+.mainSec.section03 .img-area > img { width:319px; height: 247px; }
+.mainSec.section03 .img-r { position: relative; width:307px; }
+.mainSec.section03 .img-r .ico.type01 { width:90px; top:30px; left:10px; }
+.mainSec.section03 .img-r .ico.type02 { width:80px; height:80px; right:40px; top:-30px; transform: rotate(10deg); }
+.mainSec.section03 .img-r .ico { content: ""; position: absolute; }
+
+.float { animation-name: float;  animation: float 1s ease-in-out infinite; }
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* section03 swiper */
+.swiper.noticeSwiper .swiper-pagination { left:25px; bottom:20px; width:initial; }
+.swiper.noticeSwiper .swiper-pagination-bullet { width:14px; height:14px; background-color: #FFFFFF; opacity: 0.2; }
+.swiper.noticeSwiper .swiper-pagination-bullet.swiper-pagination-bullet-active { width:42px; opacity: 1; border-radius: 15px;}
+
+/* section04*/
+.mainSec.section04 { margin-top:80px; }
+
+/* section05*/
+.mainSec.section05 { margin-top:69px; }
+
+/* section06*/
+.mainSec.section06 { margin-top:94px; padding:13px 0;  border-top:2px solid #EEEEEE;}
+
+/* 검색창 */
+.search-area { display:flex; align-items: center; justify-content: center; }
