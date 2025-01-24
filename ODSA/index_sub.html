@@ -6,123 +6,35 @@
 <meta name="viewport" content="width=device-width">
 <meta name="format-detection" content="telephone=no" />
 <title>The-k 저축은행</title>
-<link type="text/css" rel="stylesheet" href="css/tablet.css"/>
+<link type="text/css" rel="stylesheet" href="./css/ui/ui_style.css"/>
+<link type="text/css" rel="stylesheet" href="./css/lib/swiper-bundle.min.css"/>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="./js/swiper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-<style type="text/css">
-	/* Header */
-	#headerWrap > .header {  transition: 0.1s linear;  }
-	#headerWrap .menu-wrap > ul > li > a,
-	#headerWrap .menu-wrap > .menu-util > ul > li > a  { color:#FFFFFF;}
-
-	/* common */
-	.mainSec { display: flex; justify-content: center; margin:0 auto; }
-	.inner { width:1270px; }
-
-	/* button */
-	#headerWrap .menu-wrap > .menu-util > ul > li > a { border:1px solid #FFFFFF; }
-	#headerWrap .menu-wrap > .menu-util .btn-search { background: url(./img/ico_search_white.png) no-repeat 100%/30px auto; }
-	#headerWrap .menu-wrap > .menu-util .btn-menu { background: url(./img/ico_allmenu_white.png) no-repeat 100%/30px auto; }
-	
-	footer { display: flex; align-items: center; justify-content: center; margin-top: 114px; height: 350px; background: #000000; }
-
-	/* link */
-	.search-inner { position: relative; }
-	.link { content: ''; position: absolute; left:0; bottom:60px; width:900px; height:162px; }
-	
-	/* breadcrumb */
-	.breadcrumb { z-index: 1; content:""; position: absolute; display: flex; align-items: center; gap:40px; font-size:20px; top:142px; right:100px; }
-	.breadcrumb  > a { font-size:14px; color: #FFFFFF;}
-	.breadcrumb > a::after { content: ""; position: absolute; top:50%; transform: translateY(-50%); width:20px; height:20px; padding-left:15px; background: url(./img/ico_breadcrumb.png) no-repeat 50%/20px auto; }
-	.breadcrumb > a:last-child::after { content: none; }
-
-	/* sub-title-area */
-	#contentsWrap,
-	.sub-title-area,
-	.sub-title-area .inner { display:flex; justify-content: center; align-items: center; flex-direction: column;  }
-	#contentsWrap { margin-top:100px; overflow: hidden; }
-	.sub-title-area { width:100%; height:485px; background: #2E5AF4; color:#FFFFFF; }
-	
-	.sub-title-area::before,
-	.sub-title-area::after { content: ""; position: absolute;  width:450px; height:485px; }
-	.sub-title-area::before { left:0; background: url(./img/sub_tit_l.png) no-repeat; }
-	.sub-title-area::after { right:0; background: url(./img/sub_tit_r.png) no-repeat 100%; }
-	.sub-title-area .inner > h2 { font-weight: 600; font-size:52px; }
-	.sub-title-area .inner > .txt { margin-top:20px; font-weight: 300; font-size:20px; }
-	.sub-title-area .inner > ul { display: flex; flex-direction: row; margin-top: 57px; gap:50px;  }
-	.sub-title-area .inner > ul > li { font-weight: 400; font-size:20px;}
-	.sub-title-area .inner > ul > li > b { margin-left:8px; font-weight: 600; font-size:26px;}
-	.sub-title-area .inner > ul > li { position: relative; }
-	.sub-title-area .inner > ul > li::after { content: ""; position:absolute; top:50%; right:-26px; transform: translateY(-50%); width:1px; height:27px; background: #AEAEAE; }
-	.sub-title-area .inner > ul > li:last-child:after { content: none; }
-	.sub-title-area .inner > .btn-wrap  { margin-top:60px; }
-	.sub-title-area .inner > .btn-wrap > .btn-register { height:60px; padding:0 60px; font-size: 24px; font-weight: 400; border-radius: 15px; color:#111111; background: #FFFFFF; }
-
-	.cont01 { margin-top:32px; }
-	.cont02 { margin-top:72px; }
-	.cont03 { margin-top:50px; }
-
-	/* 아코디언 */
-	/* .accordion-area .accordion-list { transition: 0.3s linear; } */
-	.accordion-area .accordion-list + li { margin-top:32px; }
-	.accordion-area .accordion-list > .tit { display:flex; align-items: center; justify-content: space-between;  width:100%; height:77px; padding:0 40px; border-radius: 10px; background: #EEF2F9; }
-	.accordion-area .accordion-list > .tit > p { font-size:26px; font-weight: 600; color:#242424; }
-
-	.accordion-area .accordion-list > .tit > .ic-arr { font-size:0; width:48px; height:48px; background-color: #111111; -webkit-mask-image:url(./img/ico_arrow.svg); -webkit-mask-repeat:no-repeat; -webkit-mask-size:auto 48px; -webkit-mask-position:center; transition: 0.2s linear; }
-	.accordion-area .accordion-list > .tit:has(.ic-arr:focus-visible) { outline:1px solid #000000; }
-	.accordion-area .accordion-list > .cont { display: none; margin:50px 20px 70px 20px;  }
-
-	.accordion-area .accordion-list.on > .tit  { background: #1447A2; }
-	.accordion-area .accordion-list.on > .tit > p { font-weight: 400; color:#FFFFFF; }
-	.accordion-area .accordion-list.on > .tit > .ic-arr { transform: rotate(180deg); background-color: #FFFFFF;  }
-
-	.accordion-area .accordion-list.on > .cont { display: block; }
-</style>
+<script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
 </head>
 <body>
 	<div id="wrap">
-		<header id="headerWrap">
-			<div class="header bg-w">
-				<h1>
-					<a href="./index.html">
-						<img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo">
-					</a>
-				</h1>
-				<nav class="menu-wrap">
-					<ul>
-						<li><a href="#none">예금상품</a></li>
-						<li><a href="#none">대출상품</a></li>
-						<li><a href="#none">금융정보</a></li>
-						<li><a href="#none">금융소비자보호</a></li>
-						<li><a href="#none">은행소개</a></li>
-					</ul>
-					<div class="menu-util">
-						<ul>
-							<li><a href="#none">인터넷뱅킹</a></li>
-							<li><a href="#none">원격지원서비스</a></li>
-						</ul>
-						<div class="menu-actions">
-							<div class="search-wrap">
-								<button type="button" class="btn-search">검색창 열기</button>
-								<div class="search-area">
-									<div class="search-inner">
-										<img src="./img/img_searh-area.png" alt="">
-										<a href="./index_sub.html" class="link"></a>
-									</div>
-								</div>
-							</div>
-							<button type="button" class="btn-menu" title-="전체메뉴 열기" >메뉴 열기</button>
-						</div>
-					</div>
-				</nav>
-				
-			</div>
-		</header>
+		<!-- s:header -->
+        <div id="headerWrap">
+            <script>
+                $(document).ready(function(){
+                    $("#headerWrap").load("./include/inc_sub_header.html");
+                });
+            </script>
+        </div>
+		<!-- e:header -->
 
-		<div class="breadcrumb">
+		<!-- s:breadcrumbWrap -->
+		<div id="breadcrumbWrap">
+			<script>
+				$(document).ready(function(){
+					$("#breadcrumbWrap").load("./include/inc_breadcrumb.html");
+				});
+			</script>
+		</div>
+		<!-- e:breadcrumbWrap -->
+
+
+		<div id="breadcrumb" class="breadcrumb">
 			<a href="/home" class="home ir">홈</a>
 			<a href="#none" class="depth1">예금상품</a>
 			<a href="#none" class="depth2">인터넷뱅킹 전용상품</a>
@@ -167,11 +79,16 @@
 			</section>
 		</div>
 
-		<footer>
-			<div class="inner">
-				<img src="./img/footer.png" alt="">
-			</div>
-		</footer>
+		<!-- s:footer -->
+        <div id="footerWrap">
+            <script>
+                $(document).ready(function(){
+                    $("#footerWrap").load("./include/inc_footer.html");
+                });
+            </script>
+        </div>
+		<!-- e:footer -->
+
 	</div>
     <script>
 		$(document).ready(function(){
