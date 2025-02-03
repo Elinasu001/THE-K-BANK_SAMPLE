@@ -86,5 +86,3 @@ footer { display: flex; align-items: center; justify-content: center; height: 35
 /* section06*/
 .mainSec.section06 { margin-top:94px; padding:13px 0;  border-top:2px solid #EEEEEE;}
 
-/* 검색창 */
-.search-area { display:flex; align-items: center; justify-content: center; }

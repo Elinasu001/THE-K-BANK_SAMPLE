@@ -10,10 +10,11 @@
 <link type="text/css" rel="stylesheet" href="./css/lib/swiper-bundle.min.css"/>
 <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css" />
 </head>
 <body>
+
 	<div id="wrap">
+
 		<!-- s:header -->
         <div id="headerWrap">
             <script>
@@ -164,9 +165,10 @@
             </script>
         </div>
 		<!-- e:footer -->
+</div>
 
-	</div>
-    <script>
+<script type="text/javascript">
+	
 		$(document).ready(function(){
 
 			/**
@@ -176,21 +178,24 @@
 				return {
 					open: function(_this) {
 						var $this = $(_this),
-							$thisWrap = $this.closest(".shortCutWrap");
+						
+						$thisWrap = $this.closest(".shortCutWrap");
 
 						$thisWrap.addClass("on");
 						$thisWrap.find(".btnPlus").text("내용닫기");
 					},
 					close: function(_this) {
 						var $this = $(_this),
-							$thisWrap = $this.closest(".shortCutWrap");
+						
+						$thisWrap = $this.closest(".shortCutWrap");
 
 						$thisWrap.removeClass("on");
 						$thisWrap.find(".btnPlus").text("내용열기");
 					},
 					toggle: function(_this) {
 						var $this = $(_this),
-							$thisWrap = $this.closest(".shortCutWrap");
+						
+						$thisWrap = $this.closest(".shortCutWrap");
 
 						if ($thisWrap.hasClass("on")) {
 							shortCutScroll.close(_this);
@@ -208,85 +213,6 @@
 
 
 			/**
-			 * header white change
-			**/
-			var headerL = (function() {
-				var lastY = 0; // 스크롤 위치 저장
-				var isSearchActive = false; // 검색 활성 상태
-
-				return {
-					headerAni: function() {
-						if ($('.header').hasClass('main') && !isSearchActive) { // 검색 상태가 아닌 경우만 처리
-							if (lastY > 80) {
-								$('.header').addClass('bg-w');
-								$(".white-logo").addClass("dp-none");
-								$(".dark-logo").removeClass("dp-none");
-							} else {
-								$('.header').removeClass('bg-w');
-								$(".dark-logo").addClass("dp-none");
-								$(".white-logo").removeClass("dp-none");
-							}
-						}
-					},
-					scrolling: function() {
-						lastY = $(window).scrollTop();
-						headerL.headerAni();
-					},
-					setSearchActive: function(active) {
-						isSearchActive = active; // 검색 상태 설정
-					}
-				};
-			})();
-
-			//event
-			$(window).on('scroll', function() {
-				headerL.scrolling();
-			});
-
-			$(window).on('resize', function() {
-				headerL.scrolling();
-			});
-
-
-			/**
-			 * header white button
-			 **/
-			var searchBtn = (function() {
-				return {
-					open: function() {
-						headerL.setSearchActive(true); // 검색 활성 상태로 설정
-						$(".search-wrap").addClass("on");
-						$(".header").addClass("bg-w");
-						$("body").addClass("overflow-hidden");
-						$(".white-logo").addClass("dp-none");
-						$(".dark-logo").removeClass("dp-none");
-					},
-					close: function() {
-						headerL.setSearchActive(false); // 검색 비활성 상태로 설정
-						$(".search-wrap").removeClass("on");
-						$(".header").removeClass("bg-w");
-						$("body").removeClass("overflow-hidden");
-						$(".dark-logo").addClass("dp-none");
-						$(".white-logo").removeClass("dp-none");
-						headerL.headerAni(); // 헤더 상태 갱신
-					},
-					toggle: function() {
-						if ($(".search-wrap").hasClass("on")) {
-							searchBtn.close();
-						} else {
-							searchBtn.open();
-						}
-					}
-				};
-			})();
-
-			//event
-			$(document).on("click", ".btn-search", function() {
-				searchBtn.toggle();
-			});
-
-
-			/**
 			 * card swiper
 			 **/
 			var cardSwiper = new Swiper(".cardSwiper", {
@@ -300,9 +226,6 @@
 				},
 			});
 
-			cardSwiper.slideToLoop(0, 0);
-
-			
 		});
     </script>
 </body>

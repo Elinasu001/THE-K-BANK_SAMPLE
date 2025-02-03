@@ -36,3 +36,76 @@
         </div>
     </div>
 </header>
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+
+        /**
+         * header white box-shadow
+        **/
+        var headerL = (function() {
+            var scrollY = 0; // 스크롤 위치 저장
+
+            return {
+                headerAni: function() {
+                    if (scrollY > 0) {
+                        $('.header').addClass('box-shadow');
+                        
+                    } else {
+                        $('.header').removeClass('box-shadow');
+                    }
+                },
+                // 스크롤 처리
+                scrolling: function () {
+                    scrollY = $(window).scrollTop();
+                    var documentH = $(document).height();
+                    var windowH = $(window).height();
+
+                    if (documentH > windowH) {
+                        this.headerAni();
+                    }
+                },
+            };
+        })();
+
+        //event
+        $(window).on('scroll', function() {
+            headerL.scrolling();
+        });
+        //resize
+        $(window).on('resize', function () {
+            headerL.scrolling();
+        });
+
+        /**
+         * header search button
+         **/
+        var searchBtn = (function() {
+            return {
+                open: function() {
+                    $(".search-wrap").addClass("on");
+                    $("body").addClass("overflow-hidden");
+                },
+                close: function() {
+                    $(".search-wrap").removeClass("on");
+                    $("body").removeClass("overflow-hidden");
+                },
+                toggle: function() {
+                    if ($(".search-wrap").hasClass("on")) {
+                        searchBtn.close();
+                    } else {
+                        searchBtn.open();
+                    }
+                }
+            };
+        })();
+
+        //event
+        $(document).on("click", ".btn-search", function() {
+            searchBtn.toggle();
+        });
+
+    });
+
+</script>

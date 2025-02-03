@@ -73,13 +73,27 @@ button { border:0; font-size:0; cursor: pointer; }
 .search-inner { position: relative; }
 .link { content: ''; position: absolute; left:0; bottom:60px; width:900px; height:162px; }
 
+/* 검색창 */
+.search-area { display:flex; align-items: center; justify-content: center; }
+
 /* 팝업 */
 /*** 팝업 ***/
 .layerpopup { z-index: 1000; display:none; background:#FFFFFF; -webkit-overflow-scrolling:touch; overflow-y: auto;}
 .layerpopup .inner { position: relative; display: flex; align-items: center; justify-content: flex-end; }
 .layerpopup .btn-layer-close { width:48px; height:48px; background: var(--ico-close) no-repeat 50%/48px auto; text-indent:-9999px; }
+/** 레이어 search 팝업 **/
+.layerpopup.search { position:fixed;top:0;left:0; right:0;bottom:0;width:100%; height:100%; border-top:none;}
+.layerpopup.search .inner { align-items: flex-end; }
+.layerpopup.search .pop-header { display:flex; justify-content: center; position:fixed; top:0; left:0; right:0; height:142px; line-height:142px; padding:0 20px; background:#FFFFFF; text-align:center; }
+.layerpopup.search .pop-header .pop-title { text-align: center; font-size:16px; font-weight:500; color:#242424; }
+.layerpopup.search .pop-con-wrap { margin-top:142px; overflow: hidden; }
+
+/*** 팝업 공통 ***/
+/* .layerpopup { z-index: 1000; display:none; background:#FFFFFF; -webkit-overflow-scrolling:touch; overflow-y: auto;}
+.layerpopup .inner { position: relative; display: flex; align-items: center; justify-content: flex-end; }
+.layerpopup .btn-layer-close { width:48px; height:48px; background: var(--ico-close) no-repeat 50%/48px auto; text-indent:-9999px; } */
 /** 레이어 풀팝업 **/
-.layerpopup.laypop-all { position:fixed;top:0;left:0; right:0;bottom:0;width:100%; height:100%; border-top:none;}
+/* .layerpopup.laypop-all { position:fixed;top:0;left:0; right:0;bottom:0;width:100%; height:100%; border-top:none;}
 .layerpopup.laypop-all .pop-header { display:flex; justify-content: center; position:fixed; top:0; left:0; right:0; height:142px; line-height:142px; padding:0 20px; background:#FFFFFF; text-align:center; }
 .layerpopup.laypop-all .pop-header .pop-title { text-align: center; font-size:16px; font-weight:500; color:#242424; }
-.layerpopup.laypop-all .pop-con-wrap { margin-top:142px; overflow: hidden; }
+.layerpopup.laypop-all .pop-con-wrap { margin-top:142px; overflow: hidden; } */

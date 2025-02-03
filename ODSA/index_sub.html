@@ -13,6 +13,7 @@
 </head>
 <body>
 	<div id="wrap">
+
 		<!-- s:header -->
         <div id="headerWrap">
             <script>
@@ -82,144 +83,42 @@
 		<!-- e:footer -->
 
 	</div>
-    <script>
-		$(document).ready(function(){
-			/**
-			 * header white box-shadow
-			**/
-			var headerL = (function() {
-				var scrollY = 0; // 스크롤 위치 저장
+<script type="text/javascript">
 
-				return {
-					headerAni: function() {
-						if (scrollY > 0) {
-							$('.header').addClass('box-shadow');
-							
-						} else {
-							$('.header').removeClass('box-shadow');
-						}
-					},
-					// 스크롤 처리
-					scrolling: function () {
-						scrollY = $(window).scrollTop();
-						var documentH = $(document).height();
-						var windowH = $(window).height();
-
-						if (documentH > windowH) {
-							this.headerAni();
-						}
-					},
-				};	
-			})();
-
-			//event
-			$(window).on('scroll', function() {
-				headerL.scrolling();
-			});
-			//resize
-			$(window).on('resize', function () {
-				headerL.scrolling();
-			});
-
-			/**
-			 * shortcut slide
-			**/
-			var shortCutScroll = (function() {
-				return {
-					open: function(_this) {
-						var $this = $(_this),
-							$thisWrap = $this.closest(".shortCutWrap");
-
-						$thisWrap.addClass("on");
-						$thisWrap.find(".btnPlus").text("내용닫기");
-					},
-					close: function(_this) {
-						var $this = $(_this),
-							$thisWrap = $this.closest(".shortCutWrap");
-
-						$thisWrap.removeClass("on");
-						$thisWrap.find(".btnPlus").text("내용열기");
-					},
-					toggle: function(_this) {
-						var $this = $(_this),
-							$thisWrap = $this.closest(".shortCutWrap");
-
-						if ($thisWrap.hasClass("on")) {
-							shortCutScroll.close(_this);
-						} else {
-							shortCutScroll.open(_this);
-						}
+	$(document).ready(function(){
+		
+		/**
+		 * accortion
+		 **/
+		var accordionToggle = (function() {
+			return {
+				open: function(target) {
+					target.addClass("on");
+					target.attr("title", "닫기");
+				},
+				close: function(target) {
+					target.removeClass("on");
+					target.attr("title", "열기");
+				},
+				toggle: function(target) {
+					if (target.hasClass("on")) {
+						this.close(target);
+					} else {
+						this.open(target);
 					}
-				};
-			})();
+				}
+			};
+		})();
 
-			//event
-			$(document).on("click", ".btnPlus", function() {
-				shortCutScroll.toggle(this);
-			});
-
-
-			/**
-			 * header search button
-			 **/
-			var searchBtn = (function() {
-				return {
-					open: function() {
-						$(".search-wrap").addClass("on");
-						$("body").addClass("overflow-hidden");
-					},
-					close: function() {
-						$(".search-wrap").removeClass("on");
-						$("body").removeClass("overflow-hidden");
-					},
-					toggle: function() {
-						if ($(".search-wrap").hasClass("on")) {
-							searchBtn.close();
-						} else {
-							searchBtn.open();
-						}
-					}
-				};
-			})();
-
-			//event
-			$(document).on("click", ".btn-search", function() {
-				searchBtn.toggle();
-			});
-
-			
-			/**
-			 * accortion
-			 **/
-			var accordionToggle = (function() {
-				return {
-					open: function(target) {
-						target.addClass("on");
-						target.attr("title", "닫기");
-					},
-					close: function(target) {
-						target.removeClass("on");
-						target.attr("title", "열기");
-					},
-					toggle: function(target) {
-						if (target.hasClass("on")) {
-							this.close(target);
-						} else {
-							this.open(target);
-						}
-					}
-				};
-			})();
-
-			/**
-			 * Event binding
-			 */
-			$(document).on("click", ".accordionToggle .accordion-list > .tit", function() {
-				var $currentAccordion = $(this).closest(".accordion-list");
-				accordionToggle.toggle($currentAccordion);
-			});
-
+		/**
+		 * Event binding
+		 */
+		$(document).on("click", ".accordionToggle .accordion-list > .tit", function() {
+			var $currentAccordion = $(this).closest(".accordion-list");
+			accordionToggle.toggle($currentAccordion);
 		});
-    </script>
+
+	});
+</script>
 </body>
 </html>

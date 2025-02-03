@@ -18,7 +18,7 @@
         <div id="headerWrap">
             <script>
                 $(document).ready(function(){
-                    $("#headerWrap").load("./include/inc_sub_header.html");
+                    $("#headerWrap").load("./include/inc_header.html");
                 });
             </script>
         </div>
@@ -66,94 +66,9 @@
         </div>
 		<!-- e:footer -->
 
-		
-	<div id="searchPopup" class="layerpopup laypop-all">
-		<div class="pop-header">
-			<div class="inner">
-				<!-- <h2 class="pop-title">전체메뉴</h2> -->
-				<button type="button" name="button" class="btn-layer-close" onclick="closePopup('searchPopup')">닫기</button>
-			</div>
-		</div>
-		<div class="pop-con-wrap">
-			
-			<div class="search-area">
-				<div class="inner">
-					<a href="./index_sub.html"><img src="./img/img_search.png" alt=""></a>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	</div>
     <script>
 		$(document).ready(function(){
-
-			/**
-			 * header white shadow
-			**/
-			var headerL = (function() {
-				var scrollY = 0; // 스크롤 위치 저장
-
-				return {
-					headerAni: function() {
-						if (scrollY > 0) {
-							$('.header').addClass('on');
-							
-						} else {
-							$('.header').removeClass('on');
-						}
-					},
-					// 스크롤 처리
-					scrolling: function () {
-						scrollY = $(window).scrollTop();
-						var documentH = $(document).height();
-						var windowH = $(window).height();
-
-						if (documentH > windowH) {
-							this.headerAni();
-						}
-					},
-				};	
-			})();
-
-			//event
-			$(window).on('scroll', function() {
-				headerL.scrolling();
-			});
-			//resize
-			$(window).on('resize', function () {
-				headerL.scrolling();
-			});
-
-
-
-			/**
-			 * popup
-			**/
-			var popupL = (function() {
-				return {
-					openPopup : function(id) {
-						var _target = $('#' + id);
-						$('html, body').css({ "overflow": "hidden" });
-						_target.show().attr('tabindex', '-1').focus();
-						_target.find('.btn-layer-close').on('click', function(e) {
-							e.preventDefault();
-							closePopup(id);
-						});
-
-					},
-
-					closePopup : function(id){
-						var _target = $('#' + id);
-						$('html, body').css({ "overflow": "" });
-						_target.fadeOut(300);
-					}
-				}
-			})();
-
-			// 전역
-			window.openPopup = popupL.openPopup;
-			window.closePopup = popupL.closePopup;
 
 			/**
 			 *  bannerSwiper
