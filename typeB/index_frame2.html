@@ -130,12 +130,12 @@
 	.swiper-buttons .swiper-stop-play { display: flex; align-items: center; z-index:1;  }
 	.swiper-buttons .swiper-stop-play button { cursor: pointer; }
 	.swiper-buttons .swiper-stop-play .pause { width:12px; height:13px; background: url(./img/ico_pause.png)no-repeat 50%/12px auto; }
+	.swiper-buttons .swiper-stop-play .play {  width:12px; height:13px; background: url(./img/ico_paly.png)no-repeat 50%/12px auto; }
 
 	/*section06 */
 	.mainSec.section06 {  display:flex; align-items: center; justify-content: center; margin:38px 0; }
 	.mainSec.section06 > img { width:200px; height:72px; }
 </style>
-<script type="text/javascript" src="js/aos.js"></script>
 
 </head>
 <body>
@@ -336,11 +336,15 @@
 			var isPaused = false; // 현재 상태 추적
 			return {
 				toggle: function() {
+					var btn = $("#puase");
+					
 					if (isPaused) {
 						mainSwiper05.autoplay.start(); // 시작
+						btn.text("일시정지").removeClass("play");
 						isPaused = false;
 					} else {
 						mainSwiper05.autoplay.stop(); // 중지
+						btn.text("재생").addClass("play");
 						isPaused = true;
 					}
 				}
