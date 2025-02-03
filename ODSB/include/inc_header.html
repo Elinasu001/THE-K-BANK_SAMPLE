@@ -48,6 +48,18 @@
     </div>
 </div>
 
+<div id="comPopup" class="layerpopup compop">
+	<div class="pop-wrap">
+		<div class="pop-header">
+			<h2 class="pop-title">팝업 제목</h2>
+			<button type="button" name="button" class="btn-layer-close" onclick="closePopup('comPopup')">닫기</button>
+		</div>
+		<div class="pop-con-wrap">
+			가가
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
 
     $(document).ready(function(){
@@ -97,7 +109,7 @@
 				return {
 					openPopup : function(id) {
 						var _target = $('#' + id);
-						$('html, body').css({ "overflow": "hidden" });
+						$('body').css({ "overflow": "hidden" });
 						_target.show().attr('tabindex', '-1').focus();
 						_target.find('.btn-layer-close').on('click', function(e) {
 							e.preventDefault();
@@ -108,7 +120,7 @@
 
 					closePopup : function(id){
 						var _target = $('#' + id);
-						$('html, body').css({ "overflow": "" });
+						$('body').css({ "overflow": "" });
 						_target.fadeOut(300);
 					}
 				}
@@ -117,6 +129,44 @@
 			// 전역
 			window.openPopup = popupL.openPopup;
 			window.closePopup = popupL.closePopup;
+
+
+			/**
+			 *  common popup
+			**/
+			// var comPopupL = (function() {
+			// 	return {
+			// 		comOpenPopup : function(id) {
+			// 			var _target = $('#' + id);
+			// 			$('body').css({ "overflow": "hidden" }).addClass("popup-dim");
+			// 			_target.show().attr('tabindex', '-1').focus();
+			// 			_target.find('.btn-layer-close').on('click', function(e) {
+			// 				e.preventDefault();
+			// 				closePopup(id);
+			// 			});
+
+			// 		},
+
+			// 		closePopup : function(id){
+			// 			var _target = $('#' + id);
+
+			// 			_target.fadeOut(300, function() {
+
+			// 				_target.off('click', '.btn-layer-close');
+
+			// 				var openedPopups = $('.popup:visible').length;
+			// 				if (openedPopups === 0) {
+			// 					$('body').css({ "overflow": "" }).removeClass("popup-dim");
+			// 				}
+
+			// 			});
+			// 		}
+			// 	}
+			// })();
+
+			// // 전역
+			// window.comOpenPopup = comPopupL.comOpenPopup;
+			// window.closePopup = comPopupL.closePopup;
 
     });
 </script>

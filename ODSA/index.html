@@ -169,64 +169,64 @@
 
 <script type="text/javascript">
 	
-		$(document).ready(function(){
+	$(document).ready(function(){
 
-			/**
-			 * shortcut slide
-			**/
-			var shortCutScroll = (function() {
-				return {
-					open: function(_this) {
-						var $this = $(_this),
-						
-						$thisWrap = $this.closest(".shortCutWrap");
+		/**
+		 * shortcut slide
+		**/
+		var shortCutScroll = (function() {
+			return {
+				open: function(_this) {
+					var $this = $(_this),
+					
+					$thisWrap = $this.closest(".shortCutWrap");
 
-						$thisWrap.addClass("on");
-						$thisWrap.find(".btnPlus").text("내용닫기");
-					},
-					close: function(_this) {
-						var $this = $(_this),
-						
-						$thisWrap = $this.closest(".shortCutWrap");
-
-						$thisWrap.removeClass("on");
-						$thisWrap.find(".btnPlus").text("내용열기");
-					},
-					toggle: function(_this) {
-						var $this = $(_this),
-						
-						$thisWrap = $this.closest(".shortCutWrap");
-
-						if ($thisWrap.hasClass("on")) {
-							shortCutScroll.close(_this);
-						} else {
-							shortCutScroll.open(_this);
-						}
-					}
-				};
-			})();
-
-			//event
-			$(document).on("click", ".btnPlus", function() {
-				shortCutScroll.toggle(this);
-			});
-
-
-			/**
-			 * card swiper
-			 **/
-			var cardSwiper = new Swiper(".cardSwiper", {
-				slidesPerView: '3',
-				allowTouchMove: false,
-				spaceBetween: -167,
-				loop: true,
-				navigation: {
-					nextEl: '.swiper-button-next.cardSwiper',
-					prevEl: '.swiper-button-prev.cardSwiper',
+					$thisWrap.addClass("on");
+					$thisWrap.find(".btnPlus").text("내용닫기");
 				},
-			});
+				close: function(_this) {
+					var $this = $(_this),
+					
+					$thisWrap = $this.closest(".shortCutWrap");
 
+					$thisWrap.removeClass("on");
+					$thisWrap.find(".btnPlus").text("내용열기");
+				},
+				toggle: function(_this) {
+					var $this = $(_this),
+					
+					$thisWrap = $this.closest(".shortCutWrap");
+
+					if ($thisWrap.hasClass("on")) {
+						shortCutScroll.close(_this);
+					} else {
+						shortCutScroll.open(_this);
+					}
+				}
+			};
+		})();
+
+		//event
+		$(document).on("click", ".btnPlus", function() {
+			shortCutScroll.toggle(this);
 		});
-    </script>
+
+
+		/**
+		 * card swiper
+		 **/
+		var cardSwiper = new Swiper(".cardSwiper", {
+			slidesPerView: '3',
+			allowTouchMove: false,
+			spaceBetween: -167,
+			loop: true,
+			navigation: {
+				nextEl: '.swiper-button-next.cardSwiper',
+				prevEl: '.swiper-button-prev.cardSwiper',
+			},
+		});
+
+	});
+</script>
 </body>
 </html>

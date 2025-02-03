@@ -28,7 +28,7 @@
 		<div id="contentsWrap">
 			<section class="mainSec section01">
 				<div class="inner">
-					<img src="./img/section01.png" alt="">
+					<img src="./img/section01.png" alt="" onclick="comOpenPopup('comPopup')">
 					<div class="main-swiper-wrap">
 						<div class="swiper bannerSwiper">
 							<div class="swiper-wrapper">
@@ -54,7 +54,7 @@
 				</div>
 			</section>
 
-			<section class="mainSec section02">
+			<section class="mainSec section02"  onclick="comOpenPopup('comPopup')">
 				<div class="inner">
 					<img src="./img/section02.png" alt="">
 				</div>
@@ -112,57 +112,59 @@
 		<!-- e:footer -->
 
 	</div>
-    <script>
-		$(document).ready(function(){
-			
-			/**
-			 *  bannerSwiper
-			 **/
-			var bannerSwiper = new Swiper(".bannerSwiper", {
-				slidesPerView: '1',
-				spaceBetween: 20,
-				autoplay:{
-					delay:2000,
-				},
-				loop: true,
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-			});
-			
-			/**
-			 *  etcSwiper
-			 **/
-			var etcSwiper = new Swiper(".etcSwiper", {
-				slidesPerView: '1.5',
-				spaceBetween: 20,
-				initialSlide: 0,
-				allowTouchMove: false,
-				loop:true,
-				navigation: {
-					nextEl: ".swiper-button-next",
-					prevEl: ".swiper-button-prev",
-				},
-			});
 
-			/**
-			 *  noticeSwiper
-			 **/
-			var noticeSwiper = new Swiper(".noticeSwiper", {
-				slidesPerView: '1',
-				spaceBetween: 20,
-				autoplay: {
-					delay: 3000,
-				},
-				loop: true,
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-			});
-
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		/**
+		 *  bannerSwiper
+		 **/
+		var bannerSwiper = new Swiper(".bannerSwiper", {
+			slidesPerView: '1',
+			spaceBetween: 20,
+			autoplay:{
+				delay:2000,
+			},
+			loop: true,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
 		});
-    </script>
+		
+		/**
+		 *  etcSwiper
+		 **/
+		var etcSwiper = new Swiper(".etcSwiper", {
+			slidesPerView: '1.5',
+			spaceBetween: 20,
+			initialSlide: 0,
+			allowTouchMove: false,
+			loop:true,
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+		});
+
+		/**
+		 *  noticeSwiper
+		 **/
+		var noticeSwiper = new Swiper(".noticeSwiper", {
+			slidesPerView: '1',
+			spaceBetween: 20,
+			autoplay: {
+				delay: 3000,
+			},
+			loop: true,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+		});
+
+	});
+</script>
 </body>
 </html>
