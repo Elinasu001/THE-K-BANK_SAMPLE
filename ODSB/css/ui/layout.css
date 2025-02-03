@@ -16,7 +16,7 @@
 
 
 /* wrap */
-#wrap { position:relative; overflow-x: hidden; display:inline-block; width:100%; min-width:1270px; word-break:keep-all; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word; }
+#wrap { position:relative; overflow-x: hidden; display:inline-block; width:100%; min-width:1500px; word-break:keep-all; white-space:-moz-pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word; }
 
 /* Header */
 #headerWrap { z-index:100; position: relative; }
@@ -105,6 +105,6 @@ button { border:0; font-size:0; cursor: pointer; }
 
 /* tab */
 .tabs-wrap ul.tab-item { display:flex; }
-.tabs-wrap ul.tab-item > li { width:100%; height:82px; line-height: 82px; text-align: center; border:1px solid #DDDDDD; border-bottom:2px solid #333333; border-radius: 8px 8px 0 0; background: #F8F8F8;  transition: 0.1s ease-out; }
+.tabs-wrap ul.tab-item > li { width:100%; height:82px; line-height: 82px; text-align: center; border:1px solid #DDDDDD; border-bottom:2px solid #333333; border-radius: 8px 8px 0 0; background: #F8F8F8; /* transition: 0.1s ease-out; */ }
 .tabs-wrap ul.tab-item > li > a { display:block; width:100%; height:100%; }
 .tabs-wrap ul.tab-item > li.on { border-top:2px solid #1447A2; border-right:2px solid #1447A2; border-left: 2px solid #1447A2; border-bottom:#1447A2;}
