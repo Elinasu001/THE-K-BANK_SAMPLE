@@ -14,6 +14,7 @@
 </head>
 <body>
 	<div id="wrap">
+
 		<!-- s:header -->
         <div id="headerWrap">
             <script>
@@ -46,8 +47,31 @@
             <section class="contents">
 				<div class="inner">
                     <div class="sub_01">
-                        <img src="./img/sub_tab.png" alt=""></img>
-                        <img src="./img/sub_cont.png" alt=""></img>
+						<section class="tabs-wrap">
+
+							<div class="tabs">
+
+								<ul class="tab-item">
+									<li data-tab="tab-cont001"  title="선택됨" class="on"><a href="#none">TAB1</a></li>
+									<li data-tab="tab-cont002"><a href="#none">TAB2</a></li>
+									<li data-tab="tab-cont003"><a href="#none">TAB3</a></li>
+								</ul>
+
+								<div class="tab-content-area">
+									<div id="tab-cont001" class="tab-content">
+										<img src="./img/sub_cont.png" alt=""></img>
+									</div>
+									<div id="tab-cont002" class="tab-content dp-none">
+										<img src="./img/sub_cont_tab2.png" alt=""></img>
+									</div>
+	
+									<div id="tab-cont003" class="tab-content dp-none">
+										<img src="./img/sub_cont_tab3.png" alt=""></img>
+									</div>
+								</div>
+
+							</div>
+						</section>
                     </div>
                     <div class="sub_02">
                         <p>더케이저축은행 준법감시인 심의필 제 53-69호 (2024.02.01 ~ 2025.01.31)</p>
@@ -69,6 +93,40 @@
 	</div>
     <script>
 		$(document).ready(function(){
+			
+			$(window).on('load', function() {
+				tabItem.init(); // 탭 초기화
+			});
+			
+
+			/**
+			 *  tab
+			 **/
+			var tabItem = (function(){
+
+				return {
+					init: function() {
+						$(document).on("click", ".tab-item > li", function(){
+							tabItem.open(this);
+						});
+					},
+
+					open: function(target) {
+						var $target = $(target);
+						var selectedTab = $target.attr("data-tab");
+						var tabContainer = $target.closest(".tabs");
+						var tabContents = tabContainer.find(".tab-content-area > .tab-content");
+
+						//숨김
+						tabContents.addClass("dp-none");
+						$("#" + selectedTab).removeClass("dp-none");
+
+						//활성화
+						$target.addClass("on").attr('title', '선택됨').siblings().removeClass("on").attr('title', '');
+					}
+				};
+			})();
+
 
 			/**
 			 *  bannerSwiper
