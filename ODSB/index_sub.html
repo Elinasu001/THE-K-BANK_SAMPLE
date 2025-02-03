@@ -91,90 +91,43 @@
 		<!-- e:footer -->
 
 	</div>
-    <script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
 		$(document).ready(function(){
-			
-			$(document).ready(function(){
-				tabItem.init(); // 탭 초기화
-			});
-
-			/**
-			 *  tab
-			 **/
-			var tabItem = (function(){
-
-				return {
-					init: function() {
-						$(document).on("click", ".tab-item > li", function(){
-							tabItem.open(this);
-						});
-					},
-
-					open: function(target) {
-						var $target = $(target);
-						var selectedTab = $target.attr("data-tab");
-						var tabContainer = $target.closest(".tabs");
-						var tabContents = tabContainer.find(".tab-content-area > .tab-content");
-
-						//숨김
-						tabContents.addClass("dp-none");
-						$("#" + selectedTab).removeClass("dp-none");
-
-						//활성화
-						$target.addClass("on").attr('title', '선택됨').siblings().removeClass("on").attr('title', '');
-					}
-				};
-			})();
-
-
-			/**
-			 *  bannerSwiper
-			 **/
-			var bannerSwiper = new Swiper(".bannerSwiper", {
-				slidesPerView: '1',
-				spaceBetween: 20,
-				autoplay:{
-					delay:2000,
-				},
-				loop: true,
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-			});
-			
-			/**
-			 *  etcSwiper
-			 **/
-			var etcSwiper = new Swiper(".etcSwiper", {
-				slidesPerView: '1.5',
-				spaceBetween: 20,
-				initialSlide: 0,
-				allowTouchMove: false,
-				loop:true,
-				navigation: {
-					nextEl: ".swiper-button-next",
-					prevEl: ".swiper-button-prev",
-				},
-			});
-
-			/**
-			 *  noticeSwiper
-			 **/
-			var noticeSwiper = new Swiper(".noticeSwiper", {
-				slidesPerView: '1',
-				spaceBetween: 20,
-				autoplay: {
-					delay: 3000,
-				},
-				loop: true,
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true,
-				},
-			});
-
+			tabItem.init(); // 탭 초기화
 		});
-    </script>
+
+		/**
+		 *  tab
+		 **/
+		var tabItem = (function(){
+
+			return {
+				init: function() {
+					$(document).on("click", ".tab-item > li", function(){
+						tabItem.open(this);
+					});
+				},
+
+				open: function(target) {
+					var $target = $(target);
+					var selectedTab = $target.attr("data-tab");
+					var tabContainer = $target.closest(".tabs");
+					var tabContents = tabContainer.find(".tab-content-area > .tab-content");
+
+					//숨김
+					tabContents.addClass("dp-none");
+					$("#" + selectedTab).removeClass("dp-none");
+
+					//활성화
+					$target.addClass("on").attr('title', '선택됨').siblings().removeClass("on").attr('title', '');
+				}
+			};
+		})();
+
+	});
+</script>
 </body>
 </html>
