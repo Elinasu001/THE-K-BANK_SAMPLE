@@ -16,7 +16,7 @@
 
 /* breadcrumb */
 .breadcrumbWrap { display: flex; justify-content: center; width:100%; }
-.breadcrumbWrap .inner { position: relative; min-width:1400px;}
+.breadcrumbWrap .inner { position: relative; min-width:1300px;}
 .breadcrumb {  z-index: 1; content:""; position: absolute; display: flex; align-items: center; gap:50px;  top:142px; right:0; font-size:20px; }
 .breadcrumb a { font-size:14px; color: #FFFFFF; font-weight: 400;}
 .breadcrumb a::after { content: ""; position: absolute; top:50%; transform: translateY(-50%); width:20px; height:20px; margin:0 15px; background:  var(--ico-breadcrumb) no-repeat 50%/20px auto; }
