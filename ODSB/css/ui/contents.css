@@ -41,3 +41,5 @@ footer { display: flex; align-items: center; justify-content: center; height: 33
 /* sub02 */
 .sub_02 { border-top:1px solid #DDDDDD; display:flex; align-items: center; justify-content: flex-end; width:100%; margin-top:64px; padding-top:20px; font-size:14px; color:#999999; }
 
+/* contents inner */
+.contents .inner { width:1200px; }
