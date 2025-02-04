@@ -102,8 +102,8 @@
 .mainSec.section03 h3 { width:760px; height:auto;  text-align: center;}
 
 .mainSec.section03 .partner-slide-wrap { transform: translate(0px, 0px); opacity: 1; }
-.mainSec.section03 .partner-slide-wrap > div { margin-top:100px; }
-.mainSec.section03 .partner-slide-wrap > div + div { margin-top:200px;}
+.mainSec.section03 .partner-slide-wrap > .partner-slide1 { margin-top:100px; }
+.mainSec.section03 .partner-slide-wrap > .partner-slide2 { margin-top:200px;}
 .mainSec.section03 .partner-slide-wrap > div { display:flex; justify-content: flex-start; white-space: nowrap; }
 
 .mainSec.section03 .partner-slide-wrap > div ul { display:flex; position: absolute; }
