@@ -53,7 +53,7 @@ button { border:0; font-size:0; cursor: pointer; }
 #headerWrap .menu-wrap > .menu-util .btn-menu { width:30px; height:30px; background: var(--ico-allmenu-w) no-repeat 100%/30px auto; }
 
 /* header search */
-#headerWrap .header.bg-w > .menu-wrap > .menu-util .search-wrap.on .btn-search { background: var(--ico-close) no-repeat 100%/30px auto; }
+#headerWrap .menu-wrap > .menu-util .search-wrap.on .btn-search { background: var(--ico-close) no-repeat 100%/30px auto; }
 #headerWrap	.search-wrap .search-area { display:none;  overflow: hidden; }
 #headerWrap	.search-wrap .search-area .search-inner { width:900px; margin:0 auto; padding:60px 0; }
 #headerWrap	.search-wrap.on .search-area { display:block; position: absolute; left:0; top: 100px; width:100%; height:auto; background: #F3F6FB; }

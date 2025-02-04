@@ -1,10 +1,10 @@
 <header id="headerWrap">
-    <div class="header main">
+    <div class="header bg-w">
         <div class="inner">
-            <h1>
+            <h1 class="logo">
                 <a href="./index.html">
-                    <img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="dark-logo dp-none">
-                    <img src="./img/img_white_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="white-logo">
+                    <img src="./img/img_dark_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고">
+                    <!-- <img src="./img/img_white_logo.png" alt="더케이 한국교직원공제회 The-K 저축은행 로고" class="white-logo"> -->
                 </a>
             </h1>
             <nav class="menu-wrap">
@@ -44,23 +44,48 @@
     $(document).ready(function(){
 
 		/**
+		 *  main page class plus
+		**/
+		var headerClassM = (function () {
+			return {
+				checkPage: function () {
+					setTimeout(function () {
+						if ($("#wrap").hasClass("main")) {
+							headerClassM.updateHeader();
+						}
+					}, 10);
+				},
+				updateHeader: function () {
+					var logo = $(".logo img");
+					$(".header").removeClass("bg-w");
+					logo.attr("src", "./img/img_white_logo.png");
+				}
+			};
+		})();
+
+		$(document).ready(function () {
+			headerClassM.checkPage();
+		});
+
+
+		/**
 		 * header white change
 		**/
 		var headerL = (function() {
 			var lastY = 0; // 스크롤 위치 저장
 			var isSearchActive = false; // 검색 활성 상태
+			var logo = $(".logo img"); // 로고 이미지 선택
 
 			return {
 				headerAni: function() {
-					if ($('.header').hasClass('main') && !isSearchActive) { // 검색 상태가 아닌 경우만 처리
+
+					if ($("#wrap").hasClass("main") && !isSearchActive) { // 검색 상태가 아닌 경우만 처리
 						if (lastY > 80) {
-							$('.header').addClass('bg-w');
-							$(".white-logo").addClass("dp-none");
-							$(".dark-logo").removeClass("dp-none");
+							$('.header').addClass("bg-w");
+							logo.attr("src", "./img/img_dark_logo.png");
 						} else {
-							$('.header').removeClass('bg-w');
-							$(".dark-logo").addClass("dp-none");
-							$(".white-logo").removeClass("dp-none");
+							$(".header").removeClass("bg-w");
+							logo.attr("src", "./img/img_white_logo.png");
 						}
 					}
 				},
@@ -85,25 +110,27 @@
 
 
 		/**
-		 * header white button
+		 * header search button
 		 **/
 		var searchBtn = (function() {
+			var logo = $(".logo img"); // 로고 이미지 선택
+
 			return {
 				open: function() {
 					headerL.setSearchActive(true); // 검색 활성 상태로 설정
 					$(".search-wrap").addClass("on");
+					$(".btn-search").text("검색창 닫기");
 					$(".header").addClass("bg-w");
 					$("body").addClass("overflow-hidden");
-					$(".white-logo").addClass("dp-none");
-					$(".dark-logo").removeClass("dp-none");
+					logo.attr("src", "./img/img_dark_logo.png");
 				},
 				close: function() {
 					headerL.setSearchActive(false); // 검색 비활성 상태로 설정
 					$(".search-wrap").removeClass("on");
+					$(".btn-search").text("검색창 열기");
 					$(".header").removeClass("bg-w");
 					$("body").removeClass("overflow-hidden");
-					$(".dark-logo").addClass("dp-none");
-					$(".white-logo").removeClass("dp-none");
+					logo.attr("src", "./img/img_white_logo.png");
 					headerL.headerAni(); // 헤더 상태 갱신
 				},
 				toggle: function() {

@@ -12,8 +12,7 @@
 <script type="text/javascript" src="./js/swiper-bundle.min.js"></script>
 </head>
 <body>
-
-	<div id="wrap">
+	<div id="wrap" class="main">
 
 		<!-- s:header -->
         <div id="headerWrap">
@@ -28,8 +27,21 @@
 		<div id="contentsWrap">
 			<section class="mainSec section01">
 				<div class="inner">
-					<img src="./img/main_cont_l.png" alt="">
-					<img src="./img/main_cont_r.png" alt="" class="y-slide">
+					<div class="swiper bannerSiwper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><a href="#none"><img src="./img/main_cont_l.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/main_cont_l.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/main_cont_l.png" alt=""></a></div>
+							<div class="swiper-slide"><a href="#none"><img src="./img/main_cont_l.png" alt=""></a></div>
+						</div>
+						<div class="swiper-buttons">
+							<div class="swiper-pagination"></div>
+							<div class="swiper-stop-play">
+								<button id="puase" class="pause">일시정지</button>
+							</div>
+						</div>
+					</div>
+						<img src="./img/main_cont_r.png" alt="" class="y-slide img-banner">
 				</div>
 				<div class="shortcut-area shortCutWrap">
 					<img src="./img/img_shortcut.png" alt="">
@@ -153,7 +165,11 @@
 				</div>
 			</section>
 
-			<section class="mainSec section05"></section>
+			<section class="mainSec section05">
+				<div class="inner">
+					<img src="./img/section05.png" alt="">
+				</div>
+			</section>
 		</div>
 
 		<!-- s:footer -->
@@ -211,6 +227,46 @@
 			shortCutScroll.toggle(this);
 		});
 
+		/**
+		 * mainBanner swiper
+		 **/
+		var bannerSiwper = new Swiper(".bannerSiwper", {
+			slidesPerView: '1',
+			// spaceBetween: 10,
+			autoplay: {
+				delay: 2000,
+			},
+			loop: true,
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+		});
+
+		//mainBanner pause
+		var puasePlayB = (function() {
+			var isPaused = false; // 현재 상태 추적
+			return {
+				toggle: function() {
+					var btn = $("#puase");
+					
+					if (isPaused) {
+						bannerSiwper.autoplay.start(); // 시작
+						btn.text("일시정지").removeClass("play");
+						isPaused = false;
+					} else {
+						bannerSiwper.autoplay.stop(); // 중지
+						btn.text("재생").addClass("play");
+						isPaused = true;
+					}
+				}
+			};
+		})();
+
+		// Event
+		$(document).on("click", "#puase", function() {
+			puasePlayB.toggle();
+		});
 
 		/**
 		 * card swiper
@@ -218,7 +274,7 @@
 		var cardSwiper = new Swiper(".cardSwiper", {
 			slidesPerView: '3',
 			allowTouchMove: false,
-			spaceBetween: -167,
+			spaceBetween: -213,
 			loop: true,
 			navigation: {
 				nextEl: '.swiper-button-next.cardSwiper',
