@@ -16,7 +16,7 @@ THE-K BANK 제안서 목업 페이지입니다. 아래 링크를 통해 각 시�
 
 ## 🎨 B 시안
 📱 **모바일**: [B 시안 모바일 보기](https://elinasu001.github.io/THE-K-BANK_SAMPLE/root/typeB/index.html)
-🖥 **PC**: [B 시안 PC 보기](https://elinasu001.github.io/THE-K-BANK_SAMPLE/root/ODSA/index.html)
+🖥 **PC**: [B 시안 PC 보기](https://elinasu001.github.io/THE-K-BANK_SAMPLE/root/ODSB/index.html)
 
 ---
 
